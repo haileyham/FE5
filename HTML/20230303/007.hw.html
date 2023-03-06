@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스꾸미기</title>
+    <style>
+      body{
+        box-sizing: border-box;
+      }
+      .box-black{
+        width:100px;
+        height:40px;
+        background: #343F50;
+        border-top: 5px solid #4a5568;
+        border-left: 5px solid #4a5568;
+        text-align: center;
+        justify-content: center;
+
+      }
+      .box-black-con{
+        width:105px;
+        height:45px;
+        border: 5px solid #000;
+      }
+
+      .box-gra{
+        width:100px;
+        height:40px;
+        background: linear-gradient(90deg,rgb(187, 40, 187),rgb(90, 90, 245));
+        border-radius: 30px;
+        text-align: center;
+        color:white;
+        font-weight: 900;
+        padding-top:10px;
+      }
+
+      .box-gra-con{
+        width:100px;
+        height:40px;
+        border-radius: 30px;
+        border: 3px dashed rgb(253, 231, 231);
+      }
+
+    </style>
+</head>
+<body>
+  <div class="box-black-con">
+  <div class="box-black">
+    Hello
+  </div>
+</div>
+
+<div class="box-gra-con">
+  <div class="box-gra">
+    Hello
+  </div>
+  </div>
+  <div class="box-white">
+    Hello
+  </div>
+</body>
+</html>

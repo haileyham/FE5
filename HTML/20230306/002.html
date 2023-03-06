@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>together</title>
+    <style>
+      div{
+        width:100px;
+        height:48px;
+        line-height:48px;
+        /* border등을 줄때 영향가기때문에 flex주는게 좋음(나중에 배우기) */
+        text-align: center;
+        background: #eee;
+        box-sizing: border-box;
+      }
+
+      div:not(:first-child){
+        margin-top: 20px;
+      }
+/* div첫번째 빼고 뒤에오는 것들 margin-top준다 밑에도 동일 */
+/* div~div{
+  margin-top:20px;
+} */
+
+
+
+      .box1{
+        background: #343f50;
+        box-shadow: inset 5px 5px #4a5568;
+        border: 5px solid #000;
+        color:#fff;
+      }
+
+      .box11{
+        color:#fff;
+        background: #343f50;
+        border: 5px solid #4a5568;
+        border-width: 5px 0 0 5px;
+        outline: 5px solid #000;
+      }
+
+
+      .box2{
+        color:#fff;
+        border-radius:24px;
+        background: linear-gradient(90deg, rgb(31, 199, 255),rgb(250, 198, 198));
+        border:5px dashed rgb(255, 239, 239);
+        background-clip: padding-box;
+      }
+    </style>
+</head>
+<body>
+  <div class="box1">Hello</div>
+  <div class="box11">Hello</div>
+  <div class="box2">Hello</div>
+  <div class="box3">Hello</div>
+    
+</body>
+</html>

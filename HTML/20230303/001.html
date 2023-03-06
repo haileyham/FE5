@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폰트적용</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap" rel="stylesheet">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Gugi&display=swap');
+    /* css연결시켜주는것 */
+
+    @font-face {
+      font-family: "Pretendard-Regular";
+      src: url("font/Pretendard-Regular.woff") format("woff");
+      /* cdn 연결안될 때, 파일로 직접연결 */
+      /* ""바꾸더라도 자주쓸거같으면 스니팻(css)에 저장해놓고 쓰기 */
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Pretendard-Bold";
+      src: url("font/Pretendard-Bold.woff") format("woff");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    body {
+      font-family: Pretendard-Regular, "Times New Roman", Dotum, "돋움", sans-serif;
+    }
+
+    .black-han-sans {
+      font-family: 'Black Han Sans', sans-serif;
+    }
+    .gugi {
+      font-family: 'gugi', cursive;
+    }
+
+    .pt-b{
+      font-family: 'Pretendard-Bold', sans-serif;
+      font-weight:700;
+      font-size:2rem;
+      text-shadow: 1px 1px 3px royalblue;
+      text-align: justify;
+      word-break: break-all;
+      /* justify쓸때는 흰강현상 때문에 가독성 좋지않움, break-all같이쓰는게 좋음 */
+      /* letter-spacing: 40px; */
+      /* transition써서 나중에 함 모이는거 해보깅 */
+      text-indent: 1em;
+    }
+
+    .va{
+      font-size: 2rem;
+    }
+
+    .va strong{
+      font-size: 0.5em;
+      vertical-align: top;
+    }
+
+    .box{
+      background-color: salmon;
+      width:100px;
+      height:100px;
+      line-height: 100px;
+      /* 이렇게하면 다음글자 박스내에서 안보일수있음(벗어남) */
+      text-align: center;
+      color: #070606;
+    }
+  </style>
+</head>
+
+<body>
+  <p class="black-han-sans">안녕하세요</p>
+  <p class="gugi">구기폰트_안녕하세요</p>
+  <p>안녕하세요</p>
+  <p class="pt-b">안녕하세요</p>
+  <p class="pt-b">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa harum quis vel ad natus officia nihil aliquid exercitationem quisquam, expedita nemo velit debitis ipsum quasi obcaecati deleniti odio. Ut, nesciunt.</p>
+  <p class="va">안녕하세요<strong>안녕하세요</strong></p>
+  <div class="box">
+    안녕
+  </div>
+</body>
+
+</html>

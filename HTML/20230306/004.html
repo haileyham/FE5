@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img</title>
+    <style>
+      .wrap{
+        background: gold;
+      }
+      img{
+        vertical-align: top;
+      }
+
+
+      .padding-ratio{
+        position:relative;
+        height:0;
+        padding-top:100%;
+        /* 정사각형 */
+        /* 2:1로 주고싶으면 50%; */
+      }
+      .padding-ratio img{
+        position:absolute;
+        top:0;
+        left:0;
+        width:100%;
+        height:100%;
+        object-fit: cover;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="wrap">
+    <img src="/img/img/weniv-chilli.png" alt="위니브캐릭터">hello
+  </div>
+
+
+  <div class="padding-ratio">
+    <img src="/img/img/weniv-licat.png" alt="">
+  </div>
+</body>
+</html>
