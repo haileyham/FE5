@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    .foot-wrap{
+      margin:0px 16px 20px;
+    }
+
+    .underline{
+      display:inline-block;
+      text-decoration: underline;
+      font-size:14px;
+      font-weight: bold;
+      position: relative;
+    }
+
+    .underline::after{
+      position: absolute;
+      content: '';
+      width: 5px;
+      height:5px;
+      left:40px;
+      border-top: 2px solid #29363d;
+      border-right: 2px solid #29363d;
+      transform:rotate(45deg);
+    }
+
+    .img-wrap{
+      float:right;
+    }
+
+    .img1{
+      width:30px;
+    }
+    
+    .img2{
+      width:30px;
+    }
+    
+    .img3{
+      width:30px;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <div class="foot-wrap">
+    <p class="underline">Read</p>
+    <div class="img-wrap">
+      <img src="/HTML/img/card/icon-heart.png" alt="">
+      <img src="/HTML/img/card/icon-share.png" alt="">
+      <img src="/HTML/img/card/icon-more.png" alt="">
+    </div>
+  </div>
+</body>
+
+</html>

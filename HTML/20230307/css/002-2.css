@@ -1,0 +1,107 @@
+body{
+  background: salmon;
+  margin:10px;
+}
+
+@font-face {
+  font-family: "SpoqaHanSansNeo-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2108@1.1/SpoqaHanSansNeo-Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: "SpoqaHanSansNeo-Regular";
+}
+
+.wrap{
+  width:350px;
+  margin:auto;
+}
+
+.login{
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  background: #fff;
+  font-size: 12px;
+  padding: 18px 16px;
+}
+
+.login h1{
+  /* display:none; */
+  /* 숨기고싶을 때 > 검색엔진 안잡히고/트리에서 사라지고/웹접근성떨어짐/스크린리더에 안읽혀서 */
+
+  /* 웹접근성을 고려한 숨김처리 */
+}
+
+/* 위에 h1대신에 class 생성 > a11y (accessibility)접근성관련된 클래스 */
+.a11y-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+}
+
+.btn-login{
+  background:#711bff;
+  display:block;
+  /* a는 inline요소이기때문에 width등 조정 위해서는 display:block;주기 */
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  color:#fff;
+  height:40px;
+  line-height:40px;
+  margin:16px 0;
+}
+
+.btn-login img{
+  height:18px;
+  vertical-align: middle;
+  margin-bottom:5px;
+  /* vertical-align안맞을때 margin-bottom등으로 조정 */
+}
+
+.login-link a{
+  text-decoration: none;
+  color:#767676;
+}
+
+.login-link a:last-child{
+  float:right;
+}
+
+.find-id{
+  background: url(/HTML/img/img_login/icon-lock.png) no-repeat 0 50% / 1em;
+  /* background-image: url();
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: 1em; */
+  padding-left:1.2em;
+}
+
+.find-id + span{
+  display:inline-block;
+  width:1px;
+  height:12px;
+  background: #767676;
+  vertical-align: middle;
+  margin:0 4px;
+}
+/* span으로 ㅣ만들기 */
+
+.btn-join{
+  background: url(/HTML/img/img_login/icon-user.png) no-repeat 0 50% / 1em;
+  padding-left:1.2em;
+}
+
+/* .find-id, .btn-join{
+  background: url(/HTML/img/img_login/icon-user.png) no-repeat 0 50% / 1em;
+  padding-left:1.2em;
+} */
+/* 중복된 요소 묶어서 나중에 수정할때 편안하도록 할 수도 있음 */

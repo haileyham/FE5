@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>float</title>
+    <style>
+      header{
+        background: skyblue;
+        color:white;
+        width:500px;
+        height:100px;
+        line-height: 100px;
+        text-align: center;
+      }
+      section{
+        background: rgb(12, 52, 97);
+        color:white;
+        float:left;
+        width:300px;
+        /* width:calc(70%-20px); */
+        height:400px;
+        text-align: center;
+        line-height: 400px;
+      }
+      aside{
+        background: rgb(188, 240, 128);
+        float:left;
+        width:200px;
+        height:400px;
+        text-align: center;
+        line-height: 400px;
+      }
+      footer{
+        background: rgb(255, 115, 80);
+        color:white;
+        width:500px;
+        height:100px;
+        /* clear:both; */
+        text-align: center;
+        line-height: 100px;
+      }
+      .footer::after{
+        content:'';
+        display:block;
+        clear:left;
+      }
+    </style>
+</head>
+<body>
+  <header>header</header>
+  <section>section</section>
+  <aside>aside</aside>
+  <div class="footer"></div>
+  <footer>footer</footer>
+</body>
+</html>

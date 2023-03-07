@@ -113,13 +113,8 @@
   margin:0px;
 }
 
-.card-bottom2{
-  height:60px;
-  background: rgba(0,0,0,0.1);
-  padding: 10px 16px;
-}
 
-.card-bottom2 a{
+.card-bottom2-a{
   color:#29363D;
   font-weight: 700px;
   font-size:14px;
@@ -128,8 +123,18 @@
   cursor: pointer;
 }
 
+.card-bottom2{
+  height:60px;
+  padding: 10px 16px;
+  float:right;
+}
+
 .card-bottom2 img{
   width: 22px;
   height:20px;
 }
 
+
+a{
+  text-decoration: none;
+}
