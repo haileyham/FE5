@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+      .grid-container{
+        display:grid;
+        /* grid-template-columns: 200px 100px 200px;
+        grid-template-rows: 100px 200px; */
+        grid-template-columns: 2fr 1fr 1fr;
+        grid-template-rows: 2fr 1fr;
+        /* 유연하게 크기 조정 안에 요소가 글씨가 많거나 등 그러면 알아서 전체가 늘어남*/
+        overflow: hidden;
+      }
+
+      .grid-item{
+        background: skyblue;
+        border: 3px solid royalblue;
+        /* width:100px;
+        height:100px; */
+        /* container에 준거랑 별개로 안에 아이템  */
+        
+      }
+
+      span.grid-item{
+        background: gold;
+      }
+    </style>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="grid-item">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias eveniet soluta quasi tempore magni fugiat cupiditate consequatur ea sint itaque atque velit id amet, ullam tenetur exercitationem doloribus molestiae ab.</div>
+    <div class="grid-item">B</div>
+    <div class="grid-item">C</div>
+    <div class="grid-item">D</div>
+    <div class="grid-item">E</div>
+    <div class="grid-item">F</div>
+  </div>
+
+  <!-- <span class="grid-container">
+    <span class="grid-item">A</span>
+    <span class="grid-item">B</span>
+    <span class="grid-item">C</span>
+    <span class="grid-item">D</span>
+    <span class="grid-item">E</span>
+    <span class="grid-item">F</span>
+  </span> -->
+
+
+</body>
+</html>

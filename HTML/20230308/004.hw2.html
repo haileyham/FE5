@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex layout</title>
+  <style>
+    .layout {
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+      background: #eee;
+      justify-content: space-between;
+      height:400px;
+      /* 높이값을 주고 justify주축방향으로 space주고 */
+    }
+
+    header {
+      background: skyblue;
+      flex-basis:50px;
+    }
+
+    section {
+      background: rgb(122, 122, 211);
+      flex-grow:2;
+    }
+
+    aside {
+      background: rgb(154, 252, 141);
+      /* flex-grow:1; */
+      flex-basis: 200px;
+    }
+
+    footer {
+      background: rgb(255, 152, 134);
+      flex-basis:50px;
+    }
+
+    .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap:10px;
+      flex-grow:1;
+      /* 세로 늘리기 */
+    }
+
+    /* header,section,aside,footer{
+      align-items: center;
+      text-align: center;
+    } */
+    /* github자료 check하기 */
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <header>header</header>
+    <div class="wrap">
+      <section>section</section>
+      <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+  </div>
+  <!-- 전체에 flex주고, column으로 주축 바꾸고 / section과 aside에 flex 한번 더주고 
+  나는 그냥 section과 aside만 flex줌-->
+
+
+</body>
+
+</html>

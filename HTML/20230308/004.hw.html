@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>flex layout</title>
+  <style>
+    .layout{
+      width:100%;
+      line-height: 100px;
+      text-align: center;
+    }
+
+    header {
+      height: 100px;
+      background: skyblue;
+    }
+
+    section {
+      height: 200px;
+      background: rgb(122, 122, 211);
+      flex-grow:2;
+    }
+
+    aside {
+      height: 200px;
+      background: rgb(154, 252, 141);
+      flex-grow:1;
+    }
+
+    footer {
+      height: 100px;
+      background: rgb(255, 152, 134);
+    }
+
+    .flex-container{
+      display:flex;
+      line-height: 200px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="layout">
+    <header>header</header>
+    <div class="flex-container">
+      <section>section</section>
+      <aside>aside</aside>
+    </div>
+    <footer>footer</footer>
+  </div>
+  <!-- 사실상 layout class는 없애도됨 -->
+
+</body>
+
+</html>

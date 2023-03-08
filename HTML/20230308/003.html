@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>flex</title>
+    <style>
+
+        .flex-container{
+        display:flex;
+        border: 2px sold #ddd;
+        margin-bottom:10px;
+        background: #eee;
+        height:150px;
+        /* flex-direction: column; */
+      }
+
+      .flex-item{
+        background: skyblue;
+        border: 3px solid royalblue;
+        width:200px;
+      }
+
+      .center{
+        align-items: center;
+      }
+
+      .flex-start{
+        align-items: flex-start;
+      }
+
+      .stretch{
+        align-items: stretch;
+      }
+
+      .wrap{
+        flex-wrap: wrap;
+      }
+
+    </style>
+</head>
+<body>
+  <div class="flex-container wrap">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+  
+  <div class="flex-container stretch">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+
+  <div class="flex-container flex-start">
+    <div class="flex-item">A</div>
+    <div class="flex-item">B</div>
+    <div class="flex-item">C</div>
+  </div>
+
+
+</body>
+</html>
