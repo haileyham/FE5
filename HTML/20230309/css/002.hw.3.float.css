@@ -1,0 +1,122 @@
+body{
+  background: rosybrown;
+}
+
+h2,p{
+  padding:0;
+}
+
+.card-item{
+  /* width:100%; */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  /* 난 img에 radius귀찮게 줬었구만 */
+}
+
+.card-item img{
+  width:100%;
+  aspect-ratio: 288/196;
+  /* img비율맞추기 padding-top도 있음*/
+  object-fit: cover;
+  /* img 찌그러진거 풀기 */
+  vertical-align: top;
+  /* img여백생긴거 없애기 */
+}
+
+.card-item a{
+  text-decoration: none;
+  color:#29363D;
+
+}
+
+.card-text{
+  padding:24px 16px 16px;
+}
+
+.card-text .title{
+  font-size: 16px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text .title + p{
+  color:#5A6A72;
+  font-size:12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+  margin:12px 0 16px;
+  line-height:20px;
+}
+
+.underline{
+  text-decoration: underline;
+  font-weight: 700;
+  padding-left:6px;
+  font-size: 14px;
+}
+
+
+
+.float-container::after{
+  content: '';
+  display:block;
+  clear:both;
+}
+
+.float-container{
+  width:min(1224px, calc(100% - 60px));
+  margin:auto;
+}
+
+
+.float-container article{
+  float:left;
+  width: calc((100% - (24px * 3)) / 4);
+  /* margin-left:10px;
+  margin-bottom:10px; */
+  margin: 0 0 32px 24px;
+}
+
+@media (min-width:1025px){
+.float-container article:nth-child(4n-3){
+  margin-left:0;
+}
+}
+/* 이거랑 미디어쿼리 3*3이랑 충돌하나보네 흠... */
+/* 아 > 이것도 미디어쿼리에 담아서 제대로 작동 */
+
+.float-container article{
+  width: calc((100% - (24px * 3)) / 4 );
+} 
+
+@media (min-width:641px) and (max-width:1024px) {
+  .float-container article {
+  width: calc((100% - (24px * 2)) / 3);}
+
+  article:nth-child(3n-2){
+    margin-left:0;
+  }
+}
+
+@media (min-width:501px) and (max-width:640px) {
+  .float-container article {
+  width: calc((100% - 24px) / 2);}
+  
+  article:nth-child(2n-1){
+    margin-left:0;
+  }
+}
+
+@media (max-width:500px){
+  .float-container article{
+  width: 100%;
+  margin-left:0;}
+}
+
+/* 500px 내노트북 크롬에서는 거기까지 안 줄어들어서 임의조정으로 확인가능 */

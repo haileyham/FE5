@@ -1,0 +1,79 @@
+body{
+  background: rosybrown;
+}
+
+h2,p{
+  padding:0;
+}
+
+.card-item{
+  width:288px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  /* 난 img에 radius귀찮게 줬었구만 */
+}
+
+.card-item img{
+  width:288px;
+  aspect-ratio: 288/196;
+  /* img비율맞추기 padding-top도 있음*/
+  object-fit: cover;
+  /* img 찌그러진거 풀기 */
+  vertical-align: top;
+  /* img여백생긴거 없애기 */
+}
+
+.card-item a{
+  text-decoration: none;
+  color:#29363D;
+
+}
+
+.card-text{
+  padding:24px 16px 16px;
+}
+
+.card-text .title{
+  font-size: 16px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text .title + p{
+  color:#5A6A72;
+  font-size:12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+  margin:12px 0 16px;
+  line-height:20px;
+}
+
+.underline{
+  text-decoration: underline;
+  font-weight: 700;
+  padding-left:6px;
+  font-size: 14px;
+}
+
+.grid-container{
+  display:grid;
+  /* grid-template-columns: repeat(4, 1fr); */
+  /* grid-template-columns: repeat(auto-fill, minmax(20rem,1fr)); */
+  grid-template-columns: repeat(auto-fill, minmax(288px,1fr));
+  /* grid-template-columns: repeat(auto-fill, minmax(288px,288px)); */
+  /* 반응형으로 웹사이즈 줄이면 알아서 떨어짐 */
+  /* grid-row: repeat(2,1fr); */
+  gap: 32px 24px;
+  width:min(1224px, calc(100% - 60px));
+  /* 이걸줘야 크게했을때 가로4개 */
+  /* width:min(1224px, 100% - 60px); */
+  margin:auto;
+  justify-items: center;
+  align-items: center;
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calc</title>
+    <style>
+      :root{
+        --max-width:1400px;
+        --plane-padding:80px;
+      }
+
+      html{
+        font-size:10px;
+      }
+
+      body{
+        font-size:clamp(10px,2.5vw,20px);
+        /* 반응형 폰트사이즈 (최소,이상값(중간),최대) */
+      }
+
+      .wrap{
+        background: royalblue;
+        height:100px;
+        /* width: var(1400px); */
+        width: var(--max-width);
+        /* 위아래동일 / 변수처리해서 유지보수 편리*/
+        margin:auto;
+        /* max-width: calc(100% - 80px); */
+        /* max-width: calc(100% - var(--plane-padding)); */
+        /* 위아래 동일 */
+        /* 뷰포트가 1400px 이하로 줄어들 경우 좌우 여백이 생기도록 */
+
+        /* width: min(1400px, calc(100% - 80px)); */
+        /* 이렇게 생긴것을 */
+        width: min(var(--max-width), calc(100% - var(--plane-padding)));
+        /* 쉼표로 구분된 () 내 목록에서 가장 작은(min) 또는 가장 큰(max) 값을 설정 */
+      }
+
+      ul{
+        list-style: none;
+        margin:0;
+        padding:0;
+      }
+
+      .float li{
+        float:left;
+        background: gold;
+        width:calc((100% - (24px * 2)) / 3);
+      }
+      .float li:not(:first-child){
+        margin-left:24px;
+      }
+
+      .float{
+        overflow:hidden;
+      }
+      /* float 때문에 밀리능거 막으려고 ㅇㅇ clear:both; 뒤에오는것에 써도됨 */
+
+      .flex{
+        display:flex;
+        gap:24px;
+      }
+
+      .flex li{
+        background: gold;
+        flex-grow:1;
+      }
+    </style>
+</head>
+<body>
+  <div class="wrap">
+    contents
+  </div>
+
+<ul class="float">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+<ul class="flex">
+  <li>1</li>
+  <li>2</li>
+  <li>3</li>
+</ul>
+
+
+
+
+
+</body>
+</html>

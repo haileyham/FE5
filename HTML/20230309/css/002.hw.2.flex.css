@@ -1,0 +1,95 @@
+body{
+  background: rosybrown;
+}
+
+h2,p{
+  padding:0;
+}
+
+.card-item{
+  /* width:288px; */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  /* 난 img에 radius귀찮게 줬었구만 */
+}
+
+.card-item img{
+  width:100%;
+  aspect-ratio: 288/196;
+  /* aspect-ratio: 288/200; */
+  /* 비율 288/200으로 하면 1줄로 정렬할때 이미지 오른쪽 살짝 뜨는거 방지가능 */
+  /* img비율맞추기 padding-top도 있음*/
+  object-fit: cover;
+  /* img 찌그러진거 풀기 */
+  vertical-align: top;
+  /* img여백생긴거 없애기 */
+}
+
+.card-item a{
+  text-decoration: none;
+  color:#29363D;
+
+}
+
+.card-text{
+  padding:24px 16px 16px;
+}
+
+.card-text .title{
+  font-size: 16px;
+  white-space:nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text .title + p{
+  color:#5A6A72;
+  font-size:12px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  word-break: break-all;
+  margin:12px 0 16px;
+  line-height:20px;
+}
+
+.underline{
+  text-decoration: underline;
+  font-weight: 700;
+  padding-left:6px;
+  font-size: 14px;
+}
+
+
+
+.flex-container{
+  display:flex;
+  gap: 32px 24px;
+  flex-wrap: wrap;
+  width:min(1224px, calc(100% - 60px));
+  margin: auto;
+}
+
+.flex-container article{
+  width: calc((100% - (24px * 3)) / 4 );
+} 
+
+@media (min-width:641px) and (max-width:1024px) {
+  .flex-container article {
+  width: calc((100% - (24px * 2)) / 3);}
+}
+
+@media (min-width:501px) and (max-width:640px) {
+  .flex-container article {
+  width: calc((100% - 24px) / 2);}
+}
+
+@media (max-width:500px){
+  .flex-container article {
+  width: 100%;}
+}
+
+/* 미디어쿼리 적용이 안되는 느낌이네 확인하기 */
