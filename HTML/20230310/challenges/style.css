@@ -1,0 +1,52 @@
+body{
+  background-image: url(/HTML/20230310/challenges/images/bg.png);
+}
+
+body{
+  background-image: url(/csscook/challenges/images/bg.png);
+}
+
+.wrapper{
+  margin:40px auto;
+}
+
+.fox img{
+  display:block;
+  margin:auto;
+}
+
+.fox img:hover{
+  animation-name:점프점프;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes 점프점프{
+  0%{
+    transform: translateY(0px);
+  }
+  50%{
+    transform: translateY(-30px);
+  }
+  100%{
+    transform: translateY(0px);
+  }
+}
+
+.contents{
+  border-radius: 0 0px 30px 30px;
+  box-shadow: 0px 10px rgb(74,38,11);
+  background-color: rgb(147,87,46);
+  color:white;
+  padding:20px;
+  padding-top:40px;
+  width:250px;
+  margin:auto;
+  background-image: url(/HTML/20230310/challenges/images/green.png);
+  background-repeat: no-repeat;
+}
+
+.contents p{
+  font-size: 14px;
+  color:rgba(255,255,255,0.7)
+}
