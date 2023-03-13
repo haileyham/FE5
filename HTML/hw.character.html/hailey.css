@@ -1,0 +1,87 @@
+:root{
+  --main-color:#FFD6D6;
+  --ear-color:#ffefef;
+  --face-color: #FFF5EB;
+  --line-color:#493c22;
+  --hair-color: #533030;
+  --cheek-color: #FFB3B3;
+  --ribbon-color:#ff7171;
+}
+
+.haileyham{
+  width:500px;
+  height:600px;
+  background: white;
+  border-radius: 50%;
+  border: 20px solid var(--main-color);
+  position: absolute;
+  left:50%;
+  top:50%;
+  transform: translate(-50%, -50%);
+}
+
+.ear{
+  width:80px;
+  height:201px;
+  background: var(--main-color);
+  border: 3px solid var(--line-color);
+  border-radius: 60px 20px 0px 0px;
+  position: absolute;
+  top: 59px;
+}
+
+.ear::after{
+  content:'';
+  width:61px;
+  height:167px;
+  background: var(--ear-color);
+  border-radius: 60px 20px 0px 0px;
+  position: absolute;
+  left:13px;
+  top:30px;
+}
+
+.ear.ear-left{
+  left:150px;
+}
+.ear.ear-right{
+  position: absolute;
+  top:59px;
+  right: 150px;
+  transform:rotateY(180deg);
+}
+
+
+.ribbon{
+  background-color: var(--ribbon-color);
+  width:70px;
+  height:69px;
+  border:3px solid var(--line-color);
+  border-radius: 20px;
+}
+.ribbon::after{
+  content:"";
+  background-color: var(--ribbon-color);
+  width:118px;
+  height:120px;
+  border:3px solid var(--line-color);
+  border-radius: 20px 60px 60px 20px;
+  left:-100px;
+  top:-22px;
+  display: inline-block;
+  position: absolute;
+}
+.ribbon::before{
+  content:"";
+  background-color: var(--ribbon-color);
+  width:118px;
+  height:120px;
+  border:3px solid var(--line-color);
+  border-radius: 20px 60px 60px 20px;
+  left:50px;
+  top:-22px;
+  display: inline-block;
+  position: absolute;
+  transform:rotateY(180deg);
+}
+/* https://codepen.io/team/css-tricks/pen/mVZGKa */

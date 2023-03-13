@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button</title>
+    <style>
+      button{
+        padding: 9px 25px;
+        width:88px;
+        color: #cbd5df;
+        font-size:12px;
+        font-weight:700;
+        background: #343F50;
+        border: 1px solid #1A202C;
+        text-decoration-line: underline;
+        transition: all 1s;
+      }
+
+      .btn-default{
+        text-decoration-line: none;
+      }
+
+      .btn-hover:hover{
+        text-decoration-line: underline;
+      }
+      
+      .btn-active:active{
+        text-decoration-line: underline;
+      }
+      .blue1{
+        color:#439AFF
+      }
+      .red1{
+        color:#EB5757
+      }
+      .blue{
+        background-color:#439AFF;
+      }
+      .red{
+        background-color:#EB5757
+      }
+    </style>
+</head>
+<body>
+  <div class="defalut">
+  <button class="btn-default">Button</button>
+  <button class="btn-default blue1">Yes</button>
+  <button class="btn-default red1">Del</button>
+</div>
+
+<div class="hover">
+  <button class="btn-hover">Button</button>
+  <button class="btn-hover blue">Yes</button>
+  <button class="btn-hover red">Del</button>
+</div>
+
+<div class="active">
+  <button class="btn-active">Button</button>
+  <button class="btn-active blue">Yes</button>
+  <button class="btn-active red">Del</button>
+</div>
+
+  <button class="btn-disabled" disabled>Button</button>
+
+
+
+
+</body>
+</html>
