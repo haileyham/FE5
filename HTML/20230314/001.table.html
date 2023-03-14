@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>table</title>
+    <style>
+      table{
+        width:100%;
+        border: 1px solid red;
+        /* table은 container이기때문에 표 바깥에만 생김
+        각각 주려면 th,td줘야함 */
+        border-collapse: collapse;
+        /* 셀 띄워져있던거 붙여줌 */
+      }
+      th,td{
+        border:1px solid red;
+      }
+      .blue{
+        background: skyblue;
+      }
+      .gold{
+        background-color: gold;
+      }
+      .pink{
+        background-color: pink;
+      }
+    </style>
+</head>
+<body>
+  <table border="1">
+    <!-- style에 border주는거랑 여기에 이렇게 주는거랑 다르게 적용됨
+    > 위에 설명해놓음 
+    예전에는 테이블 태그 자체에 border='1' 처럼 html 로 스타일을 줄 수 있었습니다. 하지만 이제 이런 스타일은 쓰지 않고 CSS 로 주는것으로 바뀌었습니다-->
+    <caption>테이블 설명</caption>
+    <colgroup>
+      <col span="2" class="blue">
+      <col class="gold">
+      <col class="pink">
+    </colgroup>
+    <!-- col별로 그룹 span은 병합 -->
+    <thead>
+      <tr>
+        <th>구분</th>
+        <th colspan="2">셀 제목</th>
+        <!-- <th>셀 제목</th> -->
+        <th>셀 제목</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>제목</th>
+        <td>셀 내용</td>
+        <td rowspan="2">셀 내용</td>
+        <td>셀 내용</td>
+      </tr>
+      <tr>
+        <th>제목</th>
+        <td>셀 내용</td>
+        <!-- <td>셀 내용</td> -->
+        <td>셀 내용</td>
+      </tr>
+    </tbody>
+    <tfoot></tfoot>
+  </table>
+</body>
+</html>

@@ -1,0 +1,56 @@
+body{
+  margin:0;
+}
+
+header{
+  background: white;
+}
+
+.header-wrap{
+  width:1224px;
+  margin:auto;
+  padding: 22px 0;
+}
+header .btn-logo{
+  height:75px;
+}
+
+header .btn-join{
+  display:block;
+  /* inline-block으로 하고 vertical-align: 하고싶지만 float때문에 무시됨
+  그래서 그냥 margin,padding 등 조정 */
+  padding:1em 1em 1em 3em;
+  margin:10px;
+  float:right;
+  text-decoration: none;
+  color:#5a6a72;
+  background: url(icon-join.svg) no-repeat 1em center / 2em;
+}
+
+/* main */
+main{
+  width:392px;
+  margin:71px auto;
+}
+
+main h1{
+  text-align: center;
+}
+main h1 img{
+  display:block;
+  height:120px;
+  margin:auto;
+  margin-bottom: 29px;
+}
+
+main h1 strong{
+  line-height:20px;
+  box-shadow: inset 0 -0.6em rgba(255,79,110,0.2);
+  border-bottom:2px solid #ff4f6e;
+}
+
+footer p{
+  text-align: center;
+  font-size: 12px;
+  color:#363633;
+}
