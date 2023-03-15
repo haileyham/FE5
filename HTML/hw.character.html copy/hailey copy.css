@@ -14,7 +14,6 @@
   background: white;
   border-radius: 50%;
   border: 20px solid var(--main-color);
-  position: absolute;
   left:50%;
   top:50%;
   transform: translate(-50%, -50%);
@@ -96,18 +95,20 @@
   border-radius: 20px 60px 60px 20px;
   position: absolute;
   display:block;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .ribbon::after{
   left:-100px;
   top:-22px;
+    z-index: -1;
 }
 
 .ribbon::before{
   left:50px;
   top:-22px;
   transform:rotateY(180deg);
+    z-index: -1;
 }
 /* https://codepen.io/team/css-tricks/pen/mVZGKa */
 

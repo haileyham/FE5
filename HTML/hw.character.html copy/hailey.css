@@ -9,15 +9,11 @@
 }
 
 .haileyham{
-  width:500px;
-  height:600px;
-  background: white;
-  border-radius: 50%;
-  border: 20px solid var(--main-color);
-  position: absolute;
-  left:50%;
-  top:50%;
-  transform: translate(-50%, -50%);
+  background: url(./img/frame.svg) no-repeat;
+  width:544px;
+  height:574px;
+  margin: 150px auto;
+  position: relative;
 }
 
 .face{
@@ -26,14 +22,15 @@
   background: var(--main-color);
   border: 3px solid var(--line-color);
   border-radius: 0px 0px 70px 70px;
-  position: relative;
-  margin:150px auto;
+  position: absolute;
+    top:287px;
+    left:139px;
 }
 
 .face::after{
   content: "";
   position: absolute;
-  width:193px;
+  width:192px;
   height:150px;
   background: var(--face-color);
   border: 3px solid var(--line-color);
@@ -42,14 +39,14 @@
   top:18px;
 }
 
-.ear{
+.haileyham .ear{
+  position: absolute;
   width:80px;
   height:201px;
   background: var(--main-color);
   border: 3px solid var(--line-color);
   border-radius: 60px 20px 0px 0px;
-  position: absolute;
-  top: 59px;
+  top:79px;
 }
 
 .ear::after{
@@ -59,35 +56,32 @@
   background: var(--ear-color);
   border-radius: 60px 20px 0px 0px;
   position: absolute;
-  left:10px;
   top:30px;
+  left:10px;
 }
 
 .ear.ear-left{
-  left:150px;
+  left:172px;
 }
 .ear.ear-right{
-  position: absolute;
-  top:59px;
-  right: 150px;
+  right: 172px;
   transform:rotateY(180deg);
 }
 
 
 .ribbon{
+  position: absolute;
   background-color: var(--ribbon-color);
-  width:70px;
-  height:69px;
+  width:118px;
+  height:120px;
   border:3px solid var(--line-color);
-  border-radius: 20px;
-  margin:auto;
-  top:220px;
-  right:2px;
-  position: relative;
-  z-index: 4;
+  border-radius: 20px 60px 60px 20px;
+  top:230px;
+  left:133px;
+  z-index: 3;
 }
 
-.ribbon::after, .ribbon::before{
+.ribbon::before{
   content:"";
   background-color: var(--ribbon-color);
   width:118px;
@@ -96,20 +90,24 @@
   border-radius: 20px 60px 60px 20px;
   position: absolute;
   display:block;
-  z-index: -1;
-}
-
-.ribbon::after{
-  left:-100px;
-  top:-22px;
-}
-
-.ribbon::before{
-  left:50px;
-  top:-22px;
+  top:-5px;
+  left:165px;
   transform:rotateY(180deg);
 }
 /* https://codepen.io/team/css-tricks/pen/mVZGKa */
+
+.ribbon::after{
+  content: '';
+  position: absolute;
+  background-color: var(--ribbon-color);
+  width:70px;
+  height:69px;
+  border:3px solid var(--line-color);
+  border-radius: 20px;
+  top:20px;
+  left:105px;
+}
+
 
 .hair{
   width:39px;
@@ -118,7 +116,6 @@
   border-radius: 0 0 5px 5px;
   background: var(--hair-color);
   margin:auto;
-  position: relative;
   top:200px;
   z-index: 3;
 }
@@ -152,7 +149,6 @@
   width:64px;
   height:40px;
   background: var(--cheek-color);
-  position: relative;
   z-index: 3;
   border-radius: 50%;
   margin:auto;
@@ -223,7 +219,6 @@
   width:70px;
   height:14px;
   background: var(--face-color);
-  position: relative;
   top:110px;
   left:100px;
   z-index: 6;

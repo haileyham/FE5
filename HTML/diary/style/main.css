@@ -1,0 +1,158 @@
+.heart{
+  font-size:16px;
+  background: url(../img/heart.svg) no-repeat 0 center / 1.4em;
+  padding-left:1.4em;
+}
+
+.diary-textarea{
+  display:block;
+  width:100%;
+  height:360px;
+  padding:16px;
+  resize: none;
+  /* 사이즈 조절 못하게 */
+  box-sizing: border-box;
+  font-size:16px;
+  font-family: inherit;
+  /* 부모 위에서부터 상속되게 */
+}
+
+.diary-textarea::placeholder{
+  font-size:16px;
+}
+
+.diary-main textarea{
+  margin: 16px 0;
+}
+
+/* article */
+/* ul, li reset */
+ul, 
+li{
+  list-style: none;
+  padding:0;
+  margin:0;
+}
+
+.diary-article{
+  border-color:#677880;
+  border-style:solid;
+  border-width: 4px 1px 1px 1px;
+  padding:64px 48px;
+  position: relative;
+  
+  /* 수정예정 */
+  margin:20px;
+}
+
+.diary-article::before, .diary-article::after{
+  content:'';
+  display:block;
+  width:80px;
+  height:40px;
+  background: royalblue;
+  position: absolute;
+} 
+
+.diary-article::before{
+  top:-20px;
+  left: 30px;
+  background: #fffaf0 url(../img/quote-start.svg) no-repeat 0 0 / contain;
+}
+
+.diary-article::after{
+  bottom:-20px;
+  right: 30px;
+  background: #fffaf0 url(../img/quote-end.svg) no-repeat 0 0 / contain;
+}
+
+.article-title{
+  color:#29363d;
+  font-size:16px;
+  float: left;
+}
+
+.article-title::before{
+  content:'';
+  width:100%;
+  display:block;
+  position: absolute;
+  /* diary-article에 position:relative;*/
+  border-top:1px solid #677880;
+  top:4px;
+  left:0;
+  z-index: -1;
+}
+
+.article-time{
+  color:#677880;
+  font-size:12px;
+  float: right;
+}
+
+.article-content{
+  color:#5a6a72;
+  font-size:14px;
+  line-height: 1.4;
+  clear:both;
+  margin-top:40px;
+  /* margin병합현상때문에 20px줬을때 잘 안되는데 그냥 40주셈 */
+}
+
+/* layout */
+.container{
+  display:flex;
+  width: 1224px;
+  max-width:calc(100%-60px);
+  margin: auto;
+  gap:40px;
+}
+
+/* 1024까지 이거적용 */
+@media (max-width:1024px){
+  .container{
+    flex-direction: column;
+  }
+  .container main{
+    border-right:0;
+    padding-right:0;
+    min-height:auto;
+  }
+}
+
+.container main{
+  flex-basis: 456px;
+  flex-shrink: 0;
+  /* flex는 유연하게 줄어들게 하는데 shrink로 자기크기만큼 안줄어들게 */
+  border-right:1px solid #ff4f6e;
+  padding-right:40px;
+  padding-top:56px;
+  min-height: calc(100vh - 120px);
+  /* 원래 스크롤 안나오는데 나 뭐 잘못한듯ㅠ header height:120이랫는데..?
+  header 높이를 빼줬던건데 난 왜 저러징 ㅋㅋㅋㅋㅋ header에 70줘야 가능하댱..코드함봐야겠다
+  높이는 100%가 안됨, vh뷰포트만큼 갖겠다, 근데 header만큼은 빼준다*/
+  box-sizing: border-box;
+}
+
+/* 1024까지 이거적용 */
+@media (max-width:1024px) {
+  .container{
+    flex-direction: column;
+    gap:0;
+  }
+  .container main{
+    border-right:0;
+    padding-right:0;
+    min-height:auto;
+  };
+}
+
+.container section{
+  padding-top:94px;
+}
+
+.container section ul li{
+  margin-bottom:76px;
+}
+
+

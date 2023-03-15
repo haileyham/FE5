@@ -1,0 +1,213 @@
+/* 공통 */
+body {
+  margin: 0;
+  background: #fffaf0;
+}
+
+.a11y-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+[class^="btn"] {
+  display: inline-block;
+  padding: 1em 1em 1em 2.8em;
+  margin: 10px;
+  text-decoration: none;
+  color: #5a6a72;
+}
+
+
+.btn-join {
+  background: url(../img/icon-join.svg) no-repeat 0.8em center/ 2em;
+}
+.btn-login {
+  background: url(../img/icon-login.svg) no-repeat 0.8em center/ 2em;
+}
+.btn-logout {
+  background: url(../img/icon-logout.svg) no-repeat 0.8em center/ 2em;
+}
+
+
+/* button  */
+
+.black-btn{
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: #29363d;
+  color: white;
+  height: 48px;
+  border: 0;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 4px;
+}
+
+.black-btn:not(:disabled){
+  cursor:pointer;
+}
+
+.black-btn:disabled{
+  opacity: 0.2;
+}
+
+/* form */
+.label-style,
+.input-style {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input-style {
+  /* border-width: 0 0 1px 0;
+  border-color: #677880; */
+  border: none;
+  box-shadow: 0 1px 0 0 #677880;
+  height: 48px;
+  margin-bottom: 24px;
+  transition: box-shadow 0.2s;
+  border-radius: 4px 4px 0 0;
+  padding: 0 16px;
+  font-size:16px;
+}
+
+.input-style:hover {
+  /* border-color: #2e6ff2;
+  border-bottom-width: 2px; */
+  box-shadow: 0 2px 0 0 #2e6ff2;
+}
+.input-style:focus {
+  outline: none;
+  /* border: 2px solid #2e6ff2; */
+  box-shadow: 0 0 0 2px #2e6ff2;
+  border-radius: 4px;
+}
+
+.label-style{
+  font-size: 14px;
+  color: #29363d;
+  margin-bottom: 8px;
+}
+
+
+/* layout ------------------------------- */
+/* header */
+header {
+  background-color: white;
+}
+.header-wrap {
+  width: 1224px;
+  height:120px;
+  max-width:calc(100%-60px);
+  margin: auto;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  height: 75px;
+}
+.hello {
+  display: inline-block;
+}
+.hello strong {
+  box-shadow: inset 0 -0.6em rgba(255, 79, 110, 0.5);
+}
+
+@media (min-width: 541px) {
+  .hello::after {
+    content: "|";
+    color: #d8ddde;
+    margin-left: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hello {
+    position: absolute;
+    top: 140px;
+    right: 34px;
+  }
+}
+
+
+
+
+
+/* form */
+label,
+input,
+button {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+label{
+  font-size: 14px;
+  color: #29363d;
+  margin-bottom: 8px;
+}
+
+
+
+
+button {
+  background: #29363d;
+  color: white;
+  height: 48px;
+  border: 0;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.label-style,
+.input-style{
+  display:block;
+  width:100%;
+  box-sizing: border-box;
+}
+
+button:disabled {
+  background-color: #9fa9ae;
+}
+
+.hello{
+  display:inline-block;
+}
+/* a도 inline요소니까 둘이 나란히 배치하려고 p태그에 inline-block으로 */
+.hello strong{
+  box-shadow: inset 0 -0.6em rgba(255, 79, 110, 0.2);
+  border-bottom: 2px solid #ff4f6e;
+}
+/* .hello::after{
+  content:"l";
+  color:#d9ddde;
+  margin-left:24px;
+} */
+
+@media(max-width:541px){
+  .hello::after{
+    content:"l";
+    color:#d9ddde;
+    margin-left:24px;
+  }
+}
+
+@media(max-width:540px){
+  .hello{
+    position:absolute;
+    top:140px;
+    right:34px;
+  }
+}
