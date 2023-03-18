@@ -5,54 +5,55 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="hw.css">
-  <title>hw</title>
+  <link rel="stylesheet" href="common.css">
+  <link rel="stylesheet" href="vending-machine.css">
+  <title>vending-machine</title>
 </head>
 
 <body>
+  <h1>Cola Cola</h1>
   <div class="wrapper">
-    <h1>Cola Cola</h1>
     <div class="vending-machine">
-      <h2>vending-machine</h2>
+      <h2 class="a11y-hidden">vending-machine</h2>
       <ul class="select">
-        <li>
+        <li class="select-a">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_red.svg" alt="">
             <p>Original_Cola</p>
             <span>1000원</span>
           </button>
         </li>
-        <li>
+        <li class="select-b">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_violet.svg" alt="">
             <p>Violet_Cola</p>
             <span>1000원</span>
           </button>
         </li>
-        <li>
+        <li class="select-c">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_yellow.svg" alt="">
             <p>Yellow_Cola</p>
             <span>1000원</span>
           </button>
         </li>
-        <li>
+        <li class="select-d">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_cool.svg" alt="">
             <p>Cool_Cola</p>
             <span>1000원</span>
           </button>
         </li>
-        <li>
+        <li class="select-e">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_green.svg" alt="">
             <p>Green_Cola</p>
             <span>1000원</span>
           </button>
         </li>
-        <li>
+        <li class="select-f">
           <button>
-            <img src="" alt="">
+            <img src="img/coke_orange.svg" alt="">
             <p>Orange_Cola</p>
             <span>1000원</span>
           </button>
@@ -60,13 +61,13 @@
       </ul>
 
       <div class="pay">
-        <div class="balace">
+        <div class="balance">
           <p>잔액:</p>
           <p>1000원</p>
         </div>
-        <button>거스름돈 반환</button>
-        <input type="number" placeholder="입금액 입력">
-        <button>입금</button>
+        <button class="balance-return btn">거스름돈 반환</button>
+        <input class="deposit-amount" type="number" placeholder="입금액 입력">
+        <button class="deposit btn">입금</button>
         <div class="cart-list">
           <ul>
             <li>
@@ -91,13 +92,13 @@
             </li>
           </ul>
         </div>
-        <button>획득</button>
+        <button class="gain">획득</button>
       </div>
     </div>
 
 
     <div class="user-data">
-      <h2 class="">user-cart</h2>
+      <h2 class="a11y-hidden">user-cart</h2>
       <div class="ready-money">
         <p>소지금:</p>
         <p>25,000원</p>
@@ -132,6 +133,7 @@
 
     </div>
   </div>
+
 </body>
 
 </html>

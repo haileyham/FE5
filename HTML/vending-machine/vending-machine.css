@@ -1,0 +1,136 @@
+:root{
+  --main-color:#EAE8FE;
+}
+
+body{
+  background: var(--main-color);
+}
+
+.wrapper{
+  width:759px;
+  margin:auto;
+  display:flex;
+  gap:18px;
+  justify-content: center;
+}
+
+h1{
+  width:436px;
+  height:204px;
+  background: url(img/colacola.svg) no-repeat 100% 100% / cover;
+  display: block;
+  margin:auto;
+  text-indent: -9999px;
+}
+
+.vending-machine{
+  width:310px;
+  margin:auto;
+  text-align: center;
+  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  padding:31px 27px 28px 27px;
+  background:#fff;
+}
+
+.user-data{
+  width:310px;
+  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  padding:31px 27px 28px 27px;
+  background:#fff;
+}
+
+.a11y-hidden{
+    clip: rect(1px, 1px, 1px, 1px);
+    clip-path: inset(50%);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+  }
+
+.select{
+  display:grid;
+  grid-template-areas: 
+  "select-a select-b select-c"
+  "select-d select-e select-f";
+  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  margin-bottom:10px; 
+  margin-top:0px;
+  grid-auto-columns:minmax(94px,auto);
+  grid-auto-rows:minmax(130px,auto);
+  gap:12px;
+}
+
+[class^="select-"]{
+  box-shadow: 0 0 3px 0px gray;
+  border-radius: 10px;
+}
+
+button{
+  border: none;
+  background: none;
+  padding:11px;
+}
+
+button img{
+  width:36px;
+  height:65px;
+  margin-bottom:6px;
+}
+
+button p{
+  margin-bottom:7px;
+  font-size: 9px;
+}
+
+button span{
+  background: #6327FE;
+  color:white;
+  width:70px;
+  height:22px;
+  display: inline-block;
+  border-radius: 30px;
+  font-size: 12px;
+  padding-top:2px;
+  box-sizing:border-box;
+}
+
+
+.pay{
+  display: grid;
+  grid-template-areas: 
+  "balance balance-return"
+  "deposit-amount deposit"
+  "cart-list gain";
+  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  gap:12px;
+}
+
+.balance{
+  display: flex;
+  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  background: #eae8fe;
+  border-radius: 7px;
+  width:200px;
+  height:33px;
+  margin:auto;
+}
+
+.btn{
+  box-shadow: 0 0 3px 0px gray;
+  border-radius: 7px;
+  font-size: 13px;
+  padding:5px;
+}
+
+.deposit-amount{
+  border-radius: 7px;
+  border: 1px solid rgb(212, 210, 210);
+  width:200px;
+  height:33px;
+  padding-left:10px;
+  font-family: ;
+}
+
