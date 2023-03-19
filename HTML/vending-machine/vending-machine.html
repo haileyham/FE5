@@ -62,31 +62,31 @@
 
       <div class="pay">
         <div class="balance">
-          <p>잔액:</p>
-          <p>1000원</p>
+          <p class="balance-text">잔액 :</p>
+          <p class="balance-money">1000원</p>
         </div>
         <button class="balance-return btn">거스름돈 반환</button>
         <input class="deposit-amount" type="number" placeholder="입금액 입력">
         <button class="deposit btn">입금</button>
         <div class="cart-list">
-          <ul>
+          <ul class="cart-list-item">
             <li>
-              <img src="" alt="">
+              <img src="img/coke_red.svg" alt="">
               <p>Original_Cola</p>
               <span>1</span>
             </li>
             <li>
-              <img src="" alt="">
+              <img src="img/coke_green.svg" alt="">
               <p>Green_Cola</p>
               <span>2</span>
             </li>
             <li>
-              <img src="" alt="">
+              <img src="img/coke_orange.svg" alt="">
               <p>Orange_Cola</p>
               <span>1</span>
             </li>
             <li>
-              <img src="" alt="">
+              <img src="img/coke_violet.svg " alt="">
               <p>Violet_Cola</p>
               <span>5</span>
             </li>
@@ -99,39 +99,43 @@
 
     <div class="user-data">
       <h2 class="a11y-hidden">user-cart</h2>
-      <div class="ready-money">
-        <p>소지금:</p>
-        <p>25,000원</p>
+      <div class="wrap-ready-money">
+        <div class="ready-money">
+          <p class="ready-money-text">소지금 :</p>
+          <p class="ready-money-num">25,000원</p>
+        </div>
       </div>
 
-      <div class="cart-list basket">
-        <p>획득한 음료</p>
-        <ul>
-          <li>
-            <img src="" alt="">
-            <p>Original_Cola</p>
-            <span>1</span>
-          </li>
-          <li>
-            <img src="" alt="">
-            <p>Green_Cola</p>
-            <span>2</span>
-          </li>
-          <li>
-            <img src="" alt="">
-            <p>Orange_Cola</p>
-            <span>1</span>
-          </li>
-          <li>
-            <img src="" alt="">
-            <p>Violet_Cola</p>
-            <span>5</span>
-          </li>
-        </ul>
-        <p>총금액:9,000원</p>
+      <div class="wrap-user-basket">
+        <p class="user-drink">획득한 음료</p>
+        <div class="cart-list user-basket">
+          <ul class="user-basket-ul">
+            <li>
+              <img src="img/coke_red.svg" alt="">
+              <p>Original_Cola</p>
+              <span>1</span>
+            </li>
+            <li>
+              <img src="img/coke_green.svg" alt="">
+              <p>Green_Cola</p>
+              <span>2</span>
+            </li>
+            <li>
+              <img src="img/coke_orange.svg" alt="">
+              <p>Orange_Cola</p>
+              <span>1</span>
+            </li>
+            <li>
+              <img src="img/coke_violet.svg " alt="">
+              <p>Violet_Cola</p>
+              <span>5</span>
+            </li>
+          </ul>
+        </div>
+        <p class="user-total">총금액:9,000원</p>
       </div>
-
     </div>
+
   </div>
 
 </body>

@@ -8,7 +8,7 @@ body{
 
 .wrapper{
   width:759px;
-  margin:auto;
+  margin:109px auto;
   display:flex;
   gap:18px;
   justify-content: center;
@@ -24,7 +24,7 @@ h1{
 }
 
 .vending-machine{
-  width:310px;
+  width:50%;
   margin:auto;
   text-align: center;
   box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
@@ -33,10 +33,10 @@ h1{
 }
 
 .user-data{
-  width:310px;
+  width:50%;
   box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
-  padding:31px 27px 28px 27px;
-  background:#fff;
+  background:var(--main-color);
+  box-sizing: border-box;
 }
 
 .a11y-hidden{
@@ -63,6 +63,11 @@ h1{
   gap:12px;
 }
 
+.select-a,
+.select-e{
+  border:3px solid #6327FE;
+}
+
 [class^="select-"]{
   box-shadow: 0 0 3px 0px gray;
   border-radius: 10px;
@@ -72,6 +77,7 @@ button{
   border: none;
   background: none;
   padding:11px;
+  cursor: pointer;
 }
 
 button img{
@@ -106,31 +112,204 @@ button span{
   "cart-list gain";
   box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
   gap:12px;
+  grid-template-columns: 2fr 1fr;
 }
 
 .balance{
-  display: flex;
   box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
   background: #eae8fe;
   border-radius: 7px;
-  width:200px;
   height:33px;
-  margin:auto;
+  padding-left:10px;
+  padding-right:10px;
+}
+
+.balance-text{
+  float:left;
+  padding-top:5px;
+}
+.balance-money{
+  float:right;
+  padding-top:5px;
 }
 
 .btn{
   box-shadow: 0 0 3px 0px gray;
   border-radius: 7px;
   font-size: 13px;
-  padding:5px;
+  font-family: 'Noto Sans KR', sans-serif; 
+  padding:0px;
 }
 
 .deposit-amount{
   border-radius: 7px;
   border: 1px solid rgb(212, 210, 210);
-  width:200px;
   height:33px;
   padding-left:10px;
-  font-family: ;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
+.cart-list{
+  overflow: scroll;
+  height:105px;
+  background: var(--main-color);
+  border: 1px solid rgb(207, 207, 207);
+  border-radius: 7px;
+  padding:0px;
+}
+
+.cart-list::-webkit-scrollbar{
+  width:4px;
+}
+.cart-list::-webkit-scrollbar-thumb {
+  background-color: #ffffff;
+  width:4px;
+  height:70%;
+  border-radius: 10px;
+} 
+
+.gain{
+  background: #6327fe;
+  height:106px;
+  color: white;
+  font-family: 'Noto Sans KR', sans-serif;
+  border-radius: 7px;
+  box-shadow: 0 0 3px 0px gray;
+}
+
+
+.cart-list ul{
+  padding:12px;
+  margin:0px;
+}
+.cart-list li{
+  background: #fff;
+  border-radius: 7px;
+  height:46px;
+}
+
+.cart-list li{
+  margin-bottom:6px;
+}
+
+.cart-list img{
+  width: 18px;
+  height:33px;
+  float:left;
+  margin-top:7px;
+  margin-left:10px;
+}
+
+.cart-list p{
+  float:left;
+  font-size:9px;
+  margin-left:10px;
+  margin-top:13px;
+
+}
+
+.cart-list span{
+  float:right;
+  border:1px solid #BDBDBD;
+  border-radius: 5px;
+  width:30px;
+  height:30px;
+  margin: 8px; 
+  text-align: center;
+  line-height: 27px;
+}
+.cart-list::after{
+  content: '';
+  display:block;
+  clear:both;
+}
+
+.wrap-ready-money{
+  background: #fff;
+  width:100%;
+  height:50px;
+  padding-top:2.5px;
+}
+
+.ready-money{
+  background: var(--main-color);
+  width:306px;
+  height:32px;
+  border-radius: 7px;
+  font-size: 14px;
+  margin:10px auto;
+}
+
+.ready-money-text{
+  float:left;
+  margin-left:10px;
+  margin-top:5px;
+}
+
+.ready-money-num{
+  float:right;
+  margin-right:10px;
+  margin-top:5px;
+  font-weight: 700;
+}
+
+.ready-money::after{
+  content: '';
+  display:block;
+  clear:both;
+}
+
+.wrap-user-basket{
+  background: #ffffff;
+  width:100%;
+  height:87%;
+  padding-top:1px;
+  margin-top:20px;
+}
+
+.user-basket{
+  width:306px;
+  margin:50px auto;
+  height: 344px;
+}
+
+.user-basket-ul{
+  margin:auto;
+  height:100%;
+  overflow-y: scroll;
+}
+
+.user-basket-ul::-webkit-scrollbar{
+  width:4px;
+}
+.user-basket-ul::-webkit-scrollbar-thumb {
+  background-color: #e19393;
+  width:4px;
+  height:60%;
+  border-radius: 10px;
+} 
+
+
+.user-basket li{
+  width:100%;
+}
+
+.user-drink{
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  transform: translateY(40px);
+}
+
+.user-total{
+  font-size: 12px;
+  text-align: right;
+  transform: translate(-20px,-45px);
+}
+
+@media (max-width:768px) {
+  .wrapper{
+    flex-direction: column;
+    margin:auto;
+  }
+}
