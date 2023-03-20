@@ -1,0 +1,115 @@
+/* reset */
+body,
+h1,
+h2,
+p,
+ul,
+button{
+  margin:0;
+  padding:0;
+}
+button{
+  border:0;
+  background: none;
+  font:inherit;
+}
+ul,
+li{
+  list-style: none;
+}
+
+.wrapper{
+  width:60%;
+  margin:100px auto;
+  background: rgb(245, 244, 244);
+  border-radius: 8px;
+  border: 3px solid rgb(199, 199, 199);
+}
+
+
+/* header */
+.cinema-header{
+  text-align: center;
+  margin:40px 40px 20px;
+}
+
+header span{
+  display: inline-block;
+  width:70%;
+  height:1px;
+  background: gray;
+}
+
+ul{
+  list-style:none;
+  padding:0;
+  display:flex;
+  gap:30px;
+  justify-content: center;
+  color:gray;
+}
+
+header li:first-child button{
+  font-weight: 900;
+  color:black;
+}
+
+
+main{
+  box-shadow: 0 0 3px 0 black;
+  margin:30px;
+  display:grid;
+  grid-template-areas:
+  "movie-a movie-b movie-c"
+  "movie-d movie-e movie-f";
+  grid-template-columns: repeat(4,1fr);
+  gap:10px;
+  padding:20px;
+  background: #fff;
+}
+
+[class^="movie-"]{
+  box-shadow: 0 0 3px 1px rgb(206, 205, 205);
+  border-radius: 5px;
+  text-align: center;
+}
+
+[class^="movie-"] img{
+  margin-top:20px;
+}
+
+.movieinfo{
+  display: inline-block;
+  padding:5px;
+}
+
+.movie-info::after{
+  content: '';
+  display:block;
+  clear:both;
+}
+
+[class^="movie-"] li{
+  float:left;
+  font-size:14px;
+}
+
+[class^="movie-"] li:nth-child(2){
+  float:right;
+}
+
+.movie-info span{
+  display: inline-block;
+  margin-right:6px;
+}
+
+a{
+  text-decoration: none;
+  color:black;
+}
+
+.click{
+  background: rgb(230, 229, 229);
+  color:black;
+}
+

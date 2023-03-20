@@ -8,7 +8,7 @@ body{
 
 .wrapper{
   width:759px;
-  margin:109px auto;
+  margin:300px auto;
   display:flex;
   gap:18px;
   justify-content: center;
@@ -20,23 +20,27 @@ h1{
   background: url(img/colacola.svg) no-repeat 100% 100% / cover;
   display: block;
   margin:auto;
+  position: absolute;
+  top:0px;
   text-indent: -9999px;
 }
 
 .vending-machine{
-  width:50%;
-  margin:auto;
+  width:360px;
+  /* margin:auto; */
   text-align: center;
-  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
-  padding:31px 27px 28px 27px;
+  /* box-shadow: 0px 0px 0px 0.5px rgb(25 0, 61, 209); */
+  /* padding:31px 27px 28px 27px; */
   background:#fff;
+  flex-grow:1;
 }
 
 .user-data{
-  width:50%;
-  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
-  background:var(--main-color);
+  width:360px;
+  /* box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209); */
   box-sizing: border-box;
+  /* padding:31px 27px 28px 27px; */
+  flex-grow:1;
 }
 
 .a11y-hidden{
@@ -52,14 +56,16 @@ h1{
 
 .select{
   display:grid;
-  grid-template-areas: 
+  /* grid-template-areas: 
   "select-a select-b select-c"
-  "select-d select-e select-f";
-  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
-  margin-bottom:10px; 
-  margin-top:0px;
-  grid-auto-columns:minmax(94px,auto);
-  grid-auto-rows:minmax(130px,auto);
+  "select-d select-e select-f"; */
+  grid-template-columns: repeat(3,minmax(94px,auto));
+  /* 위아래 둘다 가능 */
+  /* box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209); */
+  margin:31px 27px 20px;
+  /* padding을 .vending-machined에 줘도됨 */
+  /* grid-auto-columns:minmax(94px,auto);
+  grid-auto-rows:minmax(130px,auto); */
   gap:12px;
 }
 
@@ -110,13 +116,15 @@ button span{
   "balance balance-return"
   "deposit-amount deposit"
   "cart-list gain";
-  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
-  gap:12px;
+  /* box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  gap:12px; */
   grid-template-columns: 2fr 1fr;
+  margin:31px 27px 28px;
+  gap:11px;
 }
 
 .balance{
-  box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209);
+  /* box-shadow: 0px 0px 0px 0.5px rgb(250, 61, 209); */
   background: #eae8fe;
   border-radius: 7px;
   height:33px;
@@ -147,6 +155,10 @@ button span{
   height:33px;
   padding-left:10px;
   font-family: 'Noto Sans KR', sans-serif;
+}
+
+.deposit-amount::placeholder{
+  text-align:right;
 }
 
 .cart-list{
@@ -229,6 +241,8 @@ button span{
   width:100%;
   height:50px;
   padding-top:2.5px;
+  margin:0 27px 27px 0;
+
 }
 
 .ready-money{
@@ -262,19 +276,19 @@ button span{
 .wrap-user-basket{
   background: #ffffff;
   width:100%;
-  height:87%;
+  height:86%;
   padding-top:1px;
   margin-top:20px;
+  position: relative;
 }
 
 .user-basket{
   width:306px;
-  margin:50px auto;
-  height: 344px;
+  margin:70px auto;
+  height: 70%;
 }
 
 .user-basket-ul{
-  margin:auto;
   height:100%;
   overflow-y: scroll;
 }
@@ -298,18 +312,39 @@ button span{
   font-size: 14px;
   font-weight: 700;
   text-align: center;
-  transform: translateY(40px);
+  position: absolute;
+  left: 50%;
+  top:5%;
+  transform: translate(-50%,5%);
 }
 
 .user-total{
   font-size: 12px;
   text-align: right;
-  transform: translate(-20px,-45px);
+  position: absolute;
+  right:35px;
+  bottom:55px;
 }
 
 @media (max-width:768px) {
   .wrapper{
-    flex-direction: column;
-    margin:auto;
+    display:flex;
+    width:360px;
+    flex-wrap:wrap;
+    gap:0;
+    margin-top:300px;
+    height:1000px;
+  }
+  .user-data{
+    height:545px;
+  }
+  .wrap-ready-money{
+    margin:0;
+  }
+  .wrap-user-basket{
+    margin-top:0px;
+  }
+  .user-total{
+    bottom:45px;
   }
 }

@@ -1,0 +1,211 @@
+/* reset */
+body,
+h1,
+h2,
+p,
+ul,
+button{
+  margin:0;
+  padding:0;
+}
+button{
+  border:0;
+  background: none;
+  font:inherit;
+}
+button:not(:disabled){
+  cursor:pointer;
+}
+/* disabled아닌이상 button cursor */
+ul,
+li{
+  list-style: none;
+}
+
+a{
+  text-decoration: none;
+  color:inherit;
+}
+
+/* .wrapper{
+  width:60%;
+  margin:100px auto;
+  background: rgb(245, 244, 244);
+  border-radius: 8px;
+  border: 3px solid rgb(199, 199, 199);
+} */
+
+
+/* header */
+h1{
+  font-size: 24px;
+  text-align: center;
+  width:650px;
+  border-bottom:2px solid #bdbdbd;
+  /* 밑에 줄을 span으로 굳이 안하고 border-bottom으로 */
+  /* padding:0 0 37px 0 */
+  padding-bottom:37px;
+  margin:auto;
+}
+
+.cinema-nav ul{
+  display:flex;
+  gap:20px;
+  justify-content: center;
+  margin-top:18px;
+}
+
+.cinema-nav button{
+  padding: 10px 20px;
+  /* 클릭할때 범위 조금더 편하게 */
+  color:#828282;
+}
+
+.cinema-nav button.active{
+  font-weight:bold;
+  color:#000;
+}
+/* .cinema-nav button에 .active 추가됐을때 적용 */
+
+
+/* article */
+.cinema-card{
+  /* width:220px; */
+  /* 나중grid처리 */
+  border:1px solid #bdbdbd;
+  box-shadow: 0 0 5px rgb(0,0,0,0.25);
+  border-radius:10px;
+}
+
+.cinema-contents{
+  padding:19px 20px 18px;
+}
+/* a,button빼고 div로 묶어서 padding주기(img,ul 각 따로줘도되는데 묶어서하는게 편하니까)*/
+
+.cinema-contents img{
+  border:1px solid #bdbdbd;
+  box-shadow: 0 0 5px rgb(0,0,0,0.25);
+  border-radius: 10px;
+  aspect-ratio: 180 / 250;
+  width:100%;
+  /* aspect-ratio 적용되도록 */
+  object-fit: cover;
+  /* 가운데확대 꽉차게 */
+}
+
+.cinema-title{
+  font-size:16px;
+  margin:12px 0;
+  white-space: nowrap;
+  /* 한줄로 처리 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* text-말줄임 */
+}
+
+.ellipsis{
+  white-space: nowrap;
+  /* 한줄로 처리 */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cinema-info{
+  font-size: 13px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  /* 첫번째꺼 움직여주게 > 아생각을 왜 못했을까 ㅠ */
+  gap:5px;
+}
+
+.cinema-info li :first-child{
+  color:#828282;
+  margin-right:5px;
+}
+/* li: li : 이거두개 차이 */
+
+.tit + .ellipsis{
+  float:right;
+  width:149px;
+}
+/* 출연 나중에 늘어날수도 있어서 처리해줌 */
+
+.star{
+  background: url(./img/icon-star.svg) no-repeat 0 3px / 1em;
+  padding-left:1.3em;
+  /* font크기 비례해서 */
+}
+
+.button-group{
+  border-top: 1px solid #bdbdbd;
+  /* background: #f2f2f2; */
+  /* (article박스에)overflow-hidden해도되는데 background색상을 밑에꺼에 각각주고, border도 각각주기 */
+  display:flex;
+}
+
+.button-group a,
+.button-group button{
+  background: #f2f2f2;
+  height:40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width:100%;
+}
+
+.button-group a{
+  border-right: 1px solid #bdbdbd;
+  border-radius: 0 0 0 10px;
+}
+
+.button-group a:focus{
+  z-index:1;
+}
+/* 포커스때 미세하게 달라지는것 세심하게 */
+
+.button-group button{
+  border-radius: 0 0 10px 0;
+}
+
+.button-group button::before{
+  content: '';
+  /* content: url(./img/icon-play.svg); */
+  display: inline-block;
+  width:1.2em;
+  height:1.2em;
+  background: url(./img/icon-play.svg) no-repeat 0 2px / 1em;
+  /* content에 넣어도됨, 사이즈 조정위해서 background로*/
+}
+
+.a11y-hidden{
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+main{
+  display:grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  /* 고정값해야 안에값 커졌을때 따로 혼자 커지지않음 
+  박스 벗어나지 않게 하고 싶으면 4대신에 auto-fill 혹은 auto-fit하면 되는데 대신 4개로 고정 못함*/
+  gap:24px 23px;
+  border: 2px solid #bdbdbd;
+  border-radius: 15px;
+  background: #fff;
+  padding:30px;
+  margin-top:28px;
+}
+
+.wrap{
+  border: 2px solid #bdbdbd;
+  border-radius: 15px;
+  background: #f2f2f2;
+  padding: 40px 30px 30px;
+  margin:86px auto 135px
+}
