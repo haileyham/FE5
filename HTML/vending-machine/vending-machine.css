@@ -110,6 +110,7 @@ button span{
 }
 
 
+
 .pay{
   display: grid;
   grid-template-areas: 
@@ -296,6 +297,7 @@ button span{
 .user-basket-ul::-webkit-scrollbar{
   width:4px;
 }
+
 .user-basket-ul::-webkit-scrollbar-thumb {
   background-color: #e19393;
   width:4px;

@@ -1,0 +1,64 @@
+/* reset */
+a{
+  text-decoration: none;
+  color:inherit;
+}
+ul,li{
+  list-style: none;
+}
+p,h1,ul,li{
+  padding:0;
+  margin:0;
+}
+
+img{
+  vertical-align: top;
+}
+/* img여백 없애기 */
+
+.notice{
+  color:#29363d;
+  position:relative;
+  /* width:728px; */
+  /* 반응형 할 때는 풀기 */
+}
+
+.notice-title{
+  font-size:30px;
+}
+
+.notice-list{
+  margin-top:20px;
+  border-top:1px solid #eee;
+}
+
+.notice-list li{
+  border-bottom:1px solid #eee;
+}
+
+.notice-list li p{
+  white-space: nowrap;
+  overflow:hidden;
+  text-overflow: ellipsis;
+}
+
+.notice-list li a{
+  padding:0 16px;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  height:56px;
+  gap:37px;
+}
+/* 나는 li에 줬었는데 편하게 a태그(a>p,time)에 줘도 되는구나 */
+
+.notice-list li a strong{
+  color:#2e6ff2;
+  margin-right:16px;
+}
+
+.more{
+  position: absolute;
+  top:0;
+  right:0;
+}

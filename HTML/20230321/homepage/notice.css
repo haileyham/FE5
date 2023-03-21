@@ -1,0 +1,100 @@
+body,
+h2,
+p{
+  margin:0;
+  padding:0;
+}
+
+body{
+  color:#29363d;
+}
+
+ul,
+li{
+  list-style: none;
+  margin:0;
+  padding:0;
+}
+
+button{
+  padding:0;
+  background: none;
+  border: none;
+}
+
+a{
+  text-decoration: none;
+}
+
+button:not(:disabled){
+  cursor: pointer;
+}
+
+
+/* 공지사항 */
+/* article */
+article{
+  /* width:728px; */
+  padding:30px;
+}
+
+.notice{
+  display:flex;
+  align-items: center;
+  gap:28px;
+}
+
+.notice span{
+  width:1px;
+  height:8px;
+  background: #dddddd;
+}
+
+h2{
+  font-size:30px;
+  font-weight: 700;
+}
+
+.btn-event{
+  font-size:20px;
+  color:#5a6a72;
+}
+
+.btn-add{
+  margin-left:auto;
+  font-size:20px;
+}
+
+
+/* list */
+.notice-list{
+  margin-top:22px;
+}
+
+.notice-content{
+  display:flex;
+  gap:16px;
+  padding:17px 0 17px 0;
+  border-top:1px solid #eeeeee;
+}
+
+.notice-list:last-child{
+  border-bottom:1px solid #eeeeee;
+}
+
+.notice-list strong{
+  color:#2e6ff2;
+  font-weight:700;
+  width:90px;
+}
+
+.notice-content a{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.notice-list span{
+  margin-left:auto;
+}

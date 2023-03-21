@@ -1,0 +1,178 @@
+.custom-input{
+  appearance: none;
+  width:1.4em;
+  height:1.4em;
+  /* 글자크기에 같이 변하도록 */
+  background: url(./img/check1.svg) no-repeat center / 90%;
+  margin:0 4px 4px 0;
+  vertical-align: middle;
+  transition: all 0.3s;
+}
+
+.custom-input:checked{
+  background: url(./img/check1-checked.svg) no-repeat center / 90%;
+}
+
+.custom-input:checked + label{
+  font-weight: bold;
+  color:royalblue;
+}
+/* 인접형제 선택자 check선택됐을때 label 변경 */
+
+.custom-input2,
+.custom-radio{
+  appearance: none;
+  width:1.4em;
+  height:1.4em;
+  /* 글자크기에 같이 변하도록 */
+  background: url(./img/check2.svg) no-repeat center / 90%;
+  margin:0 4px 4px 0;
+  vertical-align: middle;
+  transition: all 0.3s;
+}
+
+.custom-input2:checked{
+  background: url(./img/check2-checked.svg) no-repeat center / 90%;
+}
+
+.custom-input2:checked + label{
+  font-weight: bold;
+  color:royalblue;
+}
+
+.custom-radio:checked{
+  background: url(./img/check2-checked.svg) no-repeat center / 90%;
+}
+
+.custom-radio:checked + label{
+  font-weight: bold;
+  color:royalblue;
+}
+
+
+/* select */
+select{
+  color:inherit;
+}
+
+.custom-select1{
+  width:200px;
+  height:40px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  padding: 0 14px;
+  appearance: none;
+  background: url(./img/select.svg) no-repeat calc(100% - 15px) / 1em;
+  /* 살짝 떨어지도록 right대신에 calc주기 / %로 줄수도있지만 간격이 늘어날수도있기때문에 calc*/
+  font-size: 14px;
+}
+
+.custom-select1:focus{
+  outline:none;
+  border-color:#9b51e0;
+  box-shadow: 0 0 0 3px #f8e4ff;
+}
+
+
+/* custom-select */
+button{
+  border:none;
+  background: none;
+  font:inherit;
+  color:inherit;
+}
+
+button,ul,li{
+  padding:0;
+  margin:0;
+}
+
+ul, li{
+  list-style: none;
+}
+
+.custom-select{
+  width:200px;
+  /* 전체길이 */
+  position: relative;
+  margin-bottom:9px;
+}
+
+.custom-select > button{
+  width:100%;
+  /* 부모길이기준으로 차지하게끔 */
+  height:40px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  padding: 0 14px;
+  appearance: none;
+  background: url(./img/select.svg) no-repeat calc(100% - 15px) / 1em;
+  font-size: 14px;
+  text-align: left;
+  /* button 기본적으로 text-align:center;로 되어잇어서 */
+}
+
+.custom-select > button::after {
+  content:'';
+  display:block;
+  width:1em;
+  height:1em;
+  margin-top:-0.5em;
+  background: url(./img/select.svg) no-repeat center;
+  position: absolute;
+  top:50%;
+  right:1.2em;
+}
+
+.custom-select ul{
+  border:1px solid #c4c4c4;
+  box-shadow: 4px 4px 14px rgba(0,0,0,0.1);
+  border-radius: 10px;
+  padding: 10px 8px;
+  position: absolute;
+  /* 뒷글자 밀리지 않게 붕뜨게 */
+  top:49px;
+  left:0;
+  width:100%;
+  box-sizing: border-box;
+  background: #fff;
+}
+
+.custom-select ul li + li {
+  margin-top:10px;
+}
+/* li들 위아래 간격주기 */
+
+.custom-select ul li button{
+  width:100%;
+  height:30px;
+  text-align: left;
+  border-radius: 8px;
+  padding:0 10px;
+}
+
+.custom-select ul li button:hover{
+  background: #f8e4ff;
+}
+
+/* active */
+
+.custom-select.active > button::after{
+  transform: rotate(180deg);
+}
+
+.custom-select.active > button,
+.custom-select > button:focus {
+  outline:none;
+  border-color:#9b51e0;
+  box-shadow: 0 0 0 3px #f8e4ff;
+}
+
+.custom-select ul{
+  display:none;
+}
+
+.custom-select.active ul{
+  display:block;
+}
+
