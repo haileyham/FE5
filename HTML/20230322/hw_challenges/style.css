@@ -1,0 +1,38 @@
+body {
+  margin: initial;
+}
+
+:root {
+    font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+}
+
+
+.l_wrapper {
+  box-shadow: inset 0 0 10px red;
+  width: 1080px;
+  margin: 0 auto;
+}
+
+.section {
+  padding: 100px 0;
+}
+
+.section_purple {
+  background-color: #673399;
+  color: white;
+}
+
+.section_pink {
+  background-color: seashell;
+  color: salmon;
+}
+
+.section-header {
+  box-shadow: inset 0 0 10px cyan;
+  margin-bottom: 100px;
+}
+
+.section-contents {
+  box-shadow: inset 0 0 10px deeppink;
+}

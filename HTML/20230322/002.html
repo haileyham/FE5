@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>clip</title>
+    <style>
+      /* img{
+        position: absolute;
+        width:500px;
+        clip:rect(0 100px 52px 0)
+      } */
+        /* position필요하고, 원래 이미지 사이즈에서 자름 / 근데 원본이미지의 크기를 알아야하함 */
+      img{
+        width:500px;
+        clip-path: inset(80px 91px 0 0);
+      }
+      /* 원본이미지 사이즈 몰라도 되고, position:absolute;없어도됨 */
+    </style>
+</head>
+<body>
+    
+  <img src="./images/ZgFIiF-700x394.jpeg" alt="">
+</body>
+</html>

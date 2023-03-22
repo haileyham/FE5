@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001</title>
+    <style>
+      .txt-hide{
+        position:absolute;
+        clip:rect(0 0 0 0);
+        width:1px;
+        height:1px;
+        margin:-1px;
+        overflow: hidden;
+      }
+
+      .labl-hold{
+        display:inline-block;
+        margin:20px 0;
+        cursor:pointer;
+        position: relative;
+      }
+
+      .labl-hold::before{
+        content:'';
+        display: inline-block;
+        width:22px;
+        height:22px;
+        border: 1px solid black;
+        vertical-align: -5px;
+        /* baseline맞추기 위해서 */
+        margin-right:5px;
+      }
+
+      .labl-hold::after{
+        position: absolute;
+        top:2px;
+        left:22px;
+        content: '';
+        display:inline-block;
+        width:22px;
+        height:22px;
+        background:url(./images/checkmark.png) no-repeat 0 0/22px;
+        /* background-size: 22px; */
+        /* img가 커서 사이즈 조정전까지는 안 보였음/큰이미지가 왼쪽상단만 보여졌기 때문 */
+        /* background-repeat: no-repeat; */
+        transition: 0.3s ease;
+        opacity: 0;
+      }
+
+      .inp-hold:focus-visible + .labl-hold::before{
+        outline: 2px solid rgb(0, 0, 0);
+        outline-offset: 5px;
+        /* outline 상하좌우 공간 */
+        /* border주게되면 공간을 차지하기 때문에 달그락 거림 */
+      }
+
+      .inp-hold:checked + .labl-hold::after{
+        left:1px;
+        opacity: 1;
+      }
+
+    </style>
+</head>
+<body>
+    <input id="inpHold" type="checkbox" class="inp-hold txt-hide">
+    <label for="inpHold" class="labl-hold">로그인 상태 유지</label>
+    <!-- class naming // 형태-의미-상태 -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="login.css">
+  <title>login</title>
+</head>
+
+<body>
+  <article class="container">
+    <header class="login-header">
+      <h1>로그인 또는 회원가입</h1>
+      <button><img src="./images/close.svg" alt=""></button>
+    </header>
+    <!-- form -->
+    <form action="#" class="login-form">
+      <h2>위니브에서 여러분의 궁금증을 해결하세요! :)</h2>
+      <input type="text" placeholder="아이디" class="user-id">
+      <!-- required넣어도됨 -->
+      <span class="login-msg-id">아이디를 입력해 주세요.</span>
+      <input type="password" placeholder="비밀번호" class="user-pw">
+      <span class="login-msg-pw">비밀번호를 입력해 주세요.</span>
+
+      <input id="inp-hold" type="checkbox" class="inp-hold txt-hide">
+      <label for="inp-hold" class="labl-hold">로그인 상태 유지</label>
+      <button type="submit" class="login-btn">로그인</button>
+    </form>
+    <!-- //form -->
+    <div class="login-add-a">
+      <a href="#">회원가입</a>
+      <span></span>
+      <a href="#">아이디/비밀번호 찾기</a>
+    </div>
+    <span class="span-or">또는</span>
+
+    <ul class="login-social">
+      <li><button class="btn-google">구글 계정으로 로그인</button></li>
+      <li><button class="btn-facebook">페이스북 계정으로 로그인</button></li>
+      <li><button class="btn-naver">네이버 계정으로 로그인</button></li>
+      <li><button class="btn-kakao">카카오톡 계정으로 로그인</button></li>
+    </ul>
+  </article>
+
+
+  <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+  <script>
+        $('.login-form').on('submit', function(e){
+      if(document.getElementsByClassName('user-id')[0].value == ""){
+        document.getElementsByClassName('user-id')[0].classList.add('ip-error');
+        document.getElementsByClassName('login-msg-id')[0].classList.add('show');
+      }else{
+        document.getElementsByClassName('user-id')[0].classList.remove('ip-error');
+      document.getElementsByClassName('login-msg-id')[0].classList.remove('show');
+      }
+    });
+
+        $('.login-form').on('submit', function(e){
+      if(document.getElementsByClassName('user-pw')[0].value == ""){
+      document.getElementsByClassName('user-pw')[0].classList.add('ip-error');
+      document.getElementsByClassName('login-msg-pw')[0].classList.add('show');
+      }
+      else{
+        document.getElementsByClassName('user-pw')[0].classList.remove('ip-error');
+      document.getElementsByClassName('login-msg-pw')[0].classList.remove('show');
+      }
+    });
+
+  </script>
+</body>
+
+</html>
