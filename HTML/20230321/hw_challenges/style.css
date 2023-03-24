@@ -141,6 +141,7 @@ header p{
 	height:100%;
 	filter: opacity(50%);
 	vertical-align: top;
+	object-fit: cover;
 }
 
 .project-title h2{
