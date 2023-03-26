@@ -60,6 +60,51 @@ button{
   margin-bottom: 100px;
 }
 
+.section-contents{
+  box-shadow:inset 0 0 10px #36a1ed;
+}
+
+
 
 /* section-header */
+.title-a{
+  display:flex;
+}
+
+.title-a-heading{
+  box-shadow:inset 0 0 10px #fde441;
+  flex-basis: 26%;
+  flex-shrink: 0;
+}
+
+.title-a-heading strong{
+  box-shadow: 0 -20px 0 0 #0a0410;
+}
+
+.title-a-heading p{
+
+}
+
+.title-a-heading p::after{
+
+}
+/* section-contents */
+.card ~ .card{
+  margin-bottom:100px;
+}
+.card{
+  box-shadow:inset 0 0 10px #fb2b7e;
+  display:flex;
+}
+
+.card-cover{
+  box-shadow:inset 0 0 10px #fde441;
+  flex-basis:26%;
+  flex-shrink:0;
+}
+
+.card-contents{
+  background: #fff;
+  flex-basis:74%;
+}
 
