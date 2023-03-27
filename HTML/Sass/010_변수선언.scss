@@ -1,0 +1,16 @@
+.one{
+  //지역변수
+  $value:red;
+  color:$value;
+  
+  .three{
+    background-color: $value;;
+  }
+}
+
+
+// error남
+// .two{
+//   color:$value;
+// }
+// >>오류발생 >>하나라도 오류나면 컴파일 안해줌

@@ -1,0 +1,22 @@
+// .box {
+//     &:focus{} // 가상선택자
+//     &:hover{}
+//     &:active{}
+//     &:first-child{} 
+//     &:nth-child(2){}
+//     &::after{} // 가상요소
+//     &::before{} 
+// }
+// "&"는 상위에 있는 부모선택자를 가리킵니다.
+
+.box{
+  height:100px;
+  width:100px;
+  background-color: red;
+  transition: all 0.5s;
+
+  &:hover{
+    background-color: green;
+  }
+}
+// 그냥 :hover와 차이

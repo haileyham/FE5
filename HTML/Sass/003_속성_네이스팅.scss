@@ -1,0 +1,15 @@
+.add-icon {
+  background : {
+    image: url("./assets/arrow-right-solid.svg");
+    position: center center;
+    repeat: no-repeat;
+    size: 14px 14px;
+  }
+}
+// ### 속성 Nesting
+
+// 중첩은 선택자뿐만 아니라 스타일 속성들도 가능합니다. 아래 예시를 보면 .add-icon이라는 클래스 선택자에게 background 스타일을 주려고 합니다. 이때, background 이름을 가진 속성( background-image, background-position 등)들을 background안에 중첩 시켜서 스타일 코드를 작성할 수 있습니다. 속성을 중첩 할 때는 콜론`:`을 사용합니다. Sass는  속성이 중첩되었음을 인지하고 css 속성들로 변환합니다.
+
+
+// Nesting(중첩)을 사용하면, html의 시각적 계층 방식과 동일하게 CSS를 중첩하여 작성할 수 있습니다. CSS코드가 구조화 되어 가독성이 높아지며 유지 보수하기 편리해집니다.
+// >>2번까지만 권장

@@ -1,0 +1,31 @@
+@mixin one {
+  width: 100px;
+  height: 100px;
+  color: white;
+  @content;
+}
+
+.test1 {
+  @include one;
+}
+
+.test2 {
+  @include one {
+    background-color: red;
+  }
+}
+
+.test3 {
+  @include one {
+    background-color: red;
+    font-size: 32px;
+  }
+}
+
+.test4 {
+  @include one ;
+  background-color: red;
+  font-size: 32px;
+}
+//.test3 .test4 중괄호 유무 결과값 완전히 같음
+

@@ -1,0 +1,19 @@
+
+//내부에서 사용하지 않기를 권장
+//blue
+.card{
+  @mixin box{
+    width:100px;
+    height:100px;
+  }
+
+  @include box;
+  background: blue;
+}
+
+//red
+// .profile{
+//   @include box;
+//   background: red;
+// }
+//에러남

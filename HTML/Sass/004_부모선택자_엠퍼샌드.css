@@ -1,0 +1,9 @@
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: red;
+  transition: all 0.5s;
+}
+.box:hover {
+  background-color: green;
+}/*# sourceMappingURL=004_부모선택자_엠퍼샌드.css.map */

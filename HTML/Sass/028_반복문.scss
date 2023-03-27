@@ -1,0 +1,13 @@
+$hojun: 5;
+@while $hojun > 1 {
+    $hojun: $hojun - 1;
+    .content-#{$hojun} {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+    }
+}
+
+// while은 $hojun > 1 true인 동안에 반복
+// 1이 실행된 이유는 2일때 안에서 -1하기때문에
+// .content-4 ~ content-1 실행됨

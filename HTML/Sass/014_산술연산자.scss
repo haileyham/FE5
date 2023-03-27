@@ -1,0 +1,22 @@
+.one {
+  font-size: 10px + 10px;
+}
+
+.two {
+  font-size: 30px - 10px;
+}
+
+.three {
+  font-size: 10px * 2;
+}
+
+.four {
+  font-size: (20px / 10);
+}
+// 20px/10px 하면 2나옴
+// 나누기에는 괄호가 들어가야함(리스트에서도 사용하기에)
+
+.five {
+  font-size: 8px % 3;
+}
+// 나머지 2가 출력됨
