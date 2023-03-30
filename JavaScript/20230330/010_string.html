@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        let txt = 'abcdefghij'
+
+        //slice(시작인덱스, 종료인덱스) :
+        // 시작인덱스부터 종료인덱스 -1번째까지 반환합니다
+        console.log(txt.slice(1, 3)) //start, end(-1) 'bc'
+        console.log(txt.slice(1)) //start 'b'
+        console.log(txt.slice(3, 1)) //안됨
+        console.log(txt.slice(2, -3)) //cdefg -3이라는 것을 인식해서 2번째부터 -3번째이전까지 잘라낸 'cdefg'
+
+        //substring(시작인덱스, 종료인덱스) :
+        // 시작인덱스부터 종료인덱스 -1 번째까지 반환합니다
+        console.log(txt.substring(1,3)); //'bc'
+        console.log(txt.substring(1)); // bcdefghij
+        console.log(txt.substring(3,1)); //bc 작동함. slice와 차이 있음
+        console.log(txt.substring(2, -3)) //마이너스 값을 0으로 인식해서 txt.substring(2,0)가 됩니다. 바로 위 예제와 비교해보세요. // ab 
+
+
+        let txt2 = 'laullab CEO leehojun CEO'
+
+        console.log(txt2.replace('CEO', 'COO'))
+        //laullab COO leehojun CEO
+        //앞에꺼만 변경
+        console.log(txt2.replace(/CEO/g, 'COO'))
+        //laullab COO leehojun COO
+        console.log(txt2.replaceAll('CEO', 'COO'))
+        // 구 브라우저 지원이 안될 가능성이 큼. 회사가서 확인 (관공서 같은곳)
+        // 21년도에 추가됨
+
+
+        console.log(txt2.toLowerCase()); //문자열 대문자>소문자
+        console.log(txt2.toUpperCase()); //문자열 소문자>대문자
+
+        //많이 상요됩니다. 특히 알고리즘 문제에서
+        txt2.includes('CEO') //CEO 키워드 가지고 있는지
+        txt2.includes('CDO') 
+
+        //매서드 채이닝 ( . 찍어서 계속 이어나가는 것)
+        txt2.replace('CEO','CDO').includes('CDO').toString().toUpperCase();
+        //includes('CDO') 에서 boolean
+
+        // 어디서나 정말 많이 사용되는 메서드
+        txt2.split('')
+        
+        let text1 = 'aa bb cc dd'
+        let text2 = 'aa-bb-cc-dd'
+        let text3 = 'aa,bb,cc,dd'
+        let text4 = 'aa,bb-cc-dd' //중급자만 하기
+        // ['aa','bb','cc','dd']
+
+      console.log(text1.split(" "))
+      console.log(text2.split("-"))
+      console.log(text3.split(","))
+      console.log(text4.replace(",","-").split("-"));
+      console.log(text4.replace(/,/g,"-").split("-"));
+      console.log(text4.replace(/[,-]/g,"-").split("-"));
+
+
+      // 자주 사용되지는 않지만, 이걸 몰라서 직접 구현하면 번거로운 메서드
+      // trim
+      let test = '           hello world'
+      console.log('           hello world');
+      test.replaceAll('  ','');
+      // hello world의 공백도 사라짐
+
+      test.trim();
+      
+      let str1 = '99'
+        console.log(str1.padStart(5, '0'));
+
+        let str2 = '99'
+        console.log(str1.padStart(5, '-'));
+
+    </script>
+</body>
+</html>

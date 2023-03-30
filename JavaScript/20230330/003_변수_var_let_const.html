@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수</title>
+</head>
+<body>
+<script>
+  // 변수(변할 수 있는 값): var, let
+  // 상수(변할 수 없는 값, 파이,DOM요소): const;
+
+  // var는 키워드를 생략할 수 있으나 생략하면 안됨(엄격모드 에러). 
+  // 모던 자바스크립트에서는 var 키워드를 권하지 않음
+
+  // let과 const는 블록-레벨 선언
+  // const의 경우에는 반드시 초기화
+  // 권하는 변수 선언은 const (의도하지 않은 값의 변경 방지 / 가독성 높일 수 있음-변하지않는걸알아서-)
+
+  const x = 100;
+  let y = 1000;
+  // 1000줄 코드에서
+  console.log(x,y);
+  // x 는 100;
+  // y 는 장담 못한다. 재할당해서 변했을 수도 있기에.
+
+
+        // scope, 유효범위
+        if(true){
+            let x = 100;
+            console.log(x);
+        }
+        console.log(x);
+
+        if(true){
+            const x = 100;
+            console.log(x);
+        }
+        console.log(x);
+
+        let s = 0
+        for (let i = 0; i < 11; i++) {
+            s = s + i
+        }
+        console.log(s)
+
+        let ss = 0
+        for (let i = 0; i < 11; i++) {
+            ss = ss + i
+            const sss = ss / 10
+            console.log(sss)
+        }
+
+        // let ss = 0
+        // for (let i = 0; i < 11; i++) {
+        //     ss = ss + i
+        //     const sss = ss / 10
+        // }
+        // console.log(sss)
+
+        const k = 10;
+        k = 12; // error
+
+        const kk = [];
+        kk.push(10) // error가 안나는 이유는 가리키고 있는 화살표는 그대로이기 때문에
+</script>
+</body>
+</html>

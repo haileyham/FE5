@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>string</title>
+</head>
+<body>
+    
+  <script>
+    let txt = 'ABCDEFGHIJK'
+
+    console.log(txt + txt)
+    console.log(txt[0]) //Sass 1, 다른 프로그래밍 랭귀지는 0부터 시작
+    console.log(txt[2]) //C 출력
+    console.log(txt[-1]) //JavaScript에서 마이너스 인덱싱을 허락하지 않음
+    console.log(txt.length); //문자열 갯수 세기(당연히1부터셉니댱)
+    console.log(txt.indexOf('E')) //4  없는 값은 -1
+    console.log(txt.search('E')) //4  없는 값은 -1 
+
+    console.log(txt.indexOf('Z')) //없는 값은 -1
+    console.log(txt.search('Z')) //없는 값은 -1 
+
+    let regExp = /CD/;
+        console.log(txt.search(regExp));
+        console.log(txt.replace('ABC', 'hello'))
+
+        let txt2 = 'abcdeHelloabcde'
+        let regExp2 = /[A-Z]/g;
+        console.log(txt2.search(regExp2))
+
+        let txt3 = 'abcdeHelloabcde'
+        let regExp3 = /[A-Z]/g;
+        console.log(txt2.replace(regExp2, 'h'))
+  </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <script>
+        let str1 = 'hello';
+        let str2 = str1;
+        console.log(str2); // 'hello'
+
+        str1 = 'world';
+        console.log(str2); // str2에 할당된 값은 여전히 'hello' 입니다.
+
+
+        ///////////원시타입
+
+        // string 문자열
+        console.log(typeof 'hello');
+        // typeof : 타입을 알려줌
+
+        console.log(typeof 'hello')
+        console.log(typeof "hello")
+        // ""안에는 ''쓸 수 있고, ''안에는 "" 쓸 수 있음
+        // ""안에 ""쓰려면 \" 쓰면됨
+
+        // 이스케이프 문자
+        // \' 작은따옴표
+        // \" 큰따옴표
+        // \t 가로 탭
+        // \n 줄 바꿈
+        console.log(typeof "i\'m so happy")
+        console.log('h\ne\nl\nl\no')
+        
+
+
+        // number
+        console.log(typeof 10)
+        console.log(typeof 10.1)
+        console.log(typeof NaN)
+        // Not a Number
+
+
+
+
+        // boolean
+        console.log(typeof true)
+        console.log(typeof false)
+
+
+
+
+        // undefined
+        console.log(typeof undefined)
+        let a;
+        console.log(a)
+        // a에 할당된 값이 없기 때문에 undifined : 값이 없음
+
+
+
+
+        //null(값이 비어있음을 명시적으로 나타냄)
+        console.log(typeof null)
+        //object : 설계오류인 것을 개발자가 인정
+
+
+
+
+        //bigint(2^53 - 1보다 큰 정수) : 자바스크립트 규정한 숫자 넘어가면 
+
+
+
+
+        //symbol : 중복안되는 고유한값 //만날일 없음
+        console.log(typeof Symbol());
+
+
+
+
+
+
+
+        ////////////////////////////
+
+
+
+        console.log(typeof function(){}) 
+        //function
+
+        //object
+        console.log(typeof [10, 20, 30]) //배열
+        console.log(typeof {a: 10, b: 20}) //object
+        console.log(typeof /정규표현식/gi)
+
+
+
+    </script>
+</body>
+</html>
