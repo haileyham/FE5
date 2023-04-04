@@ -58,6 +58,10 @@
     console.log(Number("10 20")) //NaN
     console.log(Number("10abc")) //NaN //parseInt에서는 동작
 
+    let a; 
+    let b = "";
+    console.log(Number(a)) //NaN
+    console.log(Number(b)) //0
 
 
     //parseInt 권장
@@ -69,8 +73,9 @@
     console.log(parseInt("hello")) //NaN
     console.log(parseInt("10 20")) //10
     console.log(parseInt("10abc")) //10 **** //parseInt에서는 동작
-    console.log(parseFloat("10.123"))
-
+    console.log(parseFloat("10.123")) //10
+    parseInt("10nnn13"); // 10 문자열의 첫글자가 숫자이고, 그 이후에 숫자가 아닌 다른 문자열이 나올 경우 숫자가 아닌 문자 이후의 값은 무시하고, 그 이전의 숫자만 정수로 변환합니다.
+    parseInt("k10"); // NaN 문자열의 첫글자가 숫자가 아니면, NaN(Not a Number)를 리턴합니다.
 
     /////////////////////
 
