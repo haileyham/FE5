@@ -75,7 +75,39 @@ console.log(hello(10))
 //return 은 hello(10)이 있던 자리에 return 100 들어감
 
 
-console.log('hello')
+
+// console.log(2) 는 console 에 2를 출력을 하기 위함이고,
+// return 2는 함수에서 2를 반환하기 위함.
+// 콘솔에서 보이는건 같겠지만
+// 예를 들어 2에다가 2를 더한 값을 출력한다고 해볼게용
+function returnNumber() {
+  return 2;
+}
+
+console.log(2 + console.log(2)); //2 / NaN
+console.log(2 + returnNumber()); //4
+
+
+
+// 콘솔은 단순히 출력을 위한 값이고 return은 값을 저장한다고 생각
+function z ( a,b )
+{ console.log(a+b) }
+
+
+// 이렇게하고 z ( 1,2 ) 를 불러오면 콘솔창에 3과 undefined 가 뜹니다.
+// undefined가 뜨는 이유는, function z 안에 값이 담겨져 있지 않기 때문입니다.
+
+function z ( a,b )
+{ return a+b }
+
+// 을 해준다면, function z 안에 a+b라는 값이 담겨지면서 콘솔창에 3만 뜨게 됩니다.
+
+
+
+
+
+
+console.log('hello2')
 //hello 출력
 //undefined 나오는 이유는 return 값이 없어서.
 
@@ -152,6 +184,14 @@ function 함수1(a, b, c){
 
 함수1(10, 20, 30, 40) //error가 발생하지 않음
 함수1(10, 20) //NaN뜸 / error가 발생하지 않음(빨간색 떠야 error임)
+
+// 함수1(10,20) 하면 a에 10 b에 20 들어가구 c는 기본값 30으로 돼서 return값 60 나와서 error가 발생하지 않아욥
+// 호이스팅으로 밑에 function 올라옴
+// 아규먼트를 덜 넣게 되면 undefined 값이 할당되서 error는 안나고 NaN로 나오는 것 같아요!
+// https://taenami.tistory.com/86 함수 선언식 과 함수 표현식 차이점
+// NaN은 Error는 아닙니다. 🙂 애러는 빨간색으로 표시되고 나중에 배울 애러 핸들링으로 컨트롤이 가능해야 합니다.
+// 네, 아래 선언해도 호출하면 적용됩니다. 아래 도경님이 말씀 주신 것처럼 이 파트는 '호이스팅' 파트에서 자세하게 다룹니다.
+
 
 function 함수1(a=10, b=20, c=30){
   return a + b + c
