@@ -91,9 +91,42 @@ isNaN('123')
 // false
 isNaN('111')
 // false
-isNaN('hello')
-false
-isNaN('hello')
-false
-isNaN('hello')
-false
+isNaN('')
+//false
+Number.isNaN('hello')
+// false
+Number.isNaN('123')
+// false
+Number.isNaN(NaN)
+// true
+Number.isNaN(undefined)
+// false
+Number.isNaN(null)
+// false
+
+
+
+
+
+isNaN(NaN);       // 참
+isNaN(undefined); // 참
+isNaN({});        // 참
+
+isNaN(true);      // 거짓
+isNaN(null);      // 거짓
+isNaN(37);        // 거짓
+
+// 문자열
+isNaN("37");      // 거짓: "37"은 NaN이 아닌 숫자 37로 변환됩니다
+isNaN("37.37");   // 거짓: "37.37"은 NaN이 아닌 숫자 37.37로 변환됩니다
+isNaN("123ABC");  // 참: parseInt("123ABC")는 123이지만 Number("123ABC")는 NaN입니다
+isNaN("");        // 거짓: 빈 문자열은 NaN이 아닌 0으로 변환됩니다
+isNaN(" ");       // 거짓: 공백이 있는 문자열은 NaN이 아닌 0으로 변환됩니다
+
+// dates
+isNaN(new Date());                // 거짓
+isNaN(new Date().toString());     // 참
+
+// 이것이 허위 양성이고 isNaN이 완전히 신뢰할 수 없는 이유이다.
+isNaN("blabla")   // 참: "blabla"는 숫자로 변환됩니다.
+                  // 이것을 숫자롯 parsing 하는 것을 실패하고 NaN을 반환한다.

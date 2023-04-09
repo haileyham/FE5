@@ -22,15 +22,15 @@ for (let i = 0; i < arr.length; i++) {
 let arr1 = [10, 20, 30, 40, 50]
 let obj1 = {'one': 10, 'two': 20}
 for (const i in arr1) {
-  console.log(arr1[i]) // index를 가져온다!?
+  console.log(arr1[i]) // element 요소 가져옴
 }
 
 for (const i in obj1) {
-  console.log(obj1[i]) // key를 가져온다!?
+  console.log(obj1[i]) // value 가져옴
 }
 
 for (const i in 'hello world') {
-  console.log(i)
+  console.log(i) //index
 }
 
 let s2 = 0
@@ -38,12 +38,40 @@ for (const i in '.'.repeat(101)) {
   s2 += parseInt(i)
 }
 console.log(s2)
+//1부터 100까지의 합 50×101=5050
+//1 + 100 = 101
+// 2 + 99 = 101
+// 3 + 98 = 101
+// 50 + 51 = 101
+// 그러므로
+// 101 × 50개 = 5050
+
 
 // for in
 // hello world 의 각각의 index만 가져옴
 // .을 10번 repeat했는데 거기의 index만 가져옴
 // i는 문자열로 나옴
 
+// for..in 문은 임의의 순서로 객체의 속성들에 대해 반복
+// for...in반복문은 정수가 아닌 이름을 가진 속성, 상속된 모든 열거 가능한 속성들을 반환
+
+
+//for/in문
+// for...in 문은 해당 객체의 몯ㄴ 열거할 수 있는 프로퍼티(enumerable properties)를 순회할 수 있도록 함. (열거할 수 있는 프로퍼티란 내부적으로 enumerbale 플래그가 true로 설정된 프로퍼티를 의미)
+
+//for (변수 in 객체){
+//   객체의 모든 열거할 수 있는 프로퍼티의 개수만큼 반복적으로 실행하고자 하는 실행문;
+// }
+
+
+
+
+//for/of문
+//for...of 문은 반복할 수 있는 객체(iterable objects)를 순회할 수 있도록 해주는 반복문. JS에서 반복할 수 있는 객체는 Array, Map, Set, arguments 객체 등이 있음. 이 반복문은 루프마다 객체의 열거할 수 있는 프로퍼티의 값을 지정된 변수에 대입.
+
+//for (변수 of 객체){
+//   객체의 모든 열거할 수 있는 프로퍼티의 개수만큼 반복적으로 실행하고자 하는 실행문;
+// }
 
 
 
@@ -127,6 +155,7 @@ for (let i = 0; i < s.length; i++) {
   console.log(s[i+1] - s[i]) 
 }
 
+// i는 index 위치
 //s.length-1 해주는 이유는 범위 밖으로 벗어나기 때문에, 제대로 유지해주기위해서. 범위 밖으로 벗어나는이유는 길이 5개인데 index는 4번째까지만있고, 여기에 +1해버리면 5번째 index되버림. 근데 index는 5번째가없음
 // 혹은 밑에 방법으로 해도됨 (같은코드임)
 
@@ -219,24 +248,24 @@ console.log(Math.floor(y / user2.length))
 
 //for of
 let age1 = 0;
-for(const value of user){
+for(const value of user2){
   age1 += value.age //value['age']
 }
-console.log(age1 / user.length)
+console.log(age1 / user2.length)
 
 //for
 let age2 = 0;
-for (let i = 0; i < user.length; i++) {
-  age2 += user[i].age;
+for (let i = 0; i < user2.length; i++) {
+  age2 += user2[i].age;
 }
-console.log(age2 / user.length); 
+console.log(age2 / user2.length); 
 
 //for in
 let age3 = 0;
-for (const i in user) {
-  age3 += user[i].age
+for (const i in user2) {
+  age3 += user2[i].age
 }
-console.log(age3 / user.length)
+console.log(age3 / user2.length)
 
 
 /////////////풀이 수업////////////////
@@ -302,7 +331,7 @@ let user = [
 
 let s3 = 0
 for (const i of user) {
-  console.log(i) //list안에 object 하나
+  console.log(i) //s3 list안에 object 하나
   console.log(i.age) // 마지막에 undefined
   console.log(s3) // 마지막에 102
   console.log('----------')
@@ -333,6 +362,12 @@ for (const i of user.map((v, i) => v.age)) {
   }
 }
 console.log((s / user.length).toFixed(2))
+
+user.map((v, i) => v.age)
+// (4) [31, 32, 39, undefined]
+user.map((v, i) => v.age)
+// 여기의 i가 헷갈리게 만들었다ㅠ a로 바꿔서 해보면 이해 편함.
+
 
 /////
 !true // false
