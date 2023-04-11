@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>010</title>
+</head>
+
+<body>
+  <article class="parent">
+    <ol>
+      <li><button class="btn-first" type="button">버튼1</button></li>
+      <li><button type="button">버튼2</button></li>
+      <li><button type="button">버튼3</button></li>
+    </ol>
+  </article>
+
+
+
+  <script>
+    // 이벤트 객체
+    // 이벤트에서 호출되는 핸들러에는 이벤트와 관련된 모든 정보를 가지고 있는 매개변수가 전송됩니다.이것이 바로 이벤트 객체입니다!
+
+    const btnFirst = document.querySelector('.btn-first');
+    btnFirst.addEventListener('click', (event) => {
+      console.log(event);
+    });
+    // 핸들러 콜백함수(event) 이름바꿔도 됨 임의로 설정 가능, 안에 넣어줌
+  </script>
+</body>
+
+</html>

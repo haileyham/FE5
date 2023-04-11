@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+
+  <p id='myTxt'>hello lions</p>
+  <img
+      src='https://static.ebs.co.kr/images/public/lectures/2014/06/19/10/bhpImg/44deb98d-1c50-4073-9bd7-2c2c28d65f9e.jpg'>
+      <!-- 뽀로로이미지 -->
+
+
+
+    
+  <script>
+    //스타일 조작하기
+    // <노드>.style.<css속석명> = <속성값>;
+    
+      const target = document.querySelector('p');
+      const myimg = document.querySelector('img');
+      const idAttr = target.getAttribute('id');
+      console.log(idAttr);
+      myimg.setAttribute("src", "https://img.wendybook.com/image_detail/img159/159599_01.jpg");
+      //영유아 놀이프로그램이미지
+  </script>
+
+  
+</body>
+
+</html>

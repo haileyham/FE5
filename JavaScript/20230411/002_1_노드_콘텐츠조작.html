@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+
+<body>
+  <p></p>
+  <input type="text">
+  <button>Write Something!</button>
+
+  <script>
+    const myBtn = document.querySelector("button");
+    const myP = document.querySelector("p");
+    const myInput = document.querySelector("input");
+
+    myBtn.addEventListener('click', function () {
+      myP.textContent = myInput.value;
+    });
+    //myP에다가 myInput.value를 집어넣겠다. / 버튼 클릭해야 작동
+
+    myBtn.addEventListener('click', function () {
+      myP.innerHTML = myInput.value;
+    });
+    //myP에다가 myInput.value를 집어 넣는데 <strong>태그같은것도 적용가능하다 / 버튼 클릭해야 작동
+
+
+
+    // input 요소에 'input' 이벤트를 연결하면 실시간으로 값이 반영되게 만들 수도 있습니다.
+    myInput.addEventListener('input', () => {
+      myP.textContent = myInput.value;
+    });
+    //input에 입력한 것이 p에 실시간으로 반영됨
+
+    // myP.innerHTML = "<strong>I'm Strong!!</strong>";
+    // >> (2번째)위의 코드 적용으로 click 했을 때 반영됨, 그냥 실시간 입력은 textContent로 입력됨
+
+
+    
+// innerHTML 은 요소(element) 내에 포함된 HTML 마크업을 가져오거나 설정합니다. 즁요한 기능은 innerHTML로 값을 할당할 때, 마크업으로 변환할 수 있는 문자열이 있다면 마크업으로 만들어 보여준다는 것 입니다. 만약 그런 문자열이 없다면 그냥 문자열만 컨텐츠로 설정합니다.
+
+// innerText 속성은 요소의 렌더링된 텍스트 콘텐츠를 나타냅니다. (렌더링된에 주목하세요. innerText는 텍스트 내에 문법적으로 처리가 가능한 텍스트가 있으면 처리가 끝난 결과물을 텍스트로 전달합니다.)
+
+// textContent 속성은 노드의 텍스트 콘텐츠를 표현합니다. 컨텐츠를 단순히 텍스트로만 다룹니다.
+
+
+
+  </script>
+  </div>
+</body>
+
+</html>

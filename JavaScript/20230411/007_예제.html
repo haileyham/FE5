@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+  <style>
+    /* 문서 트리의 루트 요소(html)를 선택하는 가상 클래스 */
+    :root {
+      --main-bgColor: teal;
+      --main-txtColor: white;
+    }
+
+    body {
+      padding: 0;
+      margin: 0;
+      font-size: 1.5em;
+      background-color: var(--main-bgColor);
+    }
+
+    .wrapper {
+      padding: 20px;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .picker {
+      display: inline-block;
+    }
+
+    .picker+.picker {
+      margin-left: 30px;
+    }
+
+    main {
+      color: var(--main-txtColor);
+    }
+  </style>
+</head>
+
+<body>
+  <section class="wrapper">
+    <article class="picker">
+      <label for="bg">배경색 : </label>
+      <input type="color" id="bg" class="inp-picker" data-id="bgColor">
+    </article>
+
+    <article class="picker">
+      <label for="txt">글씨색 : </label>
+      <input type="color" id="txt" class="inp-picker" data-id="txtColor">
+    </article>
+  </section>
+  <main>
+    <h1>Color Picker!!</h1>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum possimus sint, voluptatem alias facere veniam
+      doloremque voluptas optio a omnis, ullam quae! Autem eveniet animi tempora pariatur dolorum ad laboriosam!
+    </p>
+  </main>
+
+
+  <!-- <script>
+    const bgColor = document.querySelectorAll('#bg');
+    const txtColor = document.querySelectorAll('#txt');
+    const color = document.querySelector(':root');
+    // input 색상을 바꿨을때
+    // 배경색,글자색이 바뀌도록 각 body main
+    // :root {--main-bgColor: teal; --main-txtColor: white;} 값을 변경하기
+    bgColor.addEventListener('input',() => {
+      color.style.setProperty('--main-bgColor',bgcColor);
+    })
+    
+  </script> -->
+  <!-- https://nykim.work/2 -->
+  <script>
+    const inputs = document.querySelectorAll('.wrapper input');
+
+    const handleUpdate = function(){
+      console.log(this.value);
+    }
+
+    inputs.forEach(input => {
+      input.addEventListener("change", handleUpdate);
+    })
+  </script>
+</body>
+
+</html>

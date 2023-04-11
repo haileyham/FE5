@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>추가공부</title>
+</head>
+
+<body>
+
+  <!-- (1) -->
+  <p id="title">Hello, <span style="display:none;">JavaScript!</span></p>
+
+
+  <!-- (2) -->
+  <p id="textContent"></p>
+  <p id="innerText"></p>
+  <p id="innerHTML"></p>
+
+
+  <script>
+    //(1) 콘텐츠 조작 속성으로 접근할 때 각 속성이 가져오는 콘텐츠
+
+    document.getElementById('title').textContent;
+    //Hello, JavaScript!
+    document.getElementById('title').innerText;
+    //Hello,
+    document.getElementById('title').innerHTML;
+    //Hello, <span style="display:none;">JavaScript!</span>
+
+
+
+    //textContent : 요소 노드의 모든 텍스트에 접근
+
+    //innerText : 요소 노드의 텍스트 중 웹 브라우저에 표시되는 텍스트에만 접근
+    //(요소의 랜더링된 텍스트 콘텐츠를 나타냄 / 텍스트 내에 문법적으로 처리가 가능한 텍스트가 있으면 처리가 끝난 결과물을 텍스트로 전달)
+
+    //innerHTML : 요소 노드의 텍스트 중 HTML 태그를 포함한 텍스트에만 접근
+    //(포함된 HTML 마크업을 가져오거나 설정합니다. 즁요한 기능은 innerHTML로 값을 할당할 때, 마크업으로 변환할 수 있는 문자열이 있다면 마크업으로 만들어 보여준다는 것)
+
+
+
+
+    //(2) 콘텐츠 조작 속성으로 각 노드의 콘텐츠 바꿀 수 있음
+    document.querySelector('#textContent').textContent = `<strong>textContent</strong>속성`
+    //<strong>textContent</strong>속성
+
+    document.querySelector('#innerText').innerText = `<strong>innerText</strong>속성`
+    //<strong>innerText</strong>속성
+
+    document.querySelector('#innerHTML').innerHTML = `<strong>innerHTML</strong>속성`
+    // innerHTML속성
+  </script>
+</body>
+
+</html>
