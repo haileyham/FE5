@@ -113,3 +113,4 @@ function isPalindrome(str, cur, cnt) {
 input.forEach(el => isPalindrome(el, 0, 1));
 
 // 3. 2번 코드에서 팰린드롬 여부에 따른 결과값을 answer 변수에 string 형태로 추가했으므로 console로 출력
+console.log(answer);

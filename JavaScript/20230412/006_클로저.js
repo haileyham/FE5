@@ -53,3 +53,90 @@ console.log(add10(2)); // 112 (x:10 + y:100 + z:2)
 //지역스코프에서 값을 찾고, 없으면 그 밖에 있는 스코프에서 찾고, 계속해서 찾아 올라가 전역 스코프까지 찾아보는 것을 스코프체이닝
 //어려운 얘기로는 내부 렉시컬 환경에서 찾고 없으면 전역 렉시컬 환경에서 찾는다 얘기함.
 //함수가 수행된 이후에도 상위함수의 렉시컬 환경에 접근 가능
+
+
+function 승수제조기() {
+  let value = 0;
+  function 승수() {
+      return ++value ** 2
+  }
+  return 승수
+}
+
+let 승 = 승수제조기();
+승()
+승()
+승()
+//value //출력할 수 없습니다. 은닉화가 된거죠.
+
+/**
+*
+* 그것이 알고싶다. 클로저
+*
+*/
+
+var outer = function () {
+  var a = 1;
+  var inner = function () {
+      var b = 5;
+      var c = 6;
+      a = a + b + c;
+      console.log(a);
+  };
+  inner();
+};
+outer();
+
+//------------------------------------//
+
+var outer = function () {
+  var a = 1;
+  var inner = function () {
+      var b = 5;
+      var c = 6;
+      a = a + b + c;
+      console.log(a);
+  };
+  return inner;
+};
+
+var newInner = outer();
+newInner();
+
+//------------------------------------//
+
+var person = (function () {
+  var age = 15;
+
+  return {
+      name: "wade",
+
+      getAge: function () {
+          console.log(age);
+          return age;
+      },
+
+      setAge: function (val) {
+          age = val;
+          console.log(age);
+      }
+  }
+})();
+
+person.getAge();
+person.setAge(20);
+
+person.age = 30;
+person.getAge();
+
+
+////
+
+function 제곱(x) {
+  function 승수(y) {
+      return y ** x
+  }
+  return 승수
+}
+
+let 제곱2 = 제곱(2) // 2 제곱해주는 함수
