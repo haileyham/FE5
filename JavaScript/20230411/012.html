@@ -31,6 +31,15 @@
                 event.target.innerText = "버튼4";
             }
         })
+
+
+        //대문자로 쓰인 이름은 이벤트 리스너 함수에 인자로 전달되는 이벤트 객체 안에 들어 있다. 코드에서 보면 event.target.nodeName으로 접근하고 있는 것을 볼 수 있다. 여기서 사용되는 nodeName에는 노드의 이름이 대문자로 저장되어 있다.
+        const btn = document.querySelector('.parent');
+        btn.addEventListener('click', function(evnet){
+          console.log(event.target.nodeName);
+        })
+        // BUTTON
+
     </script>
 </body>
 </html>

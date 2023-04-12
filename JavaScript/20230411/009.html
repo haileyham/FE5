@@ -18,7 +18,7 @@
     officiis.
     <strong>감사합니다!</strong>
   </article>
-  
+
   <!-- <script>
     const cont = document.querySelector(".cont");
     console.log(cont.firstElementChild);  // 첫번째 자식을 찾습니다.
@@ -45,6 +45,8 @@
     console.log(cont.previousSibling);    // 이전 형제노드를 찾습니다.
     console.log(cont.children);           // 모든 직계자식을 찾습니다.
     console.log(cont.parentElement);      // 부모 요소를 찾습니다.
+    // 자기 자신부터 시작해 부모로 타고 올라가며 가장 가까운 cont 클래스 요소를 찾습니다. 단, 형제요소는 찾지 않습니다.
+    console.log(cont.querySelector('strong').closest('strong').innerHTML);  
   </script>
 </body>
 

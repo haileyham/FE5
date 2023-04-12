@@ -62,19 +62,25 @@
 
   <script>
     const inpPicker = document.querySelectorAll('.inp-picker');
-    // input
+    // input 둘다 선택 (element)
+    // querySelectorAll 로 다중선택했기에 inpPicker는 노드리스트, 유사배열 객체 forEach등 가능
     const root = document.querySelector(':root');
+    // css 루트에 접근 
+    // querySelector는 css선택자 호출
+    // 전역선언보다 스코프 안쪽 선언이 좀더 낫다. forEach에 의한 중복이나 메모리 등 이유..
     // 지금같이 코드가 짧을 때는 바깥에 빼놓기
     // 그치만 전역공간에 변수 선언하는 것은 지양해야함.
 
-    inpPicker.forEach((item) => {
-      item.addEventListener('input', () => {
-        const name = `--main-${item.dataset.id}`;
+    inpPicker.forEach((item) => { //item은 input 요소
+      item.addEventListener('input', () => { //item의 input에 값이 변화할 때마다 event를 실행하는데, 이벤트 핸들러(이벤트 리스너/콜백함수/실행함수)는 다음과 같다
+        const name = `--main-${item.dataset.id}`; //name변수를 선언하는데 `--main-bgColor`할당. item은 input / dataset.id는 --bgColor 혹은 --txtColor
         // const name = '--main-' + item.dataset.id;
 
-        // const root = document.querySelector(':root');
+        // const root = document.querySelector(':root'); //CSS선택자 루트에 접근.. css 선택자를 그대로 선택할 수 있다. 전역선언보다 스코프 안쪽 선언이 좀더 낫다. forEach에 의한 중복이나 메모리 등 이유..
 
-        root.style.setProperty(name, item.value);
+        root.style.setProperty(name, item.value); //:root의 스타일에 접근하여 setProperty(propertyName,value) (propertyName: CSS property 속성이름 수정할 것 / value : 속성에 할당할 값이 포함된 문자열)
+        //(`--main-bgColor`,input의 값-여기서는 클릭할때마다 변화하는값)
+        //여기서 setProperty는 style객체가 사용할 수 있는 메소드이고 인라인 css를 다루고, 표준속성이 아닌 속성을 다룰수 있다(*표준속성 = id같은 모든 요소에서 표준인 속성. 비표준 속성 = type같이 한 요소에서는 표준이지만 다른 요소에서는 표준이 아닌 속성). 참고 : setAttribute는 노드 객체가 사용할 수 있는 메소드. 
       });
     });
     // 콜백함수 item에는 input(inpPicker)이 하나씩 들어감

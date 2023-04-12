@@ -14,6 +14,7 @@
       <li><button class="btn-first" type="button">버튼1</button></li>
       <li><button type="button">버튼2</button></li>
       <li><button type="button">버튼3</button></li>
+      <input type="text" class="input">
     </ol>
   </article>
 
@@ -28,6 +29,15 @@
       console.log(event);
     });
     // 핸들러 콜백함수(event) 이름바꿔도 됨 임의로 설정 가능, 안에 넣어줌
+
+    const input = document.querySelector('.input');
+    input.addEventListener('keyup', (event) => {
+      console.log(event);
+    });
+
+    //이벤트 핸들러(이벤트 리스너/콜백함수/실행함수)의 매개변수는 evnet말고 e나 등 아무거나 와도 상관없음.
+    // console.log(evnet);의 경우 매개변수의 값을 넣어도 되지만, 매개변수값 없이 그냥 event만 해도 호출이 됨. 왜냐하면 event자체를 호출하는 것이기 때문.
+    // 이것때문에 헷갈렸음 ㅠ.
   </script>
 </body>
 

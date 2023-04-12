@@ -12,6 +12,10 @@
     <strong class="sayHi">
         반갑습니다.
     </strong>
+
+    <!-- 더 인접한곳(Adjacent)으로 정밀하게 배치하기
+    insertAdjacentHTML : 요소 노드를 대상의 인접한 주변에 배치합니다.
+    여기서 begin 이란 여는 태그를, end 란 닫는 태그를 의미 -->
     <script>
         const sayHi = document.querySelector('.sayHi');
         sayHi.insertAdjacentHTML('beforebegin', '<span>안녕하세요 저는</span>');
