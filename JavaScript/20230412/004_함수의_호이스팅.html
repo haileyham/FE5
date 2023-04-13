@@ -15,6 +15,52 @@
         // 중요한 포인트는 그렇다하여 호이스팅이 안된 것은 아니라는 것!
         // 오류가 나는 이유는 var 키워드는 선언과 함께 undefined로 초기화
         // let과 const는 초기화 되지 않는 상태로 선언만 메모리 저장
+
+        let foo = 1;
+        {
+            // 일시적 사각지대에 빠지기 때문
+            console.log(foo);
+            let foo = 2;
+        }
+
+        let a = 10
+        if (true) {
+            let a = 20
+            if (true) {
+                console.log(a)
+                let a = 30
+            }
+        }
+
+        console.log(add1(10, 20)); // 30
+        console.log(add2(10, 20)); // 30
+        console.log(mul1); // undefined
+
+        // console.log(mul1(10, 20)); // not a function
+        console.log(mul2); // Cannot access 'mul2' before initialization
+        // console.log(mul2(10, 20)); // 위와 같은 애러
+        // console.log(mul3) // mul3 is not defined, 호이스팅이 안되었기 때문
+        // console.log(test);
+        console.log(test2);
+
+        function add1(x, y) {
+            return x + y;
+        }
+
+        function add2(x, y) {
+            return x + y;
+        }
+
+        var mul1 = function (a, b) {
+            return a * b;
+        };
+
+        let mul2 = function (a, b) {
+            return a * b;
+        };
+
+        // let test = 100;
+        // var test2 = 100;
     </script>
 </body>
 </html>
