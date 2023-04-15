@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title></title>
+</head>
+
+<body>
+  <button id="btn1">클릭해봐요!</button>
+  <button id="btn2">클릭해봐요!</button>
+  <script>
+    let myObj = {
+      val1: 100,
+      func1: function () {
+        console.log(this);
+      },
+    };
+
+    let test = myObj.func1;
+
+    let button1 = document.getElementById("btn1");
+    button1.addEventListener("click", myObj.func1); // 버튼 1이 myObj.func1를 가지는게 아니고 같은 a(가상)라는 주소를 가리키게된 ..것
+    // btn1이 클릭되었을 때 myObj.func1에서 가르키고 있는 함수를 직접 실행하게 되었다.
+    let button2 = document.getElementById("btn2");
+    button2.addEventListener("click", test);
+    //사실상 test를 호출하는 객체가 button이 된것임
+    // myObj.func1와 test는 . func1을 호출하는 객체..각각 myObj 와 window가 this가 됨
+    //근데 써보면 각각의 button이 호출될까.. 버튼에 addEventListener 가 달려서 myObj.func1 와 test를 출력하는 애는 버튼이 되어버림..
+  </script>
+</body>
+
+</html>
