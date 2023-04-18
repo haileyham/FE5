@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    #app {
+  height: 100vh;
+  width: 100vw;
+  perspective: 1600px;
+  /* 깊이감. 입체감 소실점 */
+}
+
+.list-item {
+  position: fixed;
+  width: 340px;
+  height: 400px;
+  padding: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateX(0deg);
+  transform-style: preserve-3d;
+}
+
+.list-item li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #BDBDBD;
+  border-radius: 10px;
+  list-style: none;
+  backface-visibility: hidden;
+}
+
+/* 반지름 공식 : 원의 둘레 /2 / 3.14 */
+
+.list-item li:nth-child(1) {
+  transform: rotateY(0) translateZ(calc(360px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(2) {
+  transform: rotateY(calc(360deg/7)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(3) {
+  transform: rotateY(calc(360deg/7*2)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(4) {
+  transform: rotateY(calc(360deg/7*3)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(5) {
+  transform: rotateY(calc(360deg/7*4)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(6) {
+  transform: rotateY(calc(360deg/7*5)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+.list-item li:nth-child(7) {
+  transform: rotateY(calc(360deg/7*6)) translateZ(calc(340px * 7 / 2 / 3.14));
+}
+
+
+.list-item img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+  </style>
+  <title>pokemon</title>
+</head>
+
+<body>
+  <article id="app">
+    <h2>포켓몬 케러셀</h2>
+      <button class="prev-button">이전</button>
+  <button class="next-button">다음</button>
+    <ul class="list-item">
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/jammanbo.png" alt=""></li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/ev.png?raw=true" alt="">
+      </li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/mazayoung.png?raw=true" alt="">
+      </li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/mobugi.png" alt=""></li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/nyaong.png" alt=""></li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/pulin.png" alt=""></li>
+      <li><img src="https://raw.githubusercontent.com/nugurejeil/sharingPhoto/main/weirdseed.png" alt=""></li>
+    </ul>
+  </article>
+
+  <script>
+function slide(direction) {
+  const listItem = document.querySelector('.list-item');
+  const angle = 360 / listItem.children.length;
+  let rotation = parseFloat(listItem.dataset.rotation);
+  if (isNaN(rotation)) {
+    rotation = 0;
+  }
+  if (direction === 'prev') {
+    rotation += angle;
+  } else {
+    rotation -= angle;
+  }
+  listItem.style.transform = `translateZ(-1600px) rotateY(${rotation}deg)`;
+  listItem.dataset.rotation = rotation;
+}
+  </script>
+</body>
+
+</html>

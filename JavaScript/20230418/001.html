@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+  
+  <article class="parent">
+    <ol>
+      <li><button type="button" class="btn-first">버튼1</button></li>
+      <li><button type="button">버튼2</button></li>
+      <li><button type="button">버튼3</button></li>
+    </ol>
+  </article>
+
+  <script>
+
+    // const parent = document.querySelector('.parent');
+    // parent.addEventListener('click',(event)=>{
+    //   console.log(this);
+    //   console.log(event.currentTarget);
+    // })
+
+    const btnFirst = document.querySelector('.btn-first');
+
+    const myObj = {
+      namerObj : "testObj",
+      test(){
+        btnFirst.addEventListener('click',()=>{ //화살표함수는 this가 nameObj를 나타냄 / 상위스코프?
+          console.log(this);
+        })
+      }
+    };
+
+    
+    // const myObj = {
+    //   namerObj : "testObj",
+    //   test(){
+    //     btnFirst.addEventListener('click',function(){ //function은 버튼을 this가 버튼을 가리킴 btn-first을.
+    //       console.log(this);
+    //     })
+    //   }
+    // };
+
+    myObj.test();
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습</title>
+  <style>
+    html {
+      font-size: 10px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+    }
+
+    .custom-select {
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    /* 셀렉트 박스 */
+    .btn-select {
+      width: 20rem;
+      height: 4rem;
+      border-radius: 1rem;
+      border: 1px solid #c4c4c4;
+      background: #fff;
+      text-align: left;
+      padding: 0 1em;
+      position: relative;
+    }
+
+    .btn-select.on,
+    .btn-select:focus {
+      outline: none;
+      border-color: #fdd65f;
+      box-shadow: 0 0 0 3px #fff9e7;
+    }
+
+    /* 화살표 모양 */
+    .btn-select::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      margin-top: -0.5rem;
+      box-sizing: border-box;
+      border-top: 0.8rem solid #c4c4c4;
+      border-left: 0.5rem solid transparent;
+      border-right: 0.5rem solid transparent;
+      transition: transform 0.3s;
+    }
+
+    /* 활성화 시 화살표 회전 */
+    .btn-select.on::after {
+      transform: rotate(-180deg);
+    }
+
+    /* 리스트 */
+    .list {
+      position: absolute;
+      top: 4.8rem;
+      left: 0;
+      z-index: 1;
+      width: 20rem;
+      border: 1px solid #c4c4c4;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+
+      /* 변동값 */
+      display: none;
+    }
+
+    .btn-select.on+.list {
+      display: block;
+    }
+
+    .list li {
+      padding: 0.5rem 0.8rem;
+    }
+
+    .list button {
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      border-radius: 0.8rem;
+      height: 4rem;
+      background: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .list li button:hover,
+    .list li button:focus {
+      background-color: #fff3cf;
+    }
+
+    .list li button:focus {
+      outline: 2px solid #fdd65f;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <h3>셀렉트 박스 만들기</h3>
+  <div class="custom-select">
+    <button class="btn-select">최애 프로그래밍 언어</button>
+    <ul class="list">
+      <li><button type="button">Python</button></li>
+      <li><button type="button">Java</button></li>
+      <li><button type="button">JavaScript</button></li>
+      <li><button type="button">C#</button></li>
+      <li><button type="button">C/C++</button></li>
+    </ul>
+  </div>
+
+
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+    $(document).ready(function () {
+      const btn = $('.btn-select');
+      const list = $('.list');
+
+      btn.on('click', function () {
+        $(this).toggleClass('on');
+        list.slideToggle(500);
+      });
+
+      list.on('click', 'li button', function (e) {
+        const selectedValue = $(this).text();
+        btn.text(selectedValue);
+        btn.removeClass('on');
+        list.slideUp(500);
+      });
+    });
+  </script> -->
+  <!-- function (e) { ... }에서 e는 이벤트 객체를 나타내는 매개변수입니다. 그러나 이벤트 객체를 사용하지 않는다면, function () { ... }와 같이 e를 생략해도 됩니다.  -->
+
+  <!-- $(document).ready()는 jQuery에서 DOM(Document Object Model)이 완전히 로드되었을 때 실행되는 이벤트 핸들러입니다. 즉, 웹 페이지의 HTML 구조가 모두 로드되고 JavaScript 코드가 실행될 준비가 되었을 때, $(document).ready() 함수 내에 작성된 코드가 실행됩니다.
+
+이를 사용하는 이유는 웹 페이지에서 jQuery를 사용하는 경우, HTML 구조가 완전히 로드되기 전에 jQuery 코드가 실행될 경우 원하는 동작이 되지 않을 수 있기 때문입니다. $(document).ready() 함수를 사용하면, 웹 페이지의 HTML 구조가 완전히 로드된 후에 jQuery 코드가 실행되므로, 원활한 동작을 보장할 수 있습니다.
+
+위의 코드에서 $(document).ready() 함수는 웹 페이지의 로드가 완료되었을 때 실행되는 함수로, 버튼과 리스트 요소에 대한 jQuery 객체를 변수 btn과 list에 할당하는 역할을 수행합니다. -->
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+    integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script>
+
+    const btn = $('.btn-select');
+    const list = $('.list');
+
+    btn.on('click', function () {
+      $(this).toggleClass('on');
+      list.slideToggle(500);
+    });
+
+    list.on('click', 'li button', function () {
+      const selectedValue = $(this).text();
+      btn.text(selectedValue);
+      btn.removeClass('on');
+      list.slideUp(500);
+    });
+  </script>
+  <!-- list.on('click', 'li button', function (e) { ... }): 'list' 요소에 'click' 이벤트 핸들러를 등록하는 코드입니다. 'li' 요소 안의 'button' 요소가 클릭되었을 때 이벤트가 발생하도록 설정되어 있습니다. 이벤트 핸들러 함수는 'function (e) { ... }' 부분에 작성되어 있습니다. 'e'는 이벤트 객체로, 이벤트에 대한 정보를 포함하고 있습니다.
+
+const selectedValue = $(this).text();: 클릭된 'button' 요소의 텍스트 내용을 가져와서 'selectedValue'라는 변수에 저장하는 코드입니다. 'this'는 이벤트가 발생한 'button' 요소를 가리키는데, '$(this)'는 해당 'button' 요소를 jQuery 객체로 변환하는 것을 의미합니다. 'text()' 함수는 해당 요소의 텍스트 내용을 가져오는 jQuery 함수입니다.
+
+btn.text(selectedValue);: 'selectedValue' 변수에 저장된 텍스트 값을 버튼 요소의 텍스트 내용으로 설정하는 코드입니다. 'btn'은 앞서 선언한 버튼 요소를 나타내는 jQuery 객체입니다. 'text()' 함수를 사용하여 버튼 요소의 텍스트 내용을 변경합니다.
+
+btn.removeClass('on');: 버튼 요소에서 'on' 클래스를 제거하는 코드입니다. 'btn'은 앞서 선언한 버튼 요소를 나타내는 jQuery 객체이며, 'removeClass()' 함수를 사용하여 'on' 클래스를 제거합니다.
+
+list.slideUp(500);: 'list' 요소를 500ms의 시간을 갖고 위로 슬라이드 업(접힘)하는 코드입니다. 'list'는 앞서 선언한 리스트 요소를 나타내는 jQuery 객체이며, 'slideUp()' 함수를 사용하여 슬라이드 업 애니메이션을 적용합니다. '500'은 애니메이션의 속도를 나타내는 값으로, 500ms는 0.5초를 의미합니다. -->
+
+</body>
+
+</html>
