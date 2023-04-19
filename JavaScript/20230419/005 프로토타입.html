@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3</title>
+</head>
+
+<body>
+  <script>
+    function FoodPicker(foodNames) {
+      this.menu = foodNames;
+    }
+
+    FoodPicker.prototype.sayMenu = function () {
+      console.log(`삐삐리뽀. 오늘 메뉴는 ${this.menu[Math.floor(Math.random() * this.menu.length)]}입니다. 주인님.`);
+    }
+
+    let robot1 = new FoodPicker(['짜장면', '청국장', '김치찌게']);
+
+
+  </script>
+</body>
+
+</html>

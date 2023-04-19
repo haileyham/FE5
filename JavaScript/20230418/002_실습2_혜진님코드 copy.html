@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>실습</title>
+  <style>
+    html {
+      font-size: 10px;
+    }
+
+    ul,
+    li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      cursor: pointer;
+      border: none;
+    }
+
+    .custom-select {
+      position: relative;
+      padding-bottom: 0.8rem;
+    }
+
+    /* 셀렉트 박스 */
+    .btn-select {
+      width: 20rem;
+      height: 4rem;
+      border-radius: 1rem;
+      border: 1px solid #c4c4c4;
+      background: #fff;
+      text-align: left;
+      padding: 0 1em;
+      position: relative;
+    }
+
+    .btn-select.on,
+    .btn-select:focus {
+      outline: none;
+      border-color: #fdd65f;
+      box-shadow: 0 0 0 3px #fff9e7;
+    }
+
+    /* 화살표 모양 */
+    .btn-select::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: 1em;
+      margin-top: -0.5rem;
+      box-sizing: border-box;
+      border-top: 0.8rem solid #c4c4c4;
+      border-left: 0.5rem solid transparent;
+      border-right: 0.5rem solid transparent;
+      transition: transform 0.3s;
+    }
+
+    /* 활성화 시 화살표 회전 */
+    .btn-select.on::after {
+      transform: rotate(-180deg);
+    }
+
+    /* 리스트 */
+    .list {
+      position: absolute;
+      top: 4.8rem;
+      left: 0;
+      z-index: 1;
+      width: 20rem;
+      border: 1px solid #c4c4c4;
+      border-radius: 1rem;
+      background: #fff;
+      box-shadow: 4px 4px 14px rgba(0, 0, 0, 0.15);
+
+      /* 변동값 */
+      display: none;
+    }
+
+    .btn-select.on+.list {
+      display: block;
+    }
+
+    .list li {
+      padding: 0.5rem 0.8rem;
+    }
+
+    .list button {
+      width: 100%;
+      height: 100%;
+      text-align: left;
+      border-radius: 0.8rem;
+      height: 4rem;
+      background: #fff;
+      transition: background-color 0.3s;
+    }
+
+    .list li button:hover,
+    .list li button:focus {
+      background-color: #fff3cf;
+    }
+
+    .list li button:focus {
+      outline: 2px solid #fdd65f;
+    }
+  </style>
+</head>
+
+<body>
+
+
+
+
+  <h3>셀렉트 박스 만들기</h3>
+  <div class="custom-select">
+    <button class="btn-select">최애 프로그래밍 언어</button>
+    <ul class="list">
+      <li><button type="button">Python</button></li>
+      <li><button type="button">Java</button></li>
+      <li><button type="button">JavaScript</button></li>
+      <li><button type="button">C#</button></li>
+      <li><button type="button">C/C++</button></li>
+    </ul>
+  </div>
+
+
+
+  <!-- 꼼꼼하게 짜기 / 어떠한 것 기능 구현할 때 필요한 것들 최대한 다 생각+ 찾아보기 -->
+  <script>
+    // 셀렉트
+    const select = document.querySelector(".custom-select");
+    const btn = select.querySelector(".btn-select"); //select
+    const list = select.querySelector(".list"); //option
+    const optionList = list.querySelectorAll("button"); // option list
+    const firstOption = list.querySelector("button"); //option first button
+    const lastOption = optionList[optionList.length - 1]; //option last button
+
+    let selectOption = firstOption;
+
+    // select option 열기
+    const handleOpen = function () {
+      btn.classList.toggle("on");
+      // 선택된 option으로 포커스 이동
+      selectOption.focus();
+    };
+
+
+    // 다음 option으로 이동
+    const nextOption = function (e) {
+      e.preventDefault();
+      const next = e.target.closest("li").nextElementSibling;
+      if (next) {
+        next.querySelector("button").focus();
+      } else {
+        firstOption.focus();
+      }
+    };
+
+
+    // 이전 option으로 이동
+    const prevOption = function (e) {
+      e.preventDefault();
+      const prev = e.target.closest("li").previousElementSibling;
+      if (prev) {
+        prev.querySelector("button").focus();
+      } else {
+        lastOption.focus();
+      }
+    };
+
+
+    // 아래방향키 tab, 위쪽 방향키 shift + tab
+    const moveOption = function (e) {
+      // 아래쪽 방향키(↓)	40 / tab
+      if (e.keyCode === 40 || (!e.shiftKey && e.keyCode === 9)) {
+        nextOption(e);
+      }
+      // 위쪽 방향키(↑)	38 / shift + tab
+      if (e.keyCode === 38 || (e.shiftKey && e.keyCode === 9)) {
+        prevOption(e);
+      }
+    };
+
+    //e.keyCode는 JavaScript의 이벤트 객체(Event object)에서 키보드 이벤트의 키 코드(key code)를 나타내는 속성입니다. 키 코드는 키보드의 각 키에 대해 할당된 고유한 숫자 값으로 표현되며, 특정 키가 눌렸을 때나 떼어졌을 때 어떤 키인지를 식별하는 데 사용됩니다.
+
+// 예를 들어, e.keyCode 값이 13인 경우는 Enter 키가 눌렸을 때를 나타내며, 27인 경우는 Esc 키가 눌렸을 때를 나타냅니다. e.keyCode 속성은 오래된 방식의 키 코드이며, 현재는 권장되는 표준은 아니지만, 예전에는 널리 사용되었습니다.
+//위쪽 방향키: 38
+// 아래쪽 방향키: 40
+// 왼쪽 방향키: 37
+// 오른쪽 방향키: 39
+
+// 현대의 표준인 e.key 속성을 사용하면 키의 이름(예: "Enter", "Escape")을 문자열로 얻을 수 있어 더 가독성이 높고 향후 호환성도 더 좋습니다. e.key 속성은 더 자세한 정보를 제공하며, 더 많은 키의 이름을 지원합니다. 예를 들어, e.key를 사용하면 "ArrowUp", "ArrowDown", "Tab", "Space", "Backspace" 등의 키를 구별할 수 있습니다.
+
+//방향키(화살표 키)의 경우 e.key 속성을 사용하여 구별할 수 있습니다. 위로 이동하는 방향키의 경우 "ArrowUp" 값을 가지고 있습니다. 따라서 방향키 위로의 동작을 구현하려면 다음과 같이 코드를 작성할 수 있습니다:
+
+//if (e.key === "ArrowUp") {
+  // 방향키 위로의 동작 구현
+// }
+
+// 위쪽 방향키: "ArrowUp"
+// 아래쪽 방향키: "ArrowDown"
+// 왼쪽 방향키: "ArrowLeft"
+// 오른쪽 방향키: "ArrowRight"
+
+//"Deprecated"는 프로그래밍에서 특정 기능이 더 이상 권장되지 않고 더 이상 사용되지 않을 것임을 나타내는 용어입니다. Deprecated된 기능은 더 이상 새로운 개발에 사용되지 않고, 향후 버전에서 삭제될 수 있습니다.
+
+// 예를 들어, JavaScript의 e.keyCode는 현재 Deprecated되었습니다. 대신에 e.key나 e.code와 같은 새로운 키 이벤트 속성들이 권장되며, 이전에 e.keyCode를 사용하던 코드는 업데이트되어야 합니다. Deprecated된 기능을 계속 사용하면 미래에 호환성 문제가 발생할 수 있으므로, 가능하면 대체되는 새로운 기능을 사용하는 것이 좋습니다.
+
+
+
+  </script>
+
+
+</body>
+
+</html>
