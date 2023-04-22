@@ -23,6 +23,19 @@
       }
     }
 
+    //위의 코드는 클래스를 정의하는 코드입니다. class 키워드를 사용하여 Robot 클래스를 정의하였습니다. 이 코드 자체는 객체를 생성하지 않으며, 클래스의 정의만 포함하고 있습니다.
+
+    // 실제로 객체를 생성하기 위해서는 new 키워드를 사용하여 Robot 클래스의 생성자 함수를 호출해야 합니다.
+
+    const robot1 = new Robot('로봇1');
+    robot1.sayYourName(); // 삐리비리. 제 이름은 로봇1입니다. 주인님.
+
+    //constructor는 클래스가 인스턴스화될 때 호출되는 메소드입니다. 이 메소드는 인스턴스의 초기화를 담당하며, 인스턴스가 생성될 때 한 번만 호출됩니다. 보통 인스턴스 변수를 초기화하거나, 다른 초기화 작업을 수행하기 위해 사용됩니다.
+
+    // sayBabyName 메소드는 BabyRobot 클래스에서 정의된 인스턴스 메소드입니다. 이 메소드는 BabyRobot 클래스로 생성된 인스턴스에서 호출할 수 있으며, 인스턴스가 생성된 이후 언제든지 호출할 수 있습니다. 이 메소드는 해당 인스턴스에 대해 특정한 작업을 수행하도록 정의할 수 있습니다.
+
+
+
     class BabyRobot extends Robot {
       constructor(name) {
         super(name);
@@ -35,6 +48,8 @@
         console.log('Suceeding you, Father!');
       }
     }
+
+    // extends 키워드를 사용하여 BabyRobot 클래스가 Robot 클래스를 상속하도록 정의하고 있습니다. super() 키워드를 사용하여 부모 클래스인 Robot 클래스의 생성자 함수를 호출하고, this.ownName 속성을 추가하여 BabyRobot 클래스만의 속성을 정의하고 있습니다. 이렇게 하면 BabyRobot 클래스는 Robot 클래스가 가지고 있는 모든 속성과 메소드를 상속하면서, 추가적인 기능도 가지고 있게 됩니다.
 
 
     const babyRobot = new BabyRobot('재현');

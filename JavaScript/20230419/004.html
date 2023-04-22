@@ -20,6 +20,31 @@
     const jaehyun2 = new Jaehyun();
     const jaehyun3 = new Jaehyun();
   </script>
+
+
+  <script>
+    function Hailey(namee) {
+      this.age = 20;
+      this.name = namee;
+    }
+
+    Hailey.prototype.nickName = this.name;
+    const hailey = new Hailey('햄');
+  </script>
+
+
+<script>
+  function Hailey2(namee) {
+    this.age = 20;
+    this.nickName = namee;
+  }
+
+  Hailey2.prototype.nickName2 = function(){ //nickName2와 위의 nickName이름 같게하면 호출할때 위에꺼로됨;조심
+    console.log(`제 닉네임은 ${this.nickName}입니다`)
+  }
+
+  const hailey2 = new Hailey2('햄');
+</script>
 </body>
 
 </html>

@@ -20,7 +20,7 @@
 
     // console.log(arr.hasOwnProperty('name'));
 
-
+    //먼저 부모의 역할을 할 생성자 함수
     function Parent() {
       this.name = '재현';
     }
@@ -31,7 +31,7 @@
       console.log(this.name);
     }
 
-
+    //자식 역할의 생성자 함수
     function Child() {
       Parent.call(this);
     }
@@ -40,6 +40,71 @@
     Child.prototype.canWalk = function () {
       console.log('now i can walk!!');
     }
+
+
+    //위의 코드에서 call 함수는 Child 함수의 this가 Parent 생성자 함수의 this를 바라보게 만듭니다. 즉, Child 를 통해 생성된 인스턴스의 this 가 Parent 함수안의 프로퍼티에 접근할 수 있게합니다.
+
+    // 그리고 Object.create 함수는 주어진 인자를 Child.prototype에 연결하는 역할을 합니다. 즉 Parent 객체의 프로토타입을 Child 객체의 프로토타입이 참조하게 합니다.
+
+    // 위의 두 가지 과정을 통해 Child 객체는 Parent 객체의 모든 것을 상속받게 됩니다.
+
+
+
+    //이하 나중에 다시; 정확하지 않음;
+    // Parent.call(this)는 new 키워드를 사용하지 않고 Child 객체가 Parent 객체를 상속받는 방법 중 하나입니다. 일반적으로 new 키워드를 사용하여 객체를 생성하는 방법과는 약간 차이가 있습니다.
+
+    // new Parent()를 사용하여 Parent 객체를 생성하는 경우, Parent 객체 내부에서 this는 새로 생성된 Parent 객체를 참조하게 됩니다. 즉, Parent 함수 내부에서 this.name은 새로 생성된 Parent 객체의 name 프로퍼티를 설정하게 됩니다.
+
+    // 반면에 Parent.call(this)는 Child 객체가 생성될 때, Parent 함수 내부에서 this 키워드가 Child 객체를 참조하도록 하면서, Child 객체의 프로퍼티와 메소드가 Parent 객체로부터 상속되도록 하는 것입니다.
+
+    // 따라서, new Parent()와 Parent.call(this)는 비슷한 역할을 하지만, 내부적으로 약간 차이가 있습니다. Parent.call(this)는 명시적으로 this 키워드를 전달하여, Parent 함수 내부에서 this가 참조하는 값을 변경하는 방법으로 상속을 구현할 수 있습니다.
+
+
+    // new는 parent함수 내부를 참조하고 call은 child를 참조한다는거예요?
+    // 맞습니다! new Parent()는 Parent 함수 내부에서 this가 생성된 새로운 Parent 객체를 참조하도록 합니다. 반면에 Parent.call(this)는 Parent 함수 내부에서 this가 Child 객체를 참조하도록 합니다. 이렇게 Child 객체를 Parent 함수 내부에서 참조할 수 있게 되면, Parent 함수 내부에서 this를 이용하여 Child 객체의 프로퍼티나 메소드에 접근할 수 있게 됩니다. 이렇게 Child 객체가 Parent 객체로부터 상속받을 수 있게 되는 것입니다.
+
+
+
+    //new를 이용해서 생성된 객체는 생성자 함수의 프로토타입을 상속받습니다. 따라서 new를 이용해서 생성된 객체도 프로토타입 체인을 통해 상위 객체의 프로퍼티와 메소드를 사용할 수 있습니다.
+
+    // 하지만 new를 이용해서 생성된 객체와 call을 이용해서 생성된 객체는 생성 방식과 상속 방식이 다르기 때문에, 사용하는 방법이 조금 다를 수 있습니다. new를 이용해서 생성된 객체는 생성자 함수 내부에서 this를 이용하여 객체를 초기화하고, call을 이용해서 생성된 객체는 명시적으로 this를 지정하여 객체를 초기화합니다. 또한, new를 이용해서 생성된 객체는 생성자 함수의 프로토타입을 상속받으며, call을 이용해서 생성된 객체는 Parent 함수의 프로토타입을 상속받게 됩니다.
+
+
+
+    //let robot = new Parent()이면?그건 어디참조해요?
+    //let robot = new Parent()는 Parent 생성자 함수를 이용하여 robot이라는 객체를 생성하는 것입니다. 따라서 robot 객체는 Parent 생성자 함수의 프로토타입을 상속받게 됩니다. 이후에 robot 객체를 이용하여 rename 메소드와 sayName 메소드를 호출할 수 있습니다.
+    //robot은 Parent 생성자 함수를 참조합니다. Parent 생성자 함수를 이용하여 robot 객체가 생성되었기 때문입니다. 따라서 robot 객체는 Parent 생성자 함수의 프로토타입을 상속받게 되어 rename 메소드와 sayName 메소드를 호출할 수 있습니다.
+
+
+
+
+    //call() 메소드는 JavaScript에서 함수를 호출할 때 사용하는 메소드 중 하나입니다.
+    // call() 메소드를 사용하면, 특정 객체를 함수 내부에서 this로 참조할 수 있습니다.즉, call() 메소드를 호출하는 함수 내부에서 this 키워드를 사용할 때, call() 메소드의 첫 번째 인자로 전달된 객체가 this를 참조하게 됩니다.
+
+    // 예를 들어, 다음과 같은 코드가 있다면:
+
+    function sayHello() {
+      console.log(`Hello, ${this.name}!`);
+    }
+
+    const person = { name: 'Alice' };
+    sayHello.call(person);
+
+    // call() 메소드를 사용하여 sayHello() 함수를 호출하면, sayHello() 함수 내부에서 this.name이 호출될 때 person 객체의 name 프로퍼티가 참조되어, 콘솔에 Hello, Alice!가 출력됩니다.
+
+    // call() 메소드는 첫 번째 인자로 전달된 객체를 this로 참조하는 함수를 호출할 수 있습니다.두 번째 인자부터는 호출할 함수에 전달할 인자를 전달할 수 있습니다.
+
+
+
+
+
+
+        // 자바스크립트의 타입들은 기본적으로 Object 타입을 상속받고 있습니다. 
+        console.log(Array.prototype.__proto__ === Object.prototype);
+    console.log(Number.prototype.__proto__ === Object.prototype);
+    console.log(String.prototype.__proto__ === Object.prototype);
+    console.log(Math.__proto__ === Object.prototype);
+
   </script>
 </body>
 
