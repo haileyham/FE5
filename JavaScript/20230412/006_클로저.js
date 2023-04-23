@@ -8,25 +8,26 @@
 */
 function 제곱(x) {
   function 승수(y) {
-      return y ** x
+    return y ** x
   }
   return 승수
 }
 
 let 제곱2 = 제곱(2) // 2 제곱해주는 함수
+// 인자로 2를 전달하여 제곱 함수를 호출하고, 그 결과로 반환된 승수 함수를 제곱2 변수에 할당
 let 제곱3 = 제곱(3) // 3 제곱해주는 함수
 let 제곱4 = 제곱(4) // 4 제곱해주는 함수
 
-제곱2(2)
+제곱2(2) // 제곱2 함수를 호출하며, 인자로 10을 전달하여 10의 2제곱 값을 반환받음
 제곱2(3)
 제곱2(4)
 
 console.log(제곱(2)(4))
 
 // 함수를 리턴해줄 수 있음을 나타내는 예제
-function 리턴함수(){
-  function sum(a, b){
-      return a + b
+function 리턴함수() {
+  function sum(a, b) {
+    return a + b
   }
   return sum
 }
@@ -37,9 +38,9 @@ let 합 = 리턴함수()
 /////
 function makeAdder(x) {
   var y = 1;
-  return function(z) {
-      y = 100;
-      return x + y + z;
+  return function (z) {
+    y = 100;
+    return x + y + z;
   };
 }
 
@@ -55,10 +56,19 @@ console.log(add10(2)); // 112 (x:10 + y:100 + z:2)
 //함수가 수행된 이후에도 상위함수의 렉시컬 환경에 접근 가능
 
 
+//데이터를 은닉화하는 이유는 보안과 코드 안정성을 위해서입니다.
+
+// 예를 들어, 사용자 정보를 포함한 데이터가 프로그램 내부적으로 사용될 때, 해당 데이터를 외부에서 직접 접근하는 것을 막아야 합니다. 이는 사용자 정보가 악의적인 목적으로 노출되는 것을 방지하고, 코드 안정성을 유지하기 위함입니다.
+
+// 또한, 데이터를 은닉화하면 코드의 유지보수를 쉽게 할 수 있습니다. 클로저를 사용하여 변수를 은닉화하면, 외부에서 변수에 직접 접근하는 것을 막을 수 있으므로, 변수에 대한 의존성을 줄이고 코드의 유지보수성을 높일 수 있습니다.
+
+// 따라서, 데이터를 은닉화하여 접근을 제어하는 것은 안전하고 유지보수성이 높은 프로그래밍을 위해 필수적인 기술입니다.
+
+
 function 승수제조기() {
   let value = 0;
   function 승수() {
-      return ++value ** 2
+    return ++value ** 2
   }
   return 승수
 }
@@ -78,10 +88,10 @@ let 승 = 승수제조기();
 var outer = function () {
   var a = 1;
   var inner = function () {
-      var b = 5;
-      var c = 6;
-      a = a + b + c;
-      console.log(a);
+    var b = 5;
+    var c = 6;
+    a = a + b + c;
+    console.log(a);
   };
   inner();
 };
@@ -92,10 +102,10 @@ outer();
 var outer = function () {
   var a = 1;
   var inner = function () {
-      var b = 5;
-      var c = 6;
-      a = a + b + c;
-      console.log(a);
+    var b = 5;
+    var c = 6;
+    a = a + b + c;
+    console.log(a);
   };
   return inner;
 };
@@ -109,17 +119,17 @@ var person = (function () {
   var age = 15;
 
   return {
-      name: "wade",
+    name: "wade",
 
-      getAge: function () {
-          console.log(age);
-          return age;
-      },
+    getAge: function () {
+      console.log(age);
+      return age;
+    },
 
-      setAge: function (val) {
-          age = val;
-          console.log(age);
-      }
+    setAge: function (val) {
+      age = val;
+      console.log(age);
+    }
   }
 })();
 
@@ -134,7 +144,7 @@ person.getAge();
 
 function 제곱(x) {
   function 승수(y) {
-      return y ** x
+    return y ** x
   }
   return 승수
 }

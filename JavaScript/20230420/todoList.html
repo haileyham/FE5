@@ -74,7 +74,7 @@ manager.getLeftTodoCount();
       }
 
       addItem(item, finishied = false){ //얘가 할 것의 인스턴스를 받을거임
-        const todo = new Todo(item, finishied);
+        const todo = new Todo(item, finishied); //위의 class Todo받아옴/인자는 여기 addItem의 파라미터 사용
         this.todoList.push(todo); //addItem실행시키면 constructor의 this.todoList에 집어넣기
       }
 
