@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  
+  <script>
+    'use strict';
+
+    class UserStorage{
+
+      serachUser(){
+        const xhr = new XMLHttpRequest();
+        xhr.open('GET', 'users.json') //통신방법, 받아올주소
+        xhr.onreadystatechange = () => {
+          if(xhr.readyState === 4 && xhr.status === 200){
+            const result = JSON.parse(xhr.responseText);
+            console.log(result);
+          }
+        }
+        xhr.send();
+      }
+
+      sayHi(){
+
+      }
+    }
+    const userStorage = new UserStorage();
+    userStorage.serachUser();
+  </script>
+</body>
+</html>

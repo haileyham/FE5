@@ -1,0 +1,16 @@
+{
+  "greetings": [
+    {
+      "userName": "hailey",
+      "greetings": "만나서 반가워"
+    },
+    {
+      "userName": "ham",
+      "greetings": "반갑습니다람쥐"
+    },
+    {
+      "userName": "hyemin",
+      "greetings": "반갑습니다람쥐라기월드"
+    }
+  ]
+}
