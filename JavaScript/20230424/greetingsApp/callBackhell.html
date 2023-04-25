@@ -13,7 +13,7 @@
 
     class UserStorage{
 
-      serachUser(){
+      searchUser(){
         const xhr = new XMLHttpRequest();
         xhr.open('GET', 'users.json') //통신방법, 받아올주소
         xhr.onreadystatechange = () => {
@@ -30,7 +30,7 @@
       }
     }
     const userStorage = new UserStorage();
-    userStorage.serachUser();
+    userStorage.searchUser();
   </script>
 </body>
 </html>
