@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>리액트 1분만에 추가해보기!</title>
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script> 
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+  </head>
+  <body>
+    <h1>내 html에 리액트 1분만에 추가해보기!</h1>
+    <p>단 1분만에 설치없이 리액트를 추가할 수 있다구요?</p>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        function HelloButton(props) {
+            const [text, setText] = React.useState('Hello');
+
+            function handleClickButton() {
+                setText('Hello World');
+            }
+
+            return (
+                <button onClick={handleClickButton}>
+                    {text}
+                </button>
+            );
+        }
+
+        const app = (
+            <div>
+                <HelloButton/>
+                <HelloButton/>
+                <HelloButton/>
+                <HelloButton/>
+                <HelloButton/>
+            </div>
+        ); //JSX 안에 React 문법
+
+        // DOM에 리액트 컴포넌트 랜더링하기
+        const domContainer = document.querySelector('#root');
+        ReactDOM.render(app, domContainer);
+
+
+        //리액트는 사용자로 하여금 DOM 을 만질일을 최소한으로 만들어줌 / DOM 과 interaction할수잇도록 도와줌
+        //SPA(Single-page Application) : 하나의 웹 document만 업로드. HTML안의 content를 업데이트 할 때 // HTML배제하고 JS로 cover친다
+
+        //원래 : HTML 새페이지 들어갈때 화면 번쩍거림/화면에 전체다 로딩해야함
+        //장점 : 싱글페이지 어플리케이션은 화면 하나여서 리로딩 할 필요 없음
+        //단점 : ppt슬라이드 바뀌는느낌, 초기 로딩 속도 증가
+
+        //open API 누구나 사용할 수 있는 Application Programming Interface
+        
+    </script>
+  </body>
+</html>
