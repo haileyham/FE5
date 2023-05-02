@@ -10,7 +10,7 @@ const vendingMachineEvents = new VendingMachineEvents();
 
 
 //걍 결론은 콜라버튼 리스트들은 데이터를 받아와야하는 애들이니까 / 애초에 데이터를 가지고있는 애들이 btn-cola 얘네 / 다른애들은 데이터 처리가 안돼도 상관없는 애들
-await colaGenerator.setup();
+await colaGenerator.setup(); //setup() 다했을때 호출되도록
 vendingMachineEvents.bindEvent();
 
 // (async function(){
