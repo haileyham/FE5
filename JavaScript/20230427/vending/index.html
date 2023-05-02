@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>콜라 자판기</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <h1><img src="./img/cola-logo.png" alt="cola cola" /></h1>
+
+    <main>
+      <!-- section 1 -->
+      <section class="section1">
+        <h2 class="a11y-hidden">판매 음료</h2>
+        <ul class="cola-list">
+          <!-- <li>
+          <button disabled class="btn-cola" type="button">
+            <img class="cola-img" src="./img/cola-violet.png" alt="">
+            <span class="cola-name">Violet_Cola</span>
+            <strong class="cola-price">1000원</strong>
+            <strong class="soldout">
+              <span>품절</span>
+            </strong>
+          </button>
+        </li> -->
+        </ul>
+        <div class="container">
+          <div class="bg-box">
+            <h2 class="title">잔액</h2>
+            <p></p>
+          </div>
+          <button class="btn" type="button">거스름돈 반환</button>
+
+          <label for="input-money" class="a11y-hidden"
+            >금액 투입(단위:원)</label
+          >
+          <input
+            id="input-money"
+            value="10000"
+            min="1000"
+            step="1000"
+            type="number"
+            placeholder="입금액 입력"
+          />
+          <button class="btn" type="button">입금</button>
+
+          <h2 class="a11y-hidden">장바구니</h2>
+          <ul class="get-list">
+            <!-- <li>
+            <img src="./img/cola-original.png" alt="">
+            Original_Cola
+            <strong>1
+              <span class="a11y-hidden">개</span>
+            </strong>
+          </li>
+          <li>
+            <img src="./img/cola-green.png" alt="">
+            Green_Cola
+            <strong>2
+              <span class="a11y-hidden">개</span>
+            </strong>
+          </li> -->
+          </ul>
+          <button class="btn-get" type="button">획득</button>
+        </div>
+      </section>
+      <!-- //section 1 -->
+      <section class="section2">
+        <div class="bg-box">
+          <h2 class="title">소지금</h2>
+          <p><strong>25,000원</strong></p>
+        </div>
+      </section>
+      <section class="section3">
+        <h2 class="get-title">획득한 음료</h2>
+        <ul class="get-list">
+          <!-- <li>
+          <img src="./img/cola-original.png" alt="">
+          Original_Cola
+          <strong>1
+            <span class="a11y-hidden">개</span>
+          </strong>
+        </li>
+        <li>
+          <img src="./img/cola-green.png" alt="">
+          Green_Cola
+          <strong>2
+            <span class="a11y-hidden">개</span>
+          </strong>
+        </li>
+        <li>
+          <img src="./img/cola-orange.png" alt="">
+          Orange_Cola
+          <strong>1
+            <span class="a11y-hidden">개</span>
+          </strong>
+        </li>
+        <li>
+          <img src="./img/cola-violet.png" alt="">
+          Violet_Cola
+          <strong>5
+            <span class="a11y-hidden">개</span>
+          </strong>
+        </li> -->
+        </ul>
+        <p class="total-price">총금액 : 원</p>
+      </section>
+    </main>
+
+    <!-- 자바스크립트를 모듈화 해주기 위한 타입 설정 -->
+    <script type="module" src="js/index.js"></script>
+    <!-- module 타입 설정해줘야 export import 가능
+  * 쓰는이유 : 
+  (1)모듈 사용 안하면 각 개별의 script간에 참조가 계속 됨
+  웹페이지 로딩때 안쓰는 기능들도 같이 되어서 성능상 이슈 발생/기능들 중에 필요한 것들만 가져오기 위해서 사용
+  참고) https://cocoder16.tistory.com/55 
+
+  (2)캡슐화 : 객체안의 변수,메소드들 접근 못하게 하는 것
+  > 각 모듈은 다른 모듈 접근X
+  > 우리가 가능했던 이유는 index.js 에서 함께 불러서 연결했기 때문임!
+  (3)정보은닉 : 객체에 대한 정보들을 노출시키지 X (정보은닉의 한 종류로 캡슐화가 있고 그게 바로 module임. 이러한 이점때문에 모듈 사용함)
+  참고) https://inpa.tistory.com/entry/OOP-%EC%BA%A1%EC%8A%90%ED%99%94Encapsulation-%EC%A0%95%EB%B3%B4-%EC%9D%80%EB%8B%89%EC%9D%98-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4 -->
+
+    <!-- <li>
+    <button disabled class="btn-cola" type="button">
+        <img class="cola-img" src="./img/cola-violet.png" alt="">
+        <span class="cola-name">Violet_Cola</span>
+        <strong class="cola-price">1000원</strong>
+        <strong class="soldout">
+            <span>품절</span>
+        </strong>
+    </button>
+</li> -->
+  </body>
+</html>
