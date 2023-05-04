@@ -1,0 +1,169 @@
+/* reset */
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.a11y-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+}
+
+body{
+  margin:0;
+  height:5000px;
+  background: linear-gradient(to bottom, rgb(252, 189, 181), rgb(87, 28, 223));
+}
+
+svg{
+  position:fixed;
+  top:50%;
+  width:100%;
+  transform: translateY(-50%);
+}
+
+path{
+  fill:none;
+  stroke: white;
+  stroke-width: 5px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+
+
+
+.btn-open {
+  width: 100px;
+  height: 36px;
+  border-left:10px;
+  border-radius: 40px;
+
+  border: 0;
+  background-color: #fdbfbd;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+
+  position:fixed;
+  top:30%;
+  left:50%;
+  opacity: 0;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-open:disabled{
+  color:transparent;
+  background: transparent;
+  border-color: transparent;
+  cursor: auto;
+}
+
+.btn-open:hover{
+  background-color: #ff9490;
+}
+
+.btn-open.scroll{
+  opacity: 1;
+}
+
+
+.popup {
+  width: 100%;
+  height: 240px;
+  background-color: #fdbeb9f3;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 20px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.2);
+
+  position:fixed;
+  
+  z-index: 10; 
+  /* popup을 dim 배경보다 앞으로 내놓기위해서 */
+  transform: translateY(-200px);
+  opacity: 0;
+  transition:all 0.7s;
+}
+
+.popup.active,
+.popup.active + .dim{
+  transform: translateY(0px);
+  opacity: 1;
+  display:block;
+}
+/* popup이랑 dim함께 block되도록 / popup의 opacity 0 > 1되도록 */
+
+
+/* 검은배경 */
+.dim{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:100vh;
+  background-color: rgba(10, 10, 10, 0.589);
+  display:none;
+}
+
+.menu li {
+  border-bottom: 1px solid #fff;
+  border-radius: 10px;
+  text-align: center;
+}
+.menu li a {
+  display: block;
+  padding: 10px;
+  color:white;
+}
+
+.menu li:hover{
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+}
+.menu li a:hover{
+  color:rgb(250, 27, 64);     
+}
+
+.menu li a:focus{
+  outline: rgb(124, 68, 64);
+  border: 3px solid #fff;
+  border-radius: 10px;
+  background: #fff;
+  color:rgb(250, 27, 64);     
+}
+/* 키보드로 움직일때 focus 기본은 outline :black; 으로 되어있음*/
+
+
+.btn-close {
+  border: 0;
+  background-color: white;
+  width:24px;
+  height:24px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  position:absolute;
+  /* 상위에서 스태틱이 아닌게 있으면 따라감
+  여기서는 popup따라감 */
+  top:10px;
+  right:10px;
+}
+
+.btn-close img{
+  width:100%;
+  display:block;
+}
