@@ -1,0 +1,18 @@
+.list-area{
+  padding:0;
+  list-style:none;
+}
+
+.list-area-item{
+  border:1px solid black;
+}
+
+.list-area-item+.list-area-item{
+  border-top:none;
+}
+/* 앞에 border값있는 애들 top없애주기 2-4번째 */
+
+.list-area-item.active{
+  background-color: royalblue;
+  color:aliceblue;
+}

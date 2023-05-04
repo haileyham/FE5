@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>위니브 샵</title>
+    <link rel="stylesheet" href="./src/style/reset.css" />
+    <link rel="stylesheet" href="./src/style/style.css" />
+  </head>
+
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      //이거 React 해야... 바벨은 새로 나온 문법을 구식 JavaScript로 바꿔줘서 크로스 브라우징이 잘 되게 해줌
+      const data = [
+        {
+          id: 1,
+          productName: "버그를 Java라 버그잡는 개리씨 키링 개발자키링 금속키링",
+          price: 12500,
+          stockCount: 100,
+          thumbnailImg: "asset/img/1/thumbnailImg.jpg",
+          option: [],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/2/detail1.png",
+            "asset/detail/2/detail2.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 2,
+          productName: "우당탕탕 라이캣의 실험실 스티커 팩",
+          price: 3500,
+          stockCount: 1000,
+          thumbnailImg: "asset/img/2/thumbnailImg.jpg",
+          option: [],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/2/detail1.png",
+            "asset/detail/2/detail2.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 3,
+          productName: "딥러닝 개발자 무릎 담요",
+          price: 17500,
+          stockCount: 0,
+          thumbnailImg: "asset/img/3/thumbnailImg.jpg",
+          option: [],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/3/detail1.png",
+            "asset/detail/3/detail2.png",
+            "asset/detail/3/detail3.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 4,
+          productName: "네 개발잡니다 개발자키링 금속키링",
+          price: 13500,
+          stockCount: 100,
+          thumbnailImg: "asset/img/4/thumbnailImg.jpg",
+          option: [],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/4/detail1.png",
+            "asset/detail/4/detail2.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 5,
+          productName: "Hack Your Life 개발자 노트북 파우치",
+          price: 36000,
+          stockCount: 230,
+          thumbnailImg: "asset/img/5/thumbnailImg.jpg",
+          option: [
+            {
+              id: 1,
+              optionName: "13인치",
+              additionalFee: 0,
+            },
+            {
+              id: 2,
+              optionName: "15인치",
+              additionalFee: 1000,
+            },
+          ],
+          discountRate: 19,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/5/detail1.png",
+            "asset/detail/5/detail2.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 6,
+          productName: "[NEW] 위니브 개발자, 캐릭터 스티커팩 2종",
+          price: 5500,
+          stockCount: 1000,
+          thumbnailImg: "asset/img/6/thumbnailImg.jpg",
+          option: [
+            {
+              id: 1,
+              optionName: "위니브 개발자 스티커팩",
+              additionalFee: 0,
+            },
+            {
+              id: 2,
+              optionName: "위니브 프랜즈 스티커팩",
+              additionalFee: 0,
+            },
+            {
+              id: 3,
+              optionName: "스티커팩 세트(개발자+프렌즈)",
+              additionalFee: 5000,
+            },
+          ],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/6/detail1.png",
+            "asset/detail/6/detail2.png",
+            "asset/detail/6/detail3.png",
+            "asset/detail/6/detail4.png",
+            "asset/detail/6/detail5.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+        {
+          id: 7,
+          productName: "제주코딩베이스캠프 코딩 연습장 세트",
+          price: 8000,
+          stockCount: 1000,
+          thumbnailImg: "asset/img/7/thumbnailImg.jpg",
+          option: [],
+          discountRate: 0,
+          shippingFee: 1500,
+          detailInfoImage: [
+            "asset/detail/7/detail1.png",
+            "asset/detail/7/detail2.png",
+          ],
+          viewCount: 0,
+          pubDate: "2022-02-28",
+          modDate: "2022-02-28",
+        },
+      ];
+
+      /**
+       * 1. 리액트 컴포넌트(Component)란?
+  - 리액트로 만들어진 앱을 이루는 최소한의 단위
+  - 기존의 웹 프레임워크는 MVC방식으로 분리하여 관리하여 각 요소의 의존성이 높아 재활용이 어렵다는 단점이 있었다. 반면 컴포넌트는 MVC의 뷰를 독립적으로 구성하여 재사용을 할 수 있고 이를 통해 새로운 컴포넌트를 쉽게 만들 수 있다.
+  - 컴포넌트는 데이터(props)를 입력받아 View(state) 상태에 따라 DOM Node를 출력하는 함수.
+  - 컴포넌트 이름은 항상 대문자로 시작하도록 한다. 
+  (리액트는 소문자로 시작하는 컴포넌트를 DOM 태그로 취급하기 때문이다.
+  - UI를 재사용 가능한 개별적인 여러 조각으로 나누고, 각 조각을 개별적으로 나누어 코딩한다.
+  - “props”라고 하는 임의의 입력을 받은 후, 화면에 어떻게 표시되는지를 기술하는 React 엘리먼트를 반환한다.
+ **/
+        /**맨 밑에서부터 코드 읽기!!!**/
+
+      const Card = function (props) { //props 프로퍼티 인자로, 밑의 Product의 goods={props.item[0]}가 들어오고있음 //props를 인자로 받으며, 이 props 객체 안에 goods라는 키(key)를 가진 속성(property)이 있음.
+        // Card 컴포넌트를 정의하는 함수
+        console.log(props.goods); // Card 컴포넌트의 props로 전달된 goods 속성을 콘솔에 출력합니다.
+        const url = "http://test.api.weniv.co.kr/" + props.goods.thumbnailImg; //상품 이미지를 가져오기 위해 API 주소와 props.goods 객체의 thumbnailImg 속성을 결합
+        return (
+          // Card 컴포넌트가 반환할 JSX 코드입니다. 이 코드는 각각의 상품을 나타내는 카드를 생성
+          <li class="product-item">
+            <div class="product-img">
+              <img src={url} />
+            </div>
+            <strong class="product-name sl-ellipsis">
+              {props.goods.productName}
+            </strong>
+            {/*{} 기호 안에 있는 props.goods.productName은 Card 컴포넌트에 goods라는 이름으로 전달된 속성(props)을 사용합니다. props.goods는 props.item[0]과 같이 Product 컴포넌트에서 item이라는 이름으로 전달된 속성(props)의 첫번째 요소를 가리킵니다.
+
+따라서 {props.goods.productName}은 해당 Card 컴포넌트의 상품명을 표시하는 것입니다.*/}
+            <button class="like-btn"></button>
+            <div class="product-price">
+              <strong class="price m-price">
+                {props.goods.price}
+                <span>원</span>
+              </strong>
+            </div>
+          </li>
+        );
+      };
+
+      //밑에 불러올 때 props라는 키를 전달받음
+      const Product = function (props) {//props 프로퍼티 인자로, 밑의 body의 item={data}가 들어오고있음 // 잉? 그렇다면 props에 객체가 생성됐다는 것인가
+        // Product 컴포넌트를 정의하는 함수
+        //Product 컴포넌트가 받는 모든 속성(속성 이름과 값)을 포함하는 객체입니다. props 객체가 비어있는지 여부는 전달된 속성이 없는지 여부에 따라 다릅니다. 만약 item 속성이 없는 경우 props 객체에는 item 속성이 없을 뿐 다른 속성이 있을 수 있습니다. 따라서 props 객체가 비어있는지 여부를 판단하려면 전달된 속성이 있는지 여부를 확인
+        //props는 객체입니다. 객체는 중괄호({})로 감싸져 있는 키(key)와 값(value)의 쌍으로 이루어져 있으며, 이 경우 item이라는 키가 존재하고 해당 값으로 data가 할당되어 있습니다. 따라서 props.item으로 data 배열에 접근할 수 있습니다.
+        console.log(props); //{item: Array(7)} //Product 컴포넌트의 props로 전달된 item 속성을 콘솔에 출력
+        return (
+          // Product 컴포넌트가 반환할 JSX 코드입니다. 이 코드는 Card 컴포넌트를 사용하여 모든 상품 카드를 나열하는 상품 목록을 생성
+          <main class="product">
+            <ul class="product-list">
+              <Card goods={props.item[0]} />
+              {/*props 객체 내부의 item 배열에서 첫 번째 요소를 추출하여, goods라는 이름의 프로퍼티로 Card 컴포넌트에 전달하는 역할 //즉, Product 컴포넌트에서 item이라는 이름의 프로퍼티를 받아와서 이를 Card 컴포넌트에 전달하면서, 배열의 첫 번째 항목을 goods라는 이름으로 전달하게 됩니다.
+              Card 호출하고 있는데 인자로 goods={props.item[0] 넣고있음*/}
+              <Card goods={props.item[1]} />
+              <Card goods={props.item[2]} />
+              <Card goods={props.item[3]} />
+              <Card goods={props.item[4]} />
+              <Card goods={props.item[5]} />
+              <Card goods={props.item[6]} />
+            </ul>
+          </main>
+        );
+      };
+      /**
+       * goods가 props의 키 값으로 들어가 있음
+       * Product 안에서 console.log로 props로 찍어보면, 키 값으로 item 들어가고
+       * Card에서 찍어보면, goods가 키 값으로 들어가있음
+       **/
+
+      // item이라는 키와 데이터 값을 가진 객체 형태로 전달
+      const body = (
+        <div>
+          <h1>위니브 상점</h1>
+          {/*함수로 선언된 컴포넌트는 태그처럼 꺽쇠(<>)로 묶이고, 변수로 선언된 것들은 중괄호({})로 묶임. 중괄호 안에는 JavaScript 표현식이 그대로 들어갈 수 있음*/}
+          <Product item={data} />
+          {/*Product 컴포넌트를 호출하고 그 안에 item이라는 이름으로 data를 전달하고 있습니다. 이렇게 전달된 item은 Product 컴포넌트 내부에서 props.item으로 사용됩니다.
+            >>그래서 원래 함수호출해서 (인자) 인자 넣어서 위의 프로퍼티에 인자로 item={data}가 들어간 것임.
+          Product 컴포넌트에 item이라는 이름의 props를 전달하며, 해당 props 값으로 data를 전달하는 것을 의미. 예를 들어 배열 형태로 선언되어 있다면, Product 컴포넌트에서는 item props를 통해 해당 배열을 전달받아 사용할 수 있음.   item에 data // 객체 이름으로 item 우리가 쓴 것임.*/}
+        </div>
+      );
+      // item 키, 값 전체를 props에 줬다는 뜻
+
+      const domContainer = document.querySelector("#root"); //웹 페이지에서 id가 root인 요소를 선택
+      const root = ReactDOM.createRoot(domContainer); //domContainer를 렌더링할 root React 루트를 생성
+      root.render(body); //body를 root에 렌더링합니다. 따라서 상품 목록이 웹 페이지에 표시
+      //React에서 사용하는 가상 DOM도 실제 DOM 내용에 기반하여 만들어진다. 그런데 왜 Virtual DOM을 사용해야 할까? 왜냐하면 실제 DOM에는 브라우저가 화면을 그리는데 필요한 모든 정보가 들어있어 실제 DOM을 조작하는 작업이 무겁기 때문이다. 그래서React에서는 실제 DOM의 변경 사항을 빠르게 파악하고 반영하기 위해서 내부적으로 가상 DOM을 만들어서 관리한다. 쉽게 말해서, Virtual DOM은 DOM의 요약본이라고 볼 수 있다.
+    </script>
+  </body>
+</html>
