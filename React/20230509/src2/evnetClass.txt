@@ -1,0 +1,169 @@
+https://paullabworkspace.notion.site/8-React-3f877128c0e644c29b4f25668def2cbc
+//React에서 이벤트 처리하기
+
+
+//이벤트 사용하기
+/* eslint-disable */
+//경고창 사라져줌(안쓴함수들 알려주는거 안뜨게함. 초보자일때는 일단 하는게 중요하기에 꺼두고해버리장~)
+
+function App() {
+  const handleOnMouseEnter = () => {
+    console.log("안녕하세요!");
+  };
+
+  const handleOnMouseLeave = () => {
+    console.log("안녕히가세요!");
+  };
+
+  return (
+    <div>
+      <p 
+        onMouseEnter={handleOnMouseEnter} 
+        onMouseLeave={handleOnMouseLeave}
+      >
+        여기에 마우스를 올려보세요!
+      </p>
+    </div>
+  );
+}
+
+export default App;
+//useState 쓰는 이유 리렌저링 빠르게 되려고 사용
+//submit은 번쩍번쩍
+//ajax로 통신하면 화면 번쩍임이 없이 정상적으로 통신가능
+
+
+
+
+
+
+//상태 관리(useState) + 이벤트 사용하기
+import { useState } from "react";
+
+function App() {
+  const [message, setMessage] = useState("여기를 주목하세요");
+
+  const handleOnMouseEnter = () => {
+    setMessage("안녕하세요!");
+  };
+
+  const handleOnMouseLeave = () => {
+    setMessage("안녕히가세요!");
+  };
+
+  return (
+    <div>
+      <p 
+        onMouseEnter={handleOnMouseEnter} 
+        onMouseLeave={handleOnMouseLeave}
+      >
+        여기에 마우스를 올려보세요!
+      </p>
+      <div>{message}</div>
+    </div>
+  );
+}
+
+export default App;
+
+
+
+
+
+//이벤트 사용하기
+import { useState } from "react";
+
+function App() {
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+  };
+
+  const handleLoginInput = (e) => {
+    console.log("id", e.target.value);
+  };
+
+  const handlePasswordInput = (e) => {
+    console.log("pw", e.target.value);
+  };
+
+  return (
+    <form onSubmit={handleLoginSubmit}>
+      <label>
+        아이디 : 
+				<input type="text" onChange={handleLoginInput} />
+      </label>
+      <br/>
+      <label>
+        비밀번호 :
+        <input type="password" onChange={handlePasswordInput} />
+      </label>
+      <button type="submit">로그인</button>
+    </form>
+  );
+}
+
+export default App;
+
+
+
+
+//상태 관리(useState) + 이벤트 사용하기
+import { useState } from "react";
+
+function App() {
+
+  const [id, setId] = useState("");
+  const [pw, setPw] = useState("");
+
+  const handleLoginSubmit = (e) => {
+    e.preventDefault();
+    console.log("submit");
+    if(id === ''){
+      alert('아이디를 입력하지 않았습니다.')
+    }
+    if(pw === ''){
+      alert('패스워드를 입력하지 않았습니다.')
+    }
+    alert(`id : ${id}, pw : ${pw}`);
+  };
+
+  const handleLoginInput = (e) => {
+    console.log("id", e.target.value);
+    setId(e.target.value)
+  };
+
+  const handlePasswordInput = (e) => {
+    console.log("pw", e.target.value);
+    setPw(e.target.value)
+  };
+
+  return (
+    <form onSubmit={handleLoginSubmit}>
+      <label>
+        아이디 : <input type="text" onChange={handleLoginInput} />
+      </label>
+      <br/>
+      <label>
+        비밀번호 :
+        <input type="password" onChange={handlePasswordInput} />
+      </label>
+      <button type="submit">로그인</button>
+    </form>
+  );
+}
+
+export default App;
+
+
+자! 이제 나머지 기능을 완성해 봅시다! 컴포넌트를 Login.jsx, Homepage.jsx, App.jsx 로 나누고, 아래 코드처럼 사용자 정보를 이용해 로그인을 처리하도록 만들어보세요.
+
+1) user 정보는 App.js 에 있습니다. Login.jsx 로 전달해 사용자가 입력한 정보와 일치하는지 판단해보세요.
+
+2) 만약 사용자가 입력한 정보와 user 정보가 일치한다면 App.js에서 Login.jsx가 아닌 Homepage.jsx가 랜더링되도록 만들어보세요.
+
+
+const user = {
+  idUser: 'jaehyun@weniv.com',
+  pwUser: 1234
+}
