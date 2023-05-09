@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title</title>
+  </head>
+  <body>
+    <h1>Authors</h1>
+    <ul id="authors"></ul>
+
+    <script>
+      async function feelGood() {
+        const ul = document.getElementById("authors");
+        const list = document.createDocumentFragment();
+        const url = "https://jsonplaceholder.typicode.com/users";
+        
+        try {
+          const response = await fetch(url);
+          const data = await response.json();
+          let authors = data;
+
+          authors.map(function (author) {
+            let li = document.createElement("li");
+            let name = document.createElement("h2");
+            let email = document.createElement("span");
+
+            name.innerHTML = `${author.name}`;
+            email.innerHTML = `${author.email}`;
+
+            li.appendChild(name);
+            li.appendChild(email);
+            list.appendChild(li);
+          });
+
+          ul.appendChild(list);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+      feelGood();
+
+      /*
+    위 코드에서는 async 함수 feelGood를 선언하고, await를 사용하여 fetch 메소드를 대기하고 응답 데이터를 처리합니다. try-catch 구문을 사용하여 오류 처리를 수행합니다. 마지막으로, ul 요소에 작성된 작가 목록을 추가합니다.
+
+    try-catch 넣어준거 필수야?
+
+    try-catch 블록은 필수적은 아니지만, 오류 처리를 위해 사용됩니다.
+
+    try-catch 블록을 사용하지 않으면, fetch 메소드에서 발생하는 오류를 처리하지 못할 가능성이 있습니다. 예를 들어, 네트워크 연결 오류 또는 잘못된 URL 등으로 인해 fetch 메소드가 실패할 수 있습니다. 이러한 경우, try-catch 블록을 사용하여 오류 메시지를 캐치하고 사용자에게 적절한 메시지를 보여줄 수 있습니다.
+
+    따라서, try-catch 블록을 사용하여 오류 처리를 수행하는 것이 바람직합니다.
+    */
+    </script>
+  </body>
+</html>

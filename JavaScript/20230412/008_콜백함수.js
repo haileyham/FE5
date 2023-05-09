@@ -13,7 +13,7 @@ arr.map((v, i) => v * 2)
 
 
 
-let arr = [10, 20, 11, 21, 19, 17]
+let arr2 = [10, 20, 11, 21, 19, 17]
 function 두배(v, i) {
     return v * 2
 }

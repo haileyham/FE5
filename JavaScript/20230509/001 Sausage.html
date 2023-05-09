@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    class Sausage{
+      constructor(e1,e2){
+        this.inside1 = e1;
+        this.inside2 = e2;
+      }
+
+      taste(){
+        console.log(`${this.inside1}와 ${this.inside2}맛이 난다!`)
+      }
+    }
+
+    // let t = new Sausage('불','간장');
+    // t.taste() //불와 간장맛이 난다!
+
+
+    class FireSausage extends Sausage{
+      constructor(e1,e2,e3){
+        super(e1, e2);
+        this.inside3 = e3; //FireSausage에만 추가
+      }
+      taste(){
+        super.taste();
+        console.log(`${this.inside3}난다요`)
+        console.log(`와~~${this.inside1}맛과 ${this.inside2}맛과 ${this.inside3}맛이 나는 소세지다!!`);
+      }
+    }
+
+    const fireSausage = new FireSausage('파맛', '불맛', '키위맛');
+    fireSausage.taste()
+    //파맛와 불맛맛이 난다!
+    //키위맛난다요
+    //와~~파맛맛과 불맛맛과 키위맛맛이 나는 소세지다!!
+
+  </script>
+</body>
+
+</html>

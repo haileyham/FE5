@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #calendar {
+      display: inline-block;
+      padding: 20px;
+      background: #333;
+      text-align: center;
+      color: #fff;
+    }
+
+    #calendar table {
+      border-collapse: collapse;
+    }
+
+    /* table요소에 줘야함 th,td가 아니라 */
+
+    caption {
+      font-size: 25px;
+      color: orange;
+      margin: 10px;
+    }
+
+    th,
+    td {
+      padding: 20px;
+      border: 1px solid #666;
+    }
+
+    th:first-child,
+    td:first-child {
+      color: red;
+    }
+
+    .prev,
+    .next {
+      color: inherit;
+      padding: 10px;
+      margin: 5px;
+      background-color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <article id="calendar">
+    <h2>나의 멋진 HTML 달력</h2>
+    <table>
+      <caption>
+        <time datetime="2023-04">
+          <span class="year"></span>년
+          <span class="month"></span>월
+        </time>
+      </caption>
+      <tr>
+        <th scope="col">일</th>
+        <th scope="col">월</th>
+        <th scope="col">화</th>
+        <th scope="col">수</th>
+        <th scope="col">목</th>
+        <th scope="col">금</th>
+        <th scope="col">토</th>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <button type="button" class="prev">이전달</button>
+    <button type="button" class="next">다음달</button>
+  </article>
+
+  <script>
+    //무슨요일부터 시작하는지
+    //며칠이나 되는지 알아야함
+    function calendar(newYear, newMonth) {//calendar(year,month)를 각각 받겠다
+      //1. 무슨 요일에 시작하는지 알아야 함 
+      const time = new Date(newYear, newMonth - 1, 1);//()비워두면 지금 현재의 월과 달 입력됨 / (newYear, newMonth) 넣으면 현재를 나타내줌 이건 우리가 원하는 연,월의 index를 받는거고, 월에 -1를 넣는거는 밑에서 +1을 해줬기때문에. 여기서는 index접근을 해야함. 1은 날짜 정보.
+
+
+      //2. 해당 월에 날이 며칠이나 있는지!
+      // console.log(new Date(newYear, newMonth -1 ,32));
+      //맨 마지막 숫자 : 기준 월,일에 (4월은 30일까지 있음) 30을 주면 apr.30뜨고 / 31을 주면 30일은 나보다 더 큰값을 지녀서 달이 넘어가져서 may 1이뜸. / 0을 주면 mar 31 뜸(-1은 mar 30)/ 4월달이 30일까지만 있으니까
+
+      // const timeLength = 32 - new Date(newYear, newMonth - 1, 32).getDate(); 
+      //new Date는 날짜 객체값을 꺼내는 우리가 전달한 newYear과 newMonth를 인덱스로 바꿔주는것. 32를 보낸 것은 1의 자리에 들어가는 것. 32를 앞에서 빼주는 이유는 그 달의 날의 갯수를 구하기 위해서, 32에서 빼서 나오는 값을 알려줌
+      // new Date에 인자로 year month date 순으로 들어가는데 제가 해석한 바로는 최대 31일까지 잖아요 모든달이 그럼 date에 32를 입력하면 이를테면 4월이면 2가넘쳐서 5월 2일로 인식되겟죠 30이니까 4월이 30일이 최대라는걸 유추할수있읍니다 까지가 저의 해석
+      // 최대달이 이월되는 특성을 이용해서 new Date(newYear, newMonth, 0) 앞뒤 32자르고 0을 넣으면 그 전달 의 최대(일) 이나오기 때문에
+      const timeLength = new Date(newYear, newMonth, 0).getDate();
+      //4월의 마지막 날을 불러옴/ 원래는 newMonth가 0부터 시작이라 -1 해줘야하는데, 끝에 숫자가 0을 할 경우 그 전달의 마지막날을 가져오기 때문에 그냥 0으로해서 4월달을 뽑아냄(그달뽑아냄)
+      // console.log(new Date(newYear, newMonth ,0));
+
+
+      // console.log(timeLength);
+
+      let year = time.getFullYear(), //4자리
+        month = time.getMonth(), //0-11
+        date = time.getDate(), //1-31
+        day = time.getDay(); //0-6 (일0 - 토6)
+
+
+      const captionYear = document.querySelector('.year'), //year 클래스
+        captionMonth = document.querySelector('.month'), //month 클래스
+        timeEl = document.querySelector('time'), //time태그
+        days = document.querySelectorAll('tr td'); //table안에 td
+
+      for (let i = 0; i < days.length; i++) {//td의 갯수만큼 순환하겠다
+        // days[i].textContent = ''; //0부터 td의 갯수만큼 들어가도록 하기전에 매 월 초기화
+        days[i].innerHTML = '&nbsp'; //textContent = '';로 하면 빈줄이 생겼을때 칸의 크기가 안맞음 / 그것을 해결하기위해서 빈공백말고 보이지 않는 값을 넣으려 하는데 '&nbsp'을 쓰는것. 근데 textContent로 하면 text자체로만 반영하기 때문에 innerHTML 을 이용해줌 / innerHTML은 텍스트 내에 문법적으로 처리가 가능한 텍스트가 있으면 처리가 끝난 결과물을 텍스트로 전달
+
+      }
+
+
+      for (let i = day; i < day + timeLength; i++) {
+        // i값은 35가 될때까지반복 (day + timeLength가 36임)
+        // 시작하는 숫자를 생각해야함
+        // 6부터 35까지 세야함 (30번 반복) 6부터 세는 이유는 토요일부터 시작이기 때문. 토요일은 6임. 4월은 토요일부터 시작
+        days[i].textContent = date++;
+      }
+
+      captionYear.textContent = year;
+      captionMonth.textContent = month + 1; //month 는 0부터 시작이라 +1
+      timeEl.dateTime = `${year}-${month + 1}`; //문자 벡틱으로 감싸고 안에 문법표기
+    }
+
+    const btns = document.querySelectorAll('button');
+    btns.forEach((item) => {//forEach는 콜백함수 받음. item에다가 요소들 하나씩 받아서 콜백함수 실행
+      item.addEventListener('click', () => {
+        if (item.classList.contains('prev')) {//classList 클래스 네임에 prev가 있다면
+          calendar(year, --month); //이전버튼 누르면 3월달
+        } else {
+          calendar(year, ++month); //이후버튼 누르면 5월달
+        }
+      })
+
+    })
+
+    let year = new Date().getFullYear(),
+      month = new Date().getMonth() + 1; //0부터 시작(1월 > 0)
+
+    calendar(year, month);
+
+  </script>
+</body>
+
+</html>
