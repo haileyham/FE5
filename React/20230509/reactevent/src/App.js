@@ -32,12 +32,20 @@ function App() {
   function modalClose() {
     setModalShow(false);
   }
+  //Modal.jsx의 버튼을 클릭해서 진행
 
   console.log(login);
   return (
     <>
       <Hello name="licat" />
       {login ? <Homepage /> : < Login infoUser={user} setLogin={setLogin} />}
+
+      {/* Modal컴포넌트도 함수이기에 true,false // JSX는 boolean값을 화면에 출력하지 않음.
+      false && true 로 들어갈 때 false나옴 그래서 화면에 X
+
+      false && 10 || 0 || null  //null
+      "hello" && 10 && true || 10 || null   //true
+      */}
       {modalShow && < Modal modalClose={modalClose}>
         <h2>사용약관에 대해 말씀드리겠습니다.</h2>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi illum laborum, quo facilis eaque quam optio aliquam nam provident. Laboriosam delectus, atque doloremque nam harum molestias ab quisquam! Quis, pariatur.</p>

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Modal.css'
 
-export default function Modal({ children, modalClose }) {
+export default function Modal({ children, modalClose }) {//props 전개구문으로 가져오기 / children도 가져오는 것 APP.js의 h2,p,a같은 요소태그들
     return (
         <div className='modal-backdrop'>
             <article className='modal'>
