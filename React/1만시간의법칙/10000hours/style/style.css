@@ -1,0 +1,217 @@
+@font-face {
+  font-family: 'GmarketSansBold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 400;
+  src: url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff2%22") format('woff2'),
+      url("https://fonts.gstatic.com/ea/notosanskr/v2/NotoSansKR-Regular.woff%22") format('woff')
+}
+
+#app{
+  font-family:GmarketSansMedium;
+  background-color: #5b2386;
+  color:#fff;
+  text-align: center;
+  padding:195px 0 70px;
+}
+
+
+/* header */
+
+header{
+  margin-bottom: 95px;
+}
+
+header .tit-law{
+  position: relative;
+  max-width:564px;
+  margin:auto;
+}
+
+header .title-law img{
+  width:100%;
+}
+
+header .tit-law::after{
+  display: block;
+  content: '';
+  position: absolute;
+  width:224px;
+  height:224px;
+  top:50%;
+  left:50%;
+  margin:-112px 0 0 -112px;
+  background-image: url(../images/title_bg.png);
+  background-size: contain;
+}
+
+header .img-txt{
+  max-width: 486px;
+  margin: 125px auto 84px;
+}
+
+header .txt-desc{
+  position: relative;
+  max-width:475px;
+  margin:0 auto;
+  line-height: 30px;
+  font-size: 18px;
+}
+
+header .tit-desc{
+  font-size:24px;
+  font-weight: bold;
+}
+
+header .tit-desc::before,
+header .tit-desc::after{
+  position: absolute;
+  content: '';
+  top:50%;
+  width:37px;
+  height: 37px;
+  margin-top:-16px;
+}
+
+header .tit-desc::before{
+  background: url(../images/txt-left.png);
+  left:0;
+}
+
+header .tit-desc::after{
+  background: url(../images/txt-right.png);
+  right:0;
+}
+
+/* /header */
+
+/* main */
+
+main{
+  margin-bottom:130px;
+} 
+
+main .cont-input,
+main .cont-result{
+  font-size:24px;
+  line-height: 24px;;
+}
+
+main .cont-input{
+  margin-bottom:150px;
+}
+
+main .txt-wannabe {
+  margin-bottom: 70px;
+}
+
+main .txt-time{
+  margin-bottom:150px;
+}
+
+main .cont-input input{
+  max-width:224px;
+  padding:15px 20px;
+  border-radius: 10px;
+  margin:0 10px;
+  font-size: 24px;
+}
+
+main .btn-exc{
+  position: relative;
+}
+
+main .btn-exc::after{
+  position: absolute;
+  content: '';
+  right:-80px;
+  bottom:-20px;
+  width:60px;
+  height:70px;
+  background-image: url(../images/hand.png);
+}
+
+main .cont-result .txt-wannabe{
+  line-height:100px;
+}
+
+.cont-result .txt-wannabe strong{
+  font-size:72px;
+  font-family: GmarketSansBold;
+  vertical-align: top;
+}
+
+main .btn-share{
+  margin-left: 20px;
+  background-color: #fff;
+}
+
+/* /main */
+
+/* footer */
+
+.cont-footer{
+  font-family: Noto Sans KR;
+  font-size:12px;
+  line-height: 17px;
+}
+
+.cont-footer img{
+  width:125px;
+  margin:0 auto 20px;
+}
+
+/* /footer */
+
+/* modal */
+
+  #modal{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index: 10;
+    background-color: rgba(0,0,0,0.4);
+    /* display:flex; */
+    display:none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  #modal .modal-wrap{
+    padding: 70px 100px;
+    background: #fff;
+    border-radius: 20px;
+    color:purple;
+    display: inline-block;
+  }
+
+  #modal .modal-wrap h2{
+    font-size: 60px;
+  }
+
+  #modal .modal-wrap h3{
+    font-size: 30px;
+  }
+
+  #modal .modal-wrap img{
+    max-width:340px;
+    margin: 0 auto 20px;
+  }
+
+/* /modal */
