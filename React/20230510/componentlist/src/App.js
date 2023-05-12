@@ -21,7 +21,7 @@ function NavBar() {
   };
 //기본값은 detail로 해놓고, 클릭할 때마다 클릭한 list의 id값을 setListName(useState 변경값)으로 넣기
 
-  return (
+return (
     <>
       <nav>
         <ul>
