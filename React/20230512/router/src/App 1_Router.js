@@ -3,6 +3,11 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
 function App() {
   return (
     <BrowserRouter>
+    {/* 
+    BrowserRouter: 라우트를 감싸주는애
+    라우팅 : 적절한 길을 찾아주는 애.
+    이 안에서 길을 찾을 수 있다. 
+    */}
       {/* 밑에 설명 참고1 */}
       <Link to="/"> home </Link>
       <Link to="/one"> one </Link>
@@ -13,7 +18,10 @@ function App() {
       <Routes>
         <Route path="/" element={<Index />} />
         {/* Index 컴포넌트를 사용자에게 보여주겠다 */}
+        {/* / 주소로 왔을때 {} 뭐 보여주지? 하는애 */}
+        {/* (길 이름)path로 왔을 때 Index보여줌 */}
         <Route path="/one" element={<One name="licat" />} />
+        {/* /one 이라는 길이 있고, 거기로 가면 One이라는 컴포넌트가 있다. */}
         <Route path="/two" element={<Two />} />
         <Route path="/three" element={<Three />} />
       </Routes>
@@ -39,6 +47,7 @@ function Three() {
 
 export default App;
 
+//npm install react-router-dom 설치
 // {/* 밑에참고1 */}
 //       {/* 라우트를 감싸줍니다. */}
 //       {/*
