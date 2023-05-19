@@ -5,9 +5,22 @@ function App() {
 
   useEffect(() => {
     if (value >= 1000) { //1000이상일때만 실행이니까 커져랏에서만 작동 / 결국 커져라 눌렀을때 1000이 아니라 300이 됨
+      //useEffect는 렌더링 이후에 행동하기 때문에, 순간(깜빡임) 1000이 됐다가, 300으로 바뀜.
       setValue(300);
     }
   }, [value]);
+
+  // useEffect는 화면이 바뀌고(아래의 onClick)
+  // 실행(useEffect)이 되기 때문에
+  // setValue로 인해 재 렌더링됨.
+  // useEffect(() => {
+  //     if (value >= 1000) {
+  //         setValue(300);
+  //     }
+  // }, [value]);
+
+  // 화면에 컴포넌트가 렌더링이 끝마치기 전에 끝남
+  // value가 변경되었을 때 렌더링하고 끝마치기 전에 끝남
 
   return (
     <div>
@@ -33,7 +46,10 @@ export default App;
   * 모든것이 랜더링 전에 해결됨
   * 1000 > value값 1000으로 바뀜 > 랜더링이 끝나기 전에  ,,,, ??? ㅇ?ㅇㅇ?
 
+  //useLayoutEffect는 내부적으로 컴포넌트 업데이트(렌더링)되기전에 특정 행동을 수행. useEffect는 렌더링이 끝나고 특정 행동을 수행. 그래서 useEffect는 깜빡 거림이 존재할 수 있음.
 
+  https://medium.com/@jnso5072/react-useeffect-%EC%99%80-uselayouteffect-%EC%9D%98-%EC%B0%A8%EC%9D%B4%EB%8A%94-%EB%AC%B4%EC%97%87%EC%9D%BC%EA%B9%8C-e1a13adf1cd5
+  이곳의 정보를 통해 useEffect와 useLayoutEffect 정리하기~
 
 
   

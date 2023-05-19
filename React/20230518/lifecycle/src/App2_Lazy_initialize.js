@@ -1,17 +1,27 @@
 import React, { useEffect, useState } from "react";
 
-function getName(){
-	console.log("사실은 겁나 오래기다리는중...");
-	return "개리";
+
+//  버튼을 누를때마다, getName도 실행되는데, 이는 상태변화가 일어나서 리렌더링 되기 때문이다.
+function getName() {
+  console.log("사실은 겁나 오래기다리는중...");
+  return "개리";
 }
 
 function App() {
+  //useState의 인수로 getName()을 넘겨주는게 아닌, 함수자체 getName을 넘겨주면,(이게 복잡한 함수가 될지 어떻게 알지?) 앞으로도 컴포넌트 업데이트가 일어날때 결과값이 바뀔일이 없을때..! 이렇게 쓰는 것을 lazy initialization이라고 한다.
+  // 복잡한 함수값을 초기화해야할 때, 함수실행이 아닌 함수만 넣으면, 리렌더링 되더라도 한번만 실행해준다.
   const [name, setName] = useState(getName());
   const [num, setNum] = useState(0);
-  return(
+  return (
     <>
       <div>안녕하세요 {name}! 현재 숫자는{num}입니다</div>
-      <button onClick={()=>setNum((prevNum)=>prevNum+1)}>{num}</button>
+
+      <button onClick={() => setNum((prevNum) => prevNum + 1)}>{num}</button>
+      {/* prevNum  =>  함수형 업데이트 사용. useState는 비동기 코드이기 때문.. 이런걸 보고 방탄 코드.. 안전하다.. 리액트가 효율적으로 렌더링하기 위해 여러 개의 상태 값 변경 요청을 batch(일괄 처리) 처리하기 때문이다.  
+      함수형 업데이트에 대한 정보는 밑에 참고하기*/}
+      {/* setNum((prevNum) => prevNum + 1) 은 함수형 업데이트를 이용하여 prevNum은 이전의 num값을 받아와서 +1한다.
+      이러한 내용을 방탄 코드(안전한 코드)라고 한다.
+      useState가 비동기적으로 실행이되서 이전 값을 보장해줄려고 할때 사용 */}
     </>
   )
 }
@@ -26,9 +36,11 @@ export default App;
  * 문제점 해결 이런방식으로 작성?ㅇ?
  */
 
+
+
+
 /*
 https://paullabworkspace.notion.site/20-useState-Lazy-initialize-3d2f35fde8404ed1b47b3b7a59df50f4
-
 20. useState - Lazy initialize
 
 그런데 이럴수가..! 로그가 클릭한 횟수만큼 찍히고 있습니다. 🧐

@@ -37,7 +37,11 @@ export const useCollection = (transaction) => {
     // 참고 : https://ko.reactjs.org/docs/hooks-effect.html#example-using-hooks-1
 
     return unsubscribe;
+    //클린업함수 (앞에서 동작된 함수를 중단할 때가 있을 때 사용)
+
   }, [collection])
+  // 여기에서는 데이터베이스와의 구독을 끊어버림
+
 
   return { documents, error }
 }
