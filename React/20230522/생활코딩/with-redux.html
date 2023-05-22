@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.0.1/redux.js"></script>
+</head>
+
+<body>
+  <style>
+    .container {
+      border: 5px solid black;
+      padding: 10px;
+    }
+  </style>
+  <div id="red"></div>
+  <div id="blue"></div>
+  <div id="green"></div>
+  <script>
+    // state는 현재 상태, action은 주문 받은 것(상태바꿔줘)! 
+    // reducer은 useState랑 비슷하다고 보면 됨. state 변경
+    function reducer(state, action) {
+      console.log(state, action);
+      if (state === undefined) {//container 만들었지만 상태값 없다 = 아직 안썼다.
+        return { color: 'yellow' } //state의 초기값
+      }
+      var newState;
+      if (action.type === 'CHANGE_COLOR') {
+        //action에 type이 무조건 들어가야함(밑에 {type:'CHANGE_COLOR', color:'red'}이거처럼) = action
+        //복제해야 합니다. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능을 쓰지 못합니다.
+        // Object.assign({}, 빈객체에 복제할 값1, 빈객체에 복제할 값2...);
+        console.log(state)
+        newState = Object.assign({}, state, { color: action.color });
+        //Object.assign은 바닐라JS내용인데 새로운객체를 만들어주는 메서드. assign()메서드는 target을 반환해주고 source는 target에 할당해줌. Object.assign(target,source)
+        //첫번째 인자를 반환 {}
+        //state와 { color: action.color }도 더해진 것을 반환해줌
+        //기존 state를 복사를 한다고 생각
+        //reconciliation 여기서도 적용?
+      }
+      return newState;
+
+      /*
+      이렇게 변경해서 사용 가능. 똑같은 것임
+      if (action.type === 'CHANGE_COLOR') {
+      //복제해야 합니다. 그냥 {color:'red'} 이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급 기능을 쓰지 못합니다.
+      newState = { ...state, color: action.color };
+      }
+      //...state : spread 문법
+
+      return newState;
+      */
+    }
+    // Redux는 cdn으로 생깁니다.
+    var store = Redux.createStore(
+      reducer,
+      window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() // redux dev tools를 사용하기 위한 코드(크롬확장툴)
+    );
+
+
+
+    // Render
+    function red() {
+      var state = store.getState();
+      //type은 반드시 있어야 합니다.
+      // 바뀔 때마다 console에 store.getState()를 실행해보세요.
+      document.querySelector('#red').innerHTML = `
+                <div class="container" id="component_red" style="background-color:${state.color}">
+                        <h1>red</h1>
+                        <input type="button" value="fire" onclick="
+                            store.dispatch({type:'CHANGE_COLOR', color:'red'});
+                        ">
+                </div>
+            `;
+    }
+    // 값이 바뀔 때마다 red 함수를 호출
+    store.subscribe(red);
+    red();
+
+    function blue() {
+      var state = store.getState();
+      document.querySelector('#blue').innerHTML = `
+                <div class="container" id="component_blue" style="background-color:${state.color}">
+                    <h1>blue</h1>
+                    <input type="button" value="fire" onclick="
+                        store.dispatch({type:'CHANGE_COLOR', color:'blue'});
+                    ">
+                </div>
+            `;
+    }
+    store.subscribe(blue);
+    blue();
+
+    function green() {
+      var state = store.getState();
+      document.querySelector('#green').innerHTML = `
+                <div class="container" id="component_green" style="background-color:${state.color}">
+                    <h1>green</h1>
+                    <input type="button" value="fire" onclick="
+                        store.dispatch({type:'CHANGE_COLOR', color:'green'});
+                    ">
+                </div>
+            `;
+    }
+    store.subscribe(green);
+    green();
+
+  </script>
+</body>
+
+</html>

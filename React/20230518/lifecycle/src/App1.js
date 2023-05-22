@@ -7,38 +7,40 @@ class ClassComp extends Component {
   }
 
   componentWillMount() {
-		//컴포넌트가 생성될 때 실행됩니다. (렌더링 되기 이전)
+    //컴포넌트가 생성될 때 실행됩니다. (렌더링 되기 이전)
+    // 캡쳐링의 순서(부모->자식)를 생각하면 이해하기 쉽다.
+    // 이제는 사용하지 못하는 함수(되긴함)
     console.log("componentWillMount");
   }
 
   componentDidMount() {
-	//마운트가 완료되고 나서 실행됩니다. (렌더링 이후) 
+    //마운트가 완료되고 나서 실행됩니다. (렌더링 이후) 
     console.log("componentDidMount");
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-		//상태 업데이트가 되고 컴포넌트가 업데이트 되기 전(렌더되기 전) 실행됩니다.
-		//초기 렌더링에서 발생하지 않습니다.
+    //상태 업데이트가 되고 컴포넌트가 업데이트 되기 전(렌더되기 전) 실행됩니다.
+    //초기 렌더링에서 발생하지 않습니다.
     console.log("shouldComponentUpdate");
     return true;
   }
 
   componentWillUpdate(nextProps, nextState) {
-		//UNSAFE_componentWillUpdate()로 변경됨, 17버전까지는 사용 가능합니다.
-		//초기 렌더링에서 발생하지 않고, 그 이후 업데이트가 되고 나서 발생합니다.
+    //UNSAFE_componentWillUpdate()로 변경됨, 17버전까지는 사용 가능합니다.
+    //초기 렌더링에서 발생하지 않고, 그 이후 업데이트가 되고 나서 발생합니다.
     console.log("componetWillUpdate");
   }
 
   componentDidUpdate(nextProps, nextState) {
-		//업데이트가 되고 나서 실행됩니다.
+    //업데이트가 되고 나서 실행됩니다.
     console.log("componentDidUpdate");
   }
 
-	componentWillUnmount() {
-   //컴포넌트가 제거되기 바로 직전에 실행됩니다.
+  componentWillUnmount() {
+    //컴포넌트가 제거되기 바로 직전에 실행됩니다.
     console.log("componentWillUnmount");
   }
-  
+
 
   handleClick = () => {
     this.setState((state) => {

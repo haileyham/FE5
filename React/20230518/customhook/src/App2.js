@@ -10,6 +10,9 @@ function App() {
   console.log('로딩중인가? : ', isLoading);
   const isBottom = useScrollBottom();
 
+
+  // useEffect의 두번째 인자가 빈배열이면
+  // 마운트 되었을때(지금은 setPhotos가 업데이트 되어서 리렌더링 된 경우) 한번만 실행하게 해줌
   useEffect(() => {
     fetchImages();
   }, [fetchPage]);

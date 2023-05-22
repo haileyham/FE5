@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redux</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/redux/4.2.0/redux.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@300&family=Fascinate&family=Kdam+Thmor+Pro&family=Noto+Sans+KR:wght@300&family=Open+Sans&family=Roboto:wght@300&display=swap"
+    rel="stylesheet">
+  <style>
+    .container {
+      border: 5px solid black;
+      padding: 10px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+
+    .item {
+      border: 5px solid #f6866a;
+      height: 100px;
+      padding: 20px;
+      font-size: 32px;
+    }
+
+    .item:nth-child(1) {
+      font-family: 'Anek Malayalam', sans-serif;
+    }
+
+    .item:nth-child(2) {
+      font-family: 'Fascinate', cursive;
+    }
+
+    .item:nth-child(3) {
+      font-family: 'Kdam Thmor Pro', sans-serif;
+    }
+
+    .item:nth-child(4) {
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .item:nth-child(5) {
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .item:nth-child(6) {
+      font-family: 'Roboto', sans-serif;
+    }
+  </style>
+</head>
+<body>
+
+  <input type="text" id="inputText">
+  <input type="button" value="Click Me!" onclick="
+  const value = document.getElementById('inputText').value; //input의 값에 접근을 하기 위해서 / value에 저장을 하고 밑에 붙이기 (전달할 text값)
+  store.dispatch({type:'TEXT',text:value})">
+
+  <input type="button" value="Rounded!" onclick="
+  store.dispatch({type:'STYLE_BORDER', borderRadius:'10px'})">
+  <!-- dispatch가 실행되면 밑에로 전달되어서 변경됨 -->
+
+  <input type="button" value="Circle!"  onclick="
+  store.dispatch({type:'STYLE_BORDER', borderRadius:'50px'})">
+
+  <input type="button" value="Rect!"  onclick="
+  store.dispatch({type:'STYLE_BORDER', borderRadius:'0px'})">
+
+  <input type="button" value="Red!" onclick="
+  store.dispatch({type:'STYLE_BORDER_COLOR', border:'5px solid red'})">
+
+  <input type="button" value="Green!" onclick="
+  store.dispatch({type:'STYLE_BORDER_COLOR', border:'5px solid green'})">
+
+  <input type="button" value="Blue!" onclick="
+  store.dispatch({type:'STYLE_BORDER_COLOR', border:'5px solid blue'})">
+  <br>
+  <br>
+  <div class="container">
+    <div id="item1" class="item"></div>
+    <div id="item2" class="item"></div>
+    <div id="item3" class="item"></div>
+    <div id="item4" class="item"></div>
+    <div id="item5" class="item"></div>
+    <div id="item6" class="item"></div>
+  </div>
+
+  <script>
+
+    function reducer(state,action){//action: state를 변경하기위해 받아오는 인자, state변경해줘~
+      //action의 type에 따른 분기처리하기
+      if(state === undefined){//state 초기값 설정하기
+        return{//기본 state값
+          text : 'hello',
+          color: 'black',
+          border: '5px solid #f6866a',
+          borderRadius : '0px'
+        }
+      }else if(action.type === 'TEXT'){
+        return{
+          ...state, text: action.text //action의 text를 받아올것임 / 나중에 dispatch함수 실행할때 action실행됨? / 기존의 state에 덧붙임 / ...state는 복사본(spread문법)
+        }
+      }else if(action.type === 'STYLE_BORDER'){
+        return{
+          ...state, borderRadius: action.borderRadius
+        }
+      }else if(action.type === 'STYLE_BORDER_COLOR'){
+        return{
+          ...state, border: action.border
+        }
+      }
+    }
+
+
+
+
+    
+
+    const store = Redux.createStore(reducer); //redux 객체 가져와야함 / state관리할 reducer 가져와야함
+
+
+    // render 함수
+    function item1(){//첫번재 컴포넌트를 그려주는 역할 한다고 생각
+      const state = store.getState(); //store.getState() : 이 함수를 통해서 현재 state값을 가져옴 / 모든 state는 오직 하나의 store에 존재함
+      console.log(state); //container에 있는 state그대로 가져온것을 확인할수있음
+      const $item = document.querySelector('#item1');
+      $item.textContent = `${state.text}`//문자열로 표현해야하기때문에 백틱에 중괄호로 감싸주기
+      /*변수앞에 달러를 붙이는 이유 - 자바스크립트 변수앞에 달러 붙이는 이유 (jquery 아닌경우) / 한줄요약: jqeury 를 사용해서 받은 것을 변수에 넣었다는것을 표시하기위해서 */
+      $item.style.borderRadius = `${state.borderRadius}` ;//위의 reducer함수안의 것을 가져옴 어떻게 가져오냐 state를 타고 주르륵 가져옴?
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item1); //등록을 해서...?
+    item1();
+
+    //위에 같은것 6개 만들기
+
+    function item2(){
+      const state = store.getState(); 
+      console.log(state); 
+      const $item = document.querySelector('#item2');
+      $item.textContent = `${state.text}`
+      $item.style.borderRadius = `${state.borderRadius}` ;
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item2);
+    item2();
+
+
+    function item3(){
+      const state = store.getState(); 
+      console.log(state); 
+      const $item = document.querySelector('#item3');
+      $item.textContent = `${state.text}`
+      $item.style.borderRadius = `${state.borderRadius}` ;
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item3);
+    item3();
+
+
+    function item4(){
+      const state = store.getState(); 
+      console.log(state); 
+      const $item = document.querySelector('#item4');
+      $item.textContent = `${state.text}`
+      $item.style.borderRadius = `${state.borderRadius}` ;
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item4);
+    item4();
+
+
+    function item5(){
+      const state = store.getState(); 
+      console.log(state); 
+      const $item = document.querySelector('#item5');
+      $item.textContent = `${state.text}`
+      $item.style.borderRadius = `${state.borderRadius}` ;
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item5);
+    item5();
+
+
+    function item6(){
+      const state = store.getState(); 
+      console.log(state); 
+      const $item = document.querySelector('#item6');
+      $item.textContent = `${state.text}`
+      $item.style.borderRadius = `${state.borderRadius}` ;
+      $item.style.border = `${state.border}` ;
+    }
+
+    store.subscribe(item6);
+    item6();
+
+  </script>
+</body>
+
+</html>
+
+
+
+
+<!-- 
+  <전체 과정 정리>
+redux는 하나의 저장공간을 갖는데 그게 store임.
+Redux.createStore로 만들수 있음
+반드시 인자로 reducer를 가져야함. store의 state를 update를 할 수 있는거임
+
+reducer함수를 선언해야함.
+function reducer(state,action){} 은 두가지 인자를 받는데, state는 현재 state=변경해야할state / action은 state를 변경하기 위해 받아오는 것임. state를 어떻게 변경할지 받아오는 것. action에는 반드시 type이 들어가있어야함. action의 type에 따라서 어떻게 수정할지를 전달하는데 /  action을 reducer에 전달할때는 dispatch를 이용함. store.dispatch()
+
+그러면 dispatch의 action(type으로)을 reducer에게 전달해줌
+
+
+render함수
+item1(){}
+render함수들은 바라봐주는것. getState()를 통해서 현재 state값을 가져옴 / 값들이 변하면, render함수안에 자동으로 적용되어서 화면에 업데이트 됨.
+(추가)
+render함수안에 자동으로 적용되어서 화면에 업데이트 되는 것이 아닌, 
+store.subscribe(render함수) 함수로 store의 subscribe 함수를 이용하게되면 Reducer가 호출되는 시점에서 subscribe를 통해 정의한 함수를 호출 및 동작할 수 있게 된다.
+요약하면 subscribe는 값이 바뀔 때마다 렌더링해준다고 생각.
+-->
