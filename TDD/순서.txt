@@ -1,0 +1,66 @@
+TDD
+
+----------------------------------
+
+
+----------------------------------
+1. TDD
+----------------------------------
+[폴더]jasmine
+압축파일 받아오기
+
+[폴더]jasmineTest
+index_1_바닐라js로했을때.js
+----------------------------------
+
+
+
+
+
+
+
+----------------------------------
+2. TDD 
+----------------------------------
+[폴더]jasmineTest
+jasmine에서 lib폴더 복사해오기
+
+[파일]
+TDD.html / js파일들 불어오기
+TDD.spec.html에 TDD파일의 SpecRunner.html복사해오기
+tddTest.js 테스트할 함수
+tddTest.spec.js 테스트
+
+[live server]
+TDD.spec.html
+----------------------------------
+
+
+
+
+
+
+----------------------------------
+
+
+----------------------------------
+3. TDD 
+----------------------------------
+[폴더]tddInputView
+jasmine에서 lib폴더 복사해오기
+
+[파일]
+AntiTDD.html
+
+[파일]
+TDD.html / js파일들 불어오기
+index.spec.html에 TDD파일의 SpecRunner.html복사해오기 
+textManager.js 테스트할 함수
+textManager.spec.js 테스트
+viewManager.js
+viewManager.spec.js
+
+[live server]
+index.spec.html
+----------------------------------
+

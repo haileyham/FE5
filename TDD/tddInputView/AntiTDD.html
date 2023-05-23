@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      article{
+        display: inline-block;
+        border: 3px double salmon;
+        border-radius: 10px;
+        padding:10px;
+      }
+
+      .viewer{
+        display: block;
+        font-size : 24px;
+        color: paleturquoise; 
+        margin: 50px 0 50px;
+        text-align: center;
+      }
+    </style>
+</head>
+<body>
+  
+  
+  <article>
+    <strong class="viewer"></strong>
+    <input type="text" class="inp-txt">
+    <button class="btn-push" onclick="push()">적용</button>
+  </article>
+
+  <script>
+    // 함수 밖의 내용들은 테스트가 불가능
+    let txt = "hello lions";
+    const viewer = document.querySelector('.viewer');
+    viewer.textContent = txt;
+
+
+    /*
+    <코드의 문제점 파악하기>
+    1. 재사용성이 떨어짐. inp-txt라는 클래스를 가진 요소가 존재해야만 함.
+    2. TDD로 test할 수 있는 것은 함수. 그래서 위에 있는 것들은 test불가.
+    3. push()가 button에 onclick으로 들어가있음. 서로 다른 언어가 쓰이고 있음. html안에 JS가 있음. 이거는 test 불가.
+    4. 위에 것들 변수의 scope / 전역함수에는 필요한 것들만. 위에것들은 한번 쓰이고 말음.
+    */
+    function push(){
+      const inpTxt = document.querySelector('.inp-txt');
+      viewer.textContent = inpTxt.value;
+    }
+
+    /*
+    <테스트 가능한 코드란!>
+    1. 테스트할 코드를 UI에서 완전히 분리해야 함.
+    2. 자바스크립트를 JS 파일로 따로 분리해야 함.
+    3. 모든 기능은 함수로 구현.
+    */
+  </script>
+</body>
+</html>
