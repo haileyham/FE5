@@ -15,7 +15,7 @@ export default function GoodsCounter() {
 
 
   // useDispatch : store의 dispatch를 함수 내부에서 사용할 수 있는 Hook
-  const dispatch = useDispatch(); //dispatch 그냥 못씀. useDispatch써야함. dispacth로 쓰기위해서 변수에 한번 담아주기
+  const dispatch = useDispatch(); //dispatch 그냥 못씀. useDispatch써야함. dispatch로 쓰기위해서 변수에 한번 담아주기
 
   const onAddNumber = () => dispatch(addNumber());//addNumber는 action을 생성하는 함수 / action들이 dispatch로 인하여 reducer에게 전달 / modules폴더의 goodsCounter.js파일에 있음(addNumber(),SubstractNumber()) / import로 받아와야함.
   const onSubstractNumber = () => dispatch(substractNumber());

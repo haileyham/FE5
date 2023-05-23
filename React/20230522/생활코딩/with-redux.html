@@ -1,3 +1,5 @@
+<!-- https://paullabworkspace.notion.site/1-Redux-eef3be11eacf4ec1b5495b6ca3c4975d -->
+
 <!DOCTYPE html>
 <html>
 
@@ -26,7 +28,9 @@
       var newState;
       if (action.type === 'CHANGE_COLOR') {
         //action에 type이 무조건 들어가야함(밑에 {type:'CHANGE_COLOR', color:'red'}이거처럼) = action
-        //복제해야 합니다. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능을 쓰지 못합니다.
+        //복제해야 함. 그냥 {color:'red'}이런 식으로 리턴해줘도 되긴 하는데 리덕스의 고급기능을 쓰지 못함.
+        //액션 객체는 type 필드를 반드시 가지고 있어야 함. reducer 함수가 이 type 필드값과 이전 state값을 참고해서 새로운 state를 만들기 때문.
+
         // Object.assign({}, 빈객체에 복제할 값1, 빈객체에 복제할 값2...);
         console.log(state)
         newState = Object.assign({}, state, { color: action.color });
