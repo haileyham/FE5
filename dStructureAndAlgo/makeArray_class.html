@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    // class
+    // UltraArray class에 직접 push와 pop 만들어보기
+    class UltraArray {
+      constructor() {
+        this.data = {};
+        this.length = 0;
+      }
+
+
+      push(item) {
+        // obj[1] = 'hello';
+        this.data[this.length] = item //{0:item, 1:item, 2:item} 유사배열객체
+        this.length++; // += 1;  //인덱스 증가시켜주기
+        return this.length; //let a = [1,2] / a.push(3);했을때 3출력(배열길이출력됨) / 그래서 return값으로 길이 출력되도록 설정.
+      }
+
+
+      pop() {
+        const lastState = this.data[this.length - 1];
+        delete this.data[this.length - 1];
+        this.length--; // -= 1;  //인덱스 감소시켜주기
+        return lastState;
+      }
+
+
+      // 인덱스 숫자로 속성을 제거.
+      deleteWithIndex(index) {
+        const removedItem = this.data[index];
+        // delete this.data[index];
+        this.changeOrderOfItems(index);
+        return removedItem
+      }
+
+      // 인덱스를 정리하고 속성을 제거.
+      changeOrderOfItems(index) {
+
+        // 길이를 하나 줄임
+        this.length--;
+
+        // 받아오는 인덱스부터 시작해 정리해보기
+        for (let i = index; i < this.length; i++) {
+          // 뒤에 있는 인덱스를 앞으로 당겨야 함
+          // [0,1,2] ==> [0,2] (1을 없앨경우)
+          this.data[i] = this.data[i + 1]; //한개씩 당긴다
+        }
+        //아 어차피 length길이보다 작게 작동하기때문에 밑에 동작들보다 앞에 와야하는구나. 왜냐하면 이미 배열길이 3개인것을 2개로 당겨서 줄이면서 인덱스 정리를 하니까 @_@ !!!
+
+
+        // 대상을 제거
+        delete this.data[this.length];
+        //밑에보다 이게 더 나음. length를 위에서 -- 해주고, this.length 제거
+
+        
+        // // 대상을 제거
+        // delete this.data[this.length - 1];
+        // // 길이를 하나 줄임
+        // this.length--;
+      }
+    }
+
+    const myArray = new UltraArray();
+    myArray.push(10);
+    myArray.push(20);
+    myArray.push(30);
+    console.log(myArray.deleteWithIndex(1));
+    console.log(myArray);
+  </script>
+</body>
+
+</html>

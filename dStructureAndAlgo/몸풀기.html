@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+  <script>
+    //변수 a,b 데이터 교체1-----------------------------------------
+    let a = 'hello';
+    let b = 'lions';
+    let c;
+    c = a; //일시적 변수에 a 값 저장
+    a = b;
+    b = a;
+
+
+
+    //변수 a,b 데이터 교체2-----------------------------------------
+    let a1 = 10;
+    let b1 = 30;
+
+    //방법1 : 구조분해할당
+    [a1, b1] = [b1, a1] //a1 : 30; b : 10;
+
+
+    /*
+    let a = 'hello'
+    let b = 'lions'
+    [a, b] = [b, a]
+
+    console.log(a)
+    console.log(b)
+
+    ;가 없어서 에러뜸.
+    let b의 선언이 끝나지 않았다고 판단해서.
+    JS 대괄호[...]앞에는 세미콜론이 있다고 가정하지 않음.
+    문자열의 인덱스에 접근하는것처럼 인식해서.
+    */
+
+    //방법2 : 배열 요소 직접 참조하여 a,b 값을 교환
+    a = [a, b];
+    b = a[0];
+    a = a[1];
+
+    //방법3 : 숫자특성이용
+    a1 = a1 + b1; // a1 : 40
+    b1 = a1 - b1; // b1 : 10
+    a1 = a1 - b1; // 40 - 10
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+
+<body>
+
+
+  <script>
+
+    // UltraArray class에 직접 push와 pop 만들어보기
+    // splice를 사용해봤음
+    class UltraArray {
+      constructor() {
+        this.items = [];
+      }
+
+
+      push2(element) {
+        this.items.splice(this.items.length, 0, element); //배열길이번째에, 0개삭제, 받아온인자추가
+        return this.items.length; //push는 원래 배열길이 반환함.
+      }
+
+
+      pop2() {
+        this.items.splice(-1, 1);
+        return this.items[this.items.length - 1]; // pop() 메서드는 배열에서 요소를 제거하고 해당 요소를 반환하기때문에, 반환한 마지막 요소 return되게 하기. 왜안됑 ㅠ_ㅠ 뿌엥 / 지금꺼로는 빼고난후의 값을 return하자낭 흑흑....
+        // 변수에 마지막요소 한번 담아주고, return은 변수출력
+      }
+    }
+
+      const myArray = new UltraArray();
+      // console.log(myArray.push2(1));
+      // console.log(myArray.push2(2));
+      // console.log(myArray.push2(3));
+      // console.log(myArray.push2(4));
+      // console.log(myArray.pop2());
+      // console.log(myArray);
+      myArray.push2(1);
+      console.log(myArray.push2(2)); //2 / 배열 길이 2
+      console.log(myArray.push2(3)); //3 / 배열길이 3
+      console.log(myArray.push2(3)); //4 / 배열길이 4
+      console.log(myArray.push2(10)); //5 / 배열길이 5
+      console.log(myArray); // UltraArray {items: Array(3)} / items: (3) [3, 4, 5]
+      //위에처럼 뜨려면 밑에 pop주석처리하기
+      //pop추가할경우 console.log(myArray);했을때 전체결과뜸
+// -----------------------------------------------------------------
+      // myArray.pop2();
+      console.log(myArray.pop2()); //3출력 
+      console.log(myArray); 
+  </script>
+</body>
+
+</html>

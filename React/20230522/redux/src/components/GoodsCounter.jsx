@@ -5,6 +5,7 @@ import { addNumber, substractNumber } from '../modules/goodsCounter'
 export default function GoodsCounter() {
 
   // useSelector : store의 상태 조회 Hook
+  // reducer 상태값
   const { stock, goods } = useSelector(state => {
     console.log(state);
     return ({
