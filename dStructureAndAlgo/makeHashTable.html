@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>makeHashTable</title>
+</head>
+
+<body>
+
+
+  <script>
+    /*
+    배열은 값을 저장할 때 순서가 있음
+    hash는 저장된 데이터의 순서가 없음
+
+    hash함수는 어떤 값을 또 보낼 지 모르기 때문에 값을 저장하는데 순서가 없음. 주소값을 저장할 때 key값으로 만듦.
+    */
+
+    class SuperHash {
+      constructor(size) {
+        this.data = new Array(size); // 배열 생성해서 data 프로퍼티에 할당
+        // [[['cat' : 'is cute']], [['dog':'is cool']], [['pig':'is smart']]]
+        // 하나의 배열을 더 감싼 이유는 hash collision해쉬충돌을 구현하기 위해서. 
+        /*
+        - 어제 array만들땐 초기 data를 {}로 하고 오늘 해쉬는 [] 한 이유?
+        해쉬가 키 값이 있는 객체이기 때문에 객체를 사용하지 않고 배열로 만들기.
+        그냥 의도적으로 원래 형태를 피해간 것. 해쉬테이블이 자바스크립트에선 객체 형태이기에.
+        */
+
+      }
+
+      //[실무에서 쓰지 X]
+      // 해쉬함수 hello
+      generateRandomHash() {
+        let hash = 0;
+        for (let i = 0; i < key.length; i++) {
+          hash = (hash + key.charCodeAt(i) * i) % this.data.length;
+          // charCodeAt() 메서드는 주어진 인덱스에 대한 UTF-16 코드를 나타내는 0부터 65535 사이의 정수를 반환 
+          // hash를 더하고 *i 곱하는 것은 의미는 없고, 최대한 복잡하게 만들려고 하는 것임(=hash하게 만들려고 하는 것)
+          // % 나머지 연산은 보통 짝,홀수 판별할 때 사용했었음
+          // % 나머지 연산 특징 : 일정한 숫자의 범위 안으로 값을 제한하는 특징이 있음
+          // 위의 코드에서 0 + 10 * i 이라고 했을 때 % 나머지 연산 때문에 0-9까지만 뽑아낼 수 있음.
+        }
+        return hash;
+      }
+
+
+
+      // 값을 추가하는 함수 : insertion
+      set(key, value) {
+        // 값을 넣을 위치를 해쉬함수를 통해서 설정합니다.
+        const address = this.generateRandomHash(key);
+
+        // 기존 주소에 데이터가 없을 경우
+        if (!this.data[address]) {
+          this.data[address] = [];
+          // this.data[address].push([key, value]);
+          // 기존 주소에 데이터가 있을 경우
+        } else {
+          for (let i = 0; i < this.data[address].length; i++) {
+            // 같은 키를 사용하는 데이터가 존재할 경우 덮어씌웁니다.
+            /**
+            [
+                [
+                    ['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+                ], 
+                [['dog':'is cool']], 
+                [['pig':'is smart']
+                ]
+            ] 
+            */
+            if (this.data[address][i][0] === key) {
+              this.data[address][i][1] = value;
+              return value
+            }
+          }
+          // 같은 키를 사용하는 데이터가 없을 경우 list에 데이터를 추가합니다.
+          // this.data[address].push([key, value]);
+          // return value
+        }
+        this.data[address].push([key, value]);
+        return value
+      }
+
+      // search 를 구현해봅니다.
+      get(key) {
+        const address = this.generateRandomHash(key);
+        const targetElement = this.data[address];
+        /**
+              [
+                  [
+                      ['cat':'is cute'],['rabbit':'is cute'],['rat':'is cute']
+                  ], 
+                  [['dog':'is cool']], 
+                  [['pig':'is smart']
+                  ]
+              ] 
+        */
+        if (targetElement) {
+          // link list를 확인합니다.
+          for (let i = 0; i < targetElement.length; i++) {
+            // 찾고자하는 대상의 key와 내가 전달한 key가 일치하는지 확인합니다.
+            if (targetElement[i][0] === key) {
+              return targetElement[i][1]
+            }
+          }
+        }
+        return undefined
+      }
+
+      // 모든 키값을 배열로 반환합니다.
+      keys() {
+        const keyArray = [];
+        // 우선 해쉬테이블안의 모든 데이터를 순회합니다.
+        for (let i = 0; i < this.data.length; i++) {
+          if (this.data[i]) {
+            // link list가 존재한다면
+            if (this.data[i].length > 1) {
+              for (let j = 0; j < this.data[i].length; j++) {
+                keyArray.push(this.data[i][j][0]);
+              }
+            } else {
+              keyArray.push(this.data[i][0][0]);
+            }
+          }
+        }
+        return keyArray
+      }
+    }
+
+    const myHash = new SuperHash(3);
+    myHash.set('cat', 'is cute');
+    myHash.set('dog', 'is cool');
+    myHash.set('pig', 'is smart');
+    myHash.set('rat', 'is small');
+    myHash.set('호준', 'is handsome');
+    myHash.keys();
+
+  </script>
+</body>
+
+</html>

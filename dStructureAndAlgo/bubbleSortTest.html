@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+  </title>
+</head>
+
+<body>
+  <script>
+    // 이 문제는 실제로 입사문제로 사용되던 알고리즘 문제입니다.
+    // 배열이 하나 주어졌을때 [3,2,4,5,2,1,0,3];
+    // 함수를 만듭니다. 가장 먼저 반복되는 원소의 값을 반환합니다.
+    // 반복되는 원소가 없으면 undefined를 반환합니다.
+    let arr = [3, 2, 4, 5, 2, 1, 0, 3];
+
+    function test(arr) {
+      for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+          console.log(arr[i], arr[j]);
+          if (arr[i] === arr[j]) {
+            return arr[i]
+          }
+          // [3,2,4,5,2,1,0,3];
+        }
+      }
+      return undefined
+    }
+
+    // [3,2,3,4,5,2,1,0,3];
+    function test2(arr) {
+      const useHash = {};
+      // useHash[3]
+      for (let i = 0; i < arr.length; i++) {
+        if (useHash[arr[i]]) {
+          return arr[i]
+        } else {
+          // 해쉬테이블의 키로 arr의 원소를 차례로 등록
+          // {3:0, 2:1, }
+          useHash[arr[i]] = i;
+        }
+      }
+    }
+
+
+    function 처음반복되는원소구하기ver3(input) {
+      const makeSet = new Set();
+      for (let i = 0; i < input.length; i++) {
+        if (makeSet.has(input[i])) {
+          return input[i];
+        } else {
+          // [1,2,3]
+          makeSet.add(input[i]);
+        }
+      }
+      return undefined;
+    }
+
+  </script>
+
+  <script>
+    // 이 문제는 실제로 입사문제로 사용되던 알고리즘 문제입니다.
+    // 배열이 하나 주어졌을때 [3,3,2,4,5,2,1,0,3];
+    // 함수를 만듭니다. 가장 먼저 반복되는 원소의 값을 반환합니다
+
+    // let a = [3, 3, 2, 4, 5, 2, 1, 0, 3];
+
+
+
+    // function 함수(a) {
+    //   for (const e of a) {
+    //     if(a[n] === a[n+n]){
+    //       return e;
+    //     }
+    //   }
+    // }
+
+
+    // 문제점
+    // 1. O(N^2)
+    // 2. 가장 먼저 반복되는 것을 출력하는 것이 아님
+    function findFirstDuplicate2(arr2) {
+      for (let i = 0; i < arr2.length; i++) {
+        for (let j = i + 1; j < arr2.length; j++) {
+          if (arr2[i] === arr2[j]) {
+            return arr2[i];
+          }
+        }
+      }
+
+      return null; // 반복되는 원소가 없을 경우 null 반환
+    }
+
+    let arr2 = [3, 3, 2, 4, 5, 2, 1, 0, 3];
+    let firstDuplicate2 = findFirstDuplicate2(arr);
+    console.log(firstDuplicate2); // 3
+
+
+
+
+    //--------------------------------------------------------
+
+
+
+    function findFirstDuplicate(arr) {
+      let count = {};
+
+      for (let i = 0; i < arr.length; i++) {
+        let element = arr[i];
+
+        if (count[element]) {
+          return element;
+        } else {
+          count[element] = true;
+        }
+      }
+
+      return null; // 반복되는 원소가 없을 경우 null 반환
+    }
+
+    let arr1 = [3, 3, 2, 4, 5, 2, 1, 0, 3];
+    let firstDuplicate = findFirstDuplicate(arr);
+    console.log(firstDuplicate); // 3
+
+
+    //--------------------------------------------------------
+
+
+    function findFirstDuplicate3(arr3) {
+      let makeSet = new Set();
+
+      for (let i = 0; i < arr3.length; i++) {
+        if (makeSet.has(arr3[i])) {
+          return arr3[i];
+        } else {
+          makeSet.add(arr3[i]);
+        }
+      }
+
+      return null; // 반복되는 원소가 없을 경우 null 반환
+    }
+
+    let arr3 = [3, 3, 2, 4, 5, 2, 1, 0, 3];
+    let firstDuplicate3 = findFirstDuplicate3(arr3);
+    console.log(firstDuplicate3); // 3
+
+    //--------------------------------------------------------
+  </script>
+</body>
+
+</html>

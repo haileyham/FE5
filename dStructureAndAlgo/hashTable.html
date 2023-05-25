@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hashTable</title>
+</head>
+<body>
+  
+  
+  <script>
+    /*
+    https://evanai.notion.site/evanai/bcf4da848f904595a50bf5161bc0ed62
+
+    [hashTable]
+
+    키와 값의 쌍을 저장하는 자료 구조입니다. 해시 테이블은 해시 함수를 사용하여 키를 해시값으로 변환한 다음, 해시값을 사용하여 키와 값의 쌍을 저장
+    해시테이블의 평균 시간복잡도는 O(1).
+    > 하지만 데이터의 충돌이 발생한 경우 Chaining에 연결된 리스트들까지 검색을 해야 하므로 O(N)까지 시간복잡도가 증가할 수 있다
+
+    
+    메모리 주소
+
+    https://www.cs.usfca.edu/~galles/visualization/OpenHash.html
+    [해쉬충돌]
+    동일한 메모리주소 사용.
+    (동일한 해쉬값)동일한 공간 안에 중복되어서 저장이 된다면, 기존값이 삭제되는 것이 아니라 링크로 연결을 함. 계속해서 탐색할 수 있게 됨. 
+    링크로 연결되는 것을 '링크 리스트'라고 함.
+
+
+
+    https://mangkyu.tistory.com/102
+    https://joooing.tistory.com/entry/Data-Structure-3
+    해시테이블 : 키(key) → 해시 함수(Hash function) → 인덱스(index)로 변환해 저장하는 자료구조!
+    해시 테이블은 { 키(key) : 값(value) } 쌍을 저장하고 있는 자료 구조이다. 해시 테이블은 키를 저장할 때에 메모리 공간을 덜 사용할 수 있도록, 키(key)를 '해시 함수'(Hash function)라는 함수를 통해 특정 숫자값의 인덱스(index)로 변환한다. 해시 테이블은 필요할 때에만 메모리 크기를 늘리고, 가능한 작은 크기를 유지한다.
+    */
+
+
+    // access, search, insertion, deletion
+    const myHash = {two:2, three:3};
+
+    // 어떤 것을 한다고 해도 접근시간이 동일을 보장.
+    // 값을 insertion 삽입
+    myHash.one = 1;
+
+    // 값을 access 접근
+    myHash.one
+    myHash.two = 10; //값 변경
+
+    // 값 search
+    myHash.three
+
+    // 값을 delete
+    delete myHash.three
+
+
+
+
+  </script>
+</body>
+</html>
