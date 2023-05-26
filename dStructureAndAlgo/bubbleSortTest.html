@@ -45,10 +45,11 @@
       }
     }
 
-
+    // [3,2,3,4,5,2,1,0,3];
     function 처음반복되는원소구하기ver3(input) {
       const makeSet = new Set();
       for (let i = 0; i < input.length; i++) {
+        console.log(makeSet);//과정확인
         if (makeSet.has(input[i])) {
           return input[i];
         } else {
