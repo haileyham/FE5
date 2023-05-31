@@ -1,0 +1,3 @@
+1. 로그인 했을때 follower.html 로 이동하기
+2. follower.html에서 fetch로 myinfo받아오기(로그인한 유저 프로필정보)
+3. 화면에 예쁘게 그리기
