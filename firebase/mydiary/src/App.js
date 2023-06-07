@@ -1,8 +1,8 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom"
-import Home from "./pages/home/Home.jsx";
-import Login from "./pages/login/Login.jsx";
-import Signup from "./pages/signup/Signup.jsx";
-import Header from "./components/Header.jsx";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Home from './pages/home/Home';
+import Login from './pages/login/Login';
+import Signup from './pages/signup/Signup';
+import Header from './components/Header';
 
 function App() {
   return (
@@ -18,5 +18,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
