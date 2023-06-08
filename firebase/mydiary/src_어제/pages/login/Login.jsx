@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import styles from './Login.module.css'
-import { useLogin } from '../../hooks/useLogin';
 
 export default function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { error, isPending, login } = useLogin();
 
     const handleData = (event) => {
         if (event.target.type === "email") {
@@ -19,7 +17,6 @@ export default function Login() {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(email, password);
-        login(email, password);
     }
 
 
@@ -92,9 +89,7 @@ export default function Login() {
                     <label className="label-style" htmlFor="user-pw">비밀번호</label>
                     <input className="input-style" id="user-pw" type="password" required autoComplete="current-password" onChange={handleData} value={password} />
 
-                    {!isPending && <button className="black-btn" type="submit">로그인</button>}
-                    {isPending && <strong>로그인 중...</strong>}
-                    {error && <strong>error</strong>}
+                    <button className="black-btn" type="submit">로그인</button>
                 </form>
             </main>
 
