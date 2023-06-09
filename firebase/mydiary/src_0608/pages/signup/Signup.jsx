@@ -1,25 +1,28 @@
 import React, { useState } from 'react'
-import styles from './Login.module.css'
-import { useLogin } from '../../hooks/useLogin';
+import styles from '../login/Login.module.css'
+import { useSignup } from '../../hooks/useSignup';
 
-export default function Login() {
+export default function Signup() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const { error, isPending, login } = useLogin();
+    const [displayName, setDisplayName] = useState('');
+    const { error, isPending, signup } = useSignup();
 
     const handleData = (event) => {
         if (event.target.type === "email") {
             setEmail(event.target.value);
         } else if (event.target.type === "password") {
             setPassword(event.target.value);
+        } else if (event.target.type === "text") {
+            setDisplayName(event.target.value);
         }
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(email, password);
-        login(email, password);
+        console.log(email, password, displayName);
+        signup(email, password, displayName);
     }
 
 
@@ -81,7 +84,8 @@ export default function Login() {
                             </clipPath>
                         </defs>
                     </svg>
-                    <strong className="line">로그인일수도...</strong>
+
+                    <strong className="line">회원가입</strong>
                 </h2>
 
                 <form className={styles["form-wrap"]} onSubmit={handleSubmit}>
@@ -91,9 +95,10 @@ export default function Login() {
                     <label className="label-style" htmlFor="user-pw">비밀번호</label>
                     <input className="input-style" id="user-pw" type="password" required autoComplete="current-password" onChange={handleData} value={password} />
 
-                    {!isPending && <button className="black-btn" type="submit">로그인</button>}
-                    {isPending && <strong>로그인 중...</strong>}
-                    {error && <strong>error</strong>}
+                    <label className="label-style" htmlFor="user-nickname">닉네임</label>
+                    <input className="input-style" id="user-nickname" type="text" required onChange={handleData} value={displayName} />
+
+                    <button className="black-btn" type="submit">회원가입</button>
                 </form>
             </main>
 

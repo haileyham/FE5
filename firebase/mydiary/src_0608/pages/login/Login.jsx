@@ -81,7 +81,8 @@ export default function Login() {
                             </clipPath>
                         </defs>
                     </svg>
-                    <strong className="line">로그인일수도...</strong>
+
+                    <strong className="line">로그인</strong>
                 </h2>
 
                 <form className={styles["form-wrap"]} onSubmit={handleSubmit}>
