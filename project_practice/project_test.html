@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=\, initial-scale=1.0">
+  <title>회원가입</title>
+</head>
+
+<body>
+  <div id="root">
+    <section class="email-pw">
+      <h2 class="main-title">이메일로 회원가입</h2>
+      <div class="input-container">
+        <label for="emailInput">이메일</label>
+        <input type="email" id="emailInput" data-state="0" placeholder="이메일 주소를 알려주세요.">
+      </div>
+      <div class="input-container input-container-pw">
+        <label for="passwordInput">비밀번호</label>
+        <input type="password" id="passwordInput" data-state="0" placeholder="비밀번호를 설정해 주세요.">
+      </div>
+      <button type="button" class="next-btn">다음</button>
+    </section>
+
+    <section class="profile">
+      <h2 class="main-title join-profile-title">프로필 설정</h2>
+      <p class="profile-info-txt">나중에 언제든지 변경할 수 있습니다.</p>
+      <label for="profileImg">
+        <img src="http://146.56.183.55:5050/Ellipse.png" alt="" srcset="" id="imagePre">
+      </label>
+      <input type="file" id="profileImg" name="profile-img" accept="image/*" class="ir" />
+      <div class="input-container">
+        <label for="userNameInput">사용자 이름</label>
+        <input type="text" id="userNameInput" data-state="0" placeholder="2~10자 이내여야 합니다.">
+      </div>
+      <div class="input-container">
+        <label for="userIdInput">계정 ID</label>
+        <input type="text" id="userIdInput" data-state="0" placeholder="영문, 숫자, 특수문자(,), (_)만 사용 가능합니다.">
+      </div>
+      <div class="input-container input-container-intro">
+        <label for="userIntroInput">소개</label>
+        <input type="text" id="userIntroInput" data-state="1" placeholder="자신과 판매할 상품에 대해 소개해 주세요.">
+      </div>
+      <button type="button" class="submit-btn">감귤마켓 시작하기</button>
+    </section>
+  </div>
+
+  <script>
+    const btnSubmit = document.querySelector(".submit-btn");
+    //사용자 정보를 서버로 보내는 역할
+    const handleBtnSubmit = () => {
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      const userName = userNameInput.value;
+      const userId = userIdInput.value;
+      const intro = introInput.value;
+      const imageUrl = document.querySelector('#imagePre').src;
+
+      const data = {
+        "user": {
+          "username": userName,
+          "email": email,
+          "password": password,
+          "accountname": userId,
+          "intro": intro,
+          "image": "imageUrl"
+        }
+      }
+
+      fetch("https://api.mandarin.weniv.co.kr/user", {
+        method: "POST",
+        headers: {
+          "Content-type": "application/json"
+        },
+        body: JSON.stringify(data)
+      }).then((res) => res.json()).then((json) => console.log(json));
+    }
+    btnSubmit.addEventListener("click", handleBtnSubmit)
+    const emailInput = document.querySelector("#emailInput");
+    const passwordInput = document.querySelector("#passwordInput");
+    const userNameInput = document.querySelector("#userNameInput");
+    const userIdInput = document.querySelector("#userIdInput");
+    const introInput = document.querySelector("#userIntroInput");
+
+    const imageInput = document.querySelector("#profileImg")
+
+    //이미지 파일을 서버로 업로드
+    const handleImageInput = async (e) => {
+      const formData = new FormData();
+      const imageFile = e.target.files[0];
+      formData.append("image", imageFile);
+      const res = await fetch("https://api.mandarin.weniv.co.kr/image/uploadfile", {
+        method: "POST",
+        body: formData
+      });
+      //서버로부터 요청 응답 반환 받은 것을 JS객체로 변환
+      const json = await res.json();
+      //이미지 > url로 저장 (src에 넣어주기)
+      document.querySelector('#imagePre').src =
+        // "https://api.mandarin.weniv.co.kr/1685517722015.JPG";
+        "https://api.mandarin.weniv.co.kr/" + json.filename;
+
+      console.log(json)
+    }
+    imageInput.addEventListener("change", handleImageInput);
+    /**
+     * 
+     * 
+     * 
+  <전체 과정 정리 해보기>
+  1. 이미지 파일 선택
+  2. react에서 하게된다면 const imgUrl = URL.createObjectURL(file); 이거 활용해서 임시로 이미지 보여주기(화면에)
+  3. 이미지 파일을 서버로 업로드하기 위해 fetch를 사용하여 데이터를 보냄. 이때, FormData를 활용하여 이미지 파일을 서버로 전송.
+  4. 서버에서는 이미지를 받아서 저장하고, 저장된 이미지의 경로 또는 파일 이름  등을 클라이언트에 응답 (res로 받을수있음)
+  5. 클라이언트에서는 서버 응답을 받아와서 JSON 데이터를 파싱(res.json()를 이용해서 javascript객체로 바꿈)
+  6.파싱한 JSON 데이터에서 이미지의 경로 또는 파일 이름을 추출하여(보내는경로 + json.filename 로 추출하기) 클라이언트에서 이미지를 표시할 때 사용
+  7. 클라이언트에서는 (7번에서의 src 담은걸 다시 data image에 담아주고) 나머지 data를 포함한 전체 데이터를 다시 서버로 fetch하여 등록 요청을 완료
+  
+  * API 명세서에서 API는 fetch("")이고, Res는 body에 들어가서 전송할 것.
+
+<함수 각각>
+handleBtnSubmit 함수는 사용자 정보를 서버로 보내는 역할을 하고, handleImageInput 함수는 이미지 파일을 서버로 업로드하는 역할을 합니다.
+
+handleImageInput 함수에서는 이미지 파일을 선택하면 해당 파일을 FormData에 추가하고, fetch를 사용하여 서버로 전송합니다. 서버는 이미지 파일을 받아서 저장하고, 응답으로 이미지 파일의 경로를 받습니다. 그리고 받은 경로를 이용하여 이미지를 표시하기 위해 <img> 요소의 src 속성에 할당합니다.
+
+이후 handleBtnSubmit 함수에서는 사용자 정보와 이미지 파일 경로를 가지고 있는 data 객체를 생성하고, 이를 JSON 문자열로 변환하여 서버로 보냅니다. 이때 이미지 파일은 이미 서버에 업로드되었으므로, 이미지 파일의 경로만 서버에 전달되고 중복 업로드는 발생하지 않습니다.
+
+따라서, 이미지 파일은 handleImageInput 함수에서 한 번만 서버로 보내지며, handleBtnSubmit 함수에서는 이미지 파일 경로를 서버에 전달하여 사용자 정보와 함께 저장하는 것입니다.
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+<FormData> : 
+  1. formData에 지금 data의 image에 image선택된것 넣움!
+  2. body에 formData 객체를 전달하면 선택된 이미지 파일이 서버로 전송됩니다. formData 객체는 이미지 파일을 포함하고 있으므로, 이를 서버로 전송하면 서버에서 해당 이미지 파일을 처리
+FormData는 HTML form 요소를 표현하는 JavaScript 객체입니다. FormData 객체를 사용하면 클라이언트 측에서 폼 데이터를 쉽게 생성하고 서버로 전송할 수 있습니다.
+  3. const json = await res.json()은 서버로부터 받은 응답 데이터를 JSON 형식으로 파싱하는 과정 / fetch() 메서드를 사용하여 서버로 요청을 보내면, 서버는 해당 요청에 대한 응답을 반환합니다. 이때 응답은 일반적으로 JSON 형식으로 전달됩니다. res.json() 메서드는 이 JSON 형식의 응답 데이터를 파싱하여 자바스크립트 객체로 변환하는 역할
+  4.  JavaScript객체로 변환해서 받은거를 이제 src에 담아주기 /  document.querySelector('#imagePre').src = "https://api.mandarin.weniv.co.kr/" + json.filename;는 이미지의 src 속성에 서버로부터 받은 파일 이름을 추가하여 이미지를 표시
+  5. json.filename은 서버 응답(JSON 데이터)에서 filename이라는 속성을 나타냅니다.서버에서 이미지를 업로드하고 응답으로 받은 JSON 데이터에는 일반적으로 이미지 파일의 정보가 포함되어 있습니다. 그 중에서도 파일의 경로 또는 파일 이름을 filename이라는 속성으로 표현한 것으로 추정됩니다.따라서, json.filename은 서버에서 업로드된 이미지의 파일 이름을 의미합니다. 해당 파일 이름을 이용하여 이미지를 표시하거나 다른 용도로 활용할 수 있습니다.
+
+new FormData()를 호출하여 새로운 FormData 객체를 생성합니다. 이 객체는 append() 메서드를 사용하여 폼 데이터의 키-값 쌍을 추가할 수 있습니다. 각 쌍은 폼 필드의 이름과 해당 필드의 값을 나타냅니다.
+
+FormData 객체는 일반적인 텍스트 필드 외에도 파일 업로드를 처리하는 데에도 사용될 수 있습니다. append() 메서드를 사용하여 파일을 FormData 객체에 추가하면, 이후 fetch() 메서드 등을 사용하여 서버로 파일을 업로드할 수 있습니다.
+
+formData는 FormData 객체를 생성하여 폼 데이터를 담은 변수입니다. 해당 코드에서는 FormData 객체를 사용하여 이미지 파일을 서버로 업로드하기 위해 사용됩니다.
+
+const formData = new FormData(); 코드는 빈 FormData 객체를 생성합니다. 그 이후에 append() 메서드를 사용하여 폼 데이터의 키-값 쌍을 추가할 수 있습니다. 예를 들어, 이미지 파일을 FormData 객체에 추가하는 경우:
+
+위의 코드에서 e.target.files[0]은 파일 입력 필드에서 선택된 이미지 파일을 나타냅니다. append() 메서드를 사용하여 image라는 키로 이미지 파일을 formData 객체에 추가합니다. 이렇게하면 formData 객체에는 이미지 파일이 포함된 데이터가 저장됩니다.
+
+나중에 fetch() 메서드를 사용하여 서버로 데이터를 전송할 때, formData 객체가 요청의 본문 데이터로 사용됩니다. 서버는 이 데이터를 수신하여 처리하게 됩니다.
+    */
+  </script>
+</body>
+
+</html>
