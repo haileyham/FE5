@@ -3,7 +3,11 @@
     "version": "1.0.0",
     "description": "react server side rendering project",
     "main": "index.js",
-    "scripts": {},
+    "scripts": {
+        "build-server" : "webpack --config webpack.server.js --watch",
+        "start-server" : "nodemon --watch build --exec node build/bundle.js",
+        "build-client" : "webpack --config webpack.client.js --watch"
+    },
     "author": "",
     "license": "ISC",
     "dependencies": {
