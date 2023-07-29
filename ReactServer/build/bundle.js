@@ -7067,12 +7067,14 @@ var app = (0, _express2.default)(); // const express = require('express'); //com
 // 코드 개선
 
 
-app.use(_express2.default.static('public')); // express가 public을 static
+app.use(_express2.default.static('public')); // express가 public을 static 리소스로 가지고있을것임(?)
 
 app.get('/', function (req, res) {
     // 루트로 요청하면, 콜백함수 실행
     var content = (0, _server.renderToString)(_react2.default.createElement(_Home2.default, null)); // Home컴포넌트를 문자열로 집어넣을것임. 그리고 content에 담음
 
+    var html = '\n    <html>\n        <head></head>\n        <body>\n            <div id="root">' + content + '<div>\n            <script src="bundle.js"></script>\n        </body>\n    </html>\n    ';
+    res.send(html);
     res.send(content); //그리고 위에서의 content를 보낼 것임
 });
 

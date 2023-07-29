@@ -1,0 +1,74 @@
+//------------------------------------------------------------//
+// SSR
+//------------------------------------------------------------//
+
+1. 폴더만들기
+2. npm init
+3. package.json 복붙
+4. npm install
+
+//------------------------------------------------------------//
+
+commonJS 관련 내용
+https://d2.naver.com/helloworld/12864
+
+express 이용한 SSR 서버사이드 랜더링
+
+//------------------------------------------------------------//
+
+1. index.js
+2. components 폴더 > Home.js
+
+
+//------------------------------------------------------------//
+
+https://krksap.tistory.com/824
+create react 는 react를 build 할 때, 웹팩이 빌드해줌
+
+//------------------------------------------------------------//
+1부쉅 / push
+2부쉅 / 이하
+//------------------------------------------------------------//
+
+1. webpack.server.js
+
+2. package.json (추가)
+    "scripts": {
+        "build-server" : "webpack --config webpack.server.js"
+    }, // 웹팩 구동시길컨데 webpack.server.js참고할거임
+
+
+3. npm run build-server
+
+4. node build/bundle.js  
+> 밑에 6번을 통해서 계속해서 watch하기때문에 4번 생략해도됨
+
+5. http://localhost:3000/
+
+6. 
+
+    "scripts": {
+        "build-server" : "webpack --config webpack.server.js --watch",
+        // watch 붙여서 
+        "start-server" : "nodemon --watch build --exec node build/bundle.js" 
+        //nodemon 통해서 build파일을 감시하는데 실행한다(execute),
+    },
+
+    npm run start-server
+
+7. npm run build-client
+
+8. webpack.client.js 
+
+9. 
+
+
+    "scripts": {
+        "build-server" : "webpack --config webpack.server.js --watch",
+        "start-server" : "nodemon --watch build --exec node build/bundle.js",
+        "build-client" : "webpack --config webpack.client.js --watch"
+    },
+
+    
+//------------------------------------------------------------//
+

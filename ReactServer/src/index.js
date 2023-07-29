@@ -12,11 +12,21 @@ import { renderToString } from 'react-dom/server';
 import Home from './components/Home.js';
 
 
-app.use(express.static('public')); // express가 public을 static
+app.use(express.static('public')); // express가 public을 static 리소스로 가지고있을것임(?)
 
 app.get('/', (req, res) => {// 루트로 요청하면, 콜백함수 실행
     const content = renderToString(<Home />); // Home컴포넌트를 문자열로 집어넣을것임. 그리고 content에 담음
 
+    const html = `
+    <html>
+        <head></head>
+        <body>
+            <div id="root">${content}<div>
+            <script src="bundle.js"></script>
+        </body>
+    </html>
+    `;
+    res.send(html);
     res.send(content); //그리고 위에서의 content를 보낼 것임
 });
 
